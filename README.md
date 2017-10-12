@@ -1,6 +1,6 @@
-# BaneNor - Punktlighet
+# Bane NOR - Punktlighet
 
-Utregninger basert på innsynshendvendelse til BaneNor:
+Utregninger basert på innsynshendvendelse til Bane NOR:
 
 - https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan
 
@@ -18,16 +18,16 @@ Info om utvalget av data fra TIOS database, per 12.10.2017 for perioden 01.01.-3
 			
 			
 J.Skjæret (Bane NOR) og Jon .E. Edvardsen (Ciber AS)			
- 			
- 			
+
+
 Planlagt- og faktisk togtrafikk på én gitt stasjon			
- 			
-Utvalg:			
+
+Utvalg:
 * Stasjon: Stavanger (kode = STV)			
 * Datointervall:  f.o.m. 01.01.2017 t.o.m. 30.09.2017			
 * Togslag: Persontog (kode = Pt) og Ekstra persontog (kode = EPt)			
- 			
- 			
+
+
 Resultat i tabellform:			
 * Stasjonsnavn			
 *  Utgangsdato			
