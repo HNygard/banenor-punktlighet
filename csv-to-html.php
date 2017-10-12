@@ -37,7 +37,7 @@ for($i = 1; $i < count($csvLines); $i++) {
 			throw new Exception('utgstasjon_kd feil: ' . $obj->utgstasjon_kd
 				. chr(10) . 'Objekt: ' . chr(10) . print_r($obj, true));
 		}
-		$togNrKey = substr($obj->planlagt_avgang, $startPosKlokkeslett) . ' - ' . $obj->tog_nr;
+		$togNrKey = $obj->tog_nr . ' - ' . substr($obj->planlagt_avgang, $startPosKlokkeslett);
 		if(!isset($perTognrAvganger[$togNrKey])) {
 			$perTognrAvganger[$togNrKey] = array();
 		}
@@ -78,6 +78,9 @@ echo count($alleAvganger) . ' avganger (stasjonsbruk U).'.chr(10);
 echo count($alleAnkomster) . ' ankomster (stasjonsbruk E).'.chr(10);
 var_dump($alleAvganger[0]);
 var_dump($alleAnkomster[0]);
+
+ksort($perTognrAvganger);
+ksort($perTognrAnkomster);
 
 function tognrLink ($tognrOgAvgang) {
 	return 'tognr-'.str_replace(' ', '-', str_replace(':', '', $tognrOgAvgang)) . '.html';
