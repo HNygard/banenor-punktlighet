@@ -83,24 +83,24 @@ function tognrLink ($tognrOgAvgang) {
 	return 'tognr-'.str_replace(' ', '-', str_replace(':', '', $tognrOgAvgang)) . '.html';
 }
 function writeAvgangsliste($fil, $tittel, $avganger) {
-	$content = '<h1>' . $tittel . '</h1>';
-	$content .= 'Antall avganger: ' . count($avganger);
+	$content = '<h1>' . $tittel . '</h1>' . chr(10);
+	$content .= 'Antall avganger: ' . count($avganger) . chr(10);
 	file_put_contents($fil, $content);
 }
 function writeAnkomstliste($fil, $tittel, $avganger) {
-	$content = '<h1>' . $tittel . '</h1>';
-	$content .= 'Antall ankomster: ' . count($avganger);
+	$content = '<h1>' . $tittel . '</h1>' . chr(10);
+	$content .= 'Antall ankomster: ' . count($avganger) . chr(10);
 	file_put_contents($fil, $content);
 }
-$content = '<h1>' . $datasettBeskrivelse . '</h1>';
-$content .= '<table class="table" style="width: 100%;"><tr><td><h2>Avganger</h2>' . chr(10);
+$content = '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
+$content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
 foreach($perTognrAvganger as $tognrOgAvgang => $avganger) {
-	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($avganger) . ' avganger';
+	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($avganger) . ' avganger' . chr(10);
 	writeAvgangsliste(__DIR__ . '/docs/' . tognrLink($tognrOgAvgang), 'Avgang ' . $tognrOgAvgang, $avganger);
 }
 $content .= '</td><td><h2>Ankomster</h2>' . chr(10);
 foreach($perTognrAnkomster as $tognrOgAvgang => $ankomster) {
-	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($ankomster) . ' ankomster';
+	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($ankomster) . ' ankomster' . chr(10);
 	writeAnkomstliste(__DIR__ . '/docs/' . tognrLink($tognrOgAvgang), 'Ankomst ' . $tognrOgAvgang, $ankomster);
 }
 $content .= '</td></tr></table>';
