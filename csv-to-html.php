@@ -24,7 +24,7 @@ for($i = 1; $i < count($csvLines); $i++) {
 			throw new Exception('endestasjon_kd feil: ' . $obj->endestasjon_kd
 				. chr(10) . 'Objekt: ' . chr(10) . print_r($obj, true));
 		}
-		$togNrKey = $obj->tog_nr . ' - ' . substr($obj->planlagt_ankomst, $startPosKlokkeslett);
+		$togNrKey = substr($obj->planlagt_ankomst, $startPosKlokkeslett) . ' - ' . $obj->tog_nr . ' fra ' . $obj->utgstasjon_kd;
 		if(!isset($perTognrAnkomster[$togNrKey])) {
 			$perTognrAnkomster[$togNrKey] = array();
 		}
@@ -37,7 +37,7 @@ for($i = 1; $i < count($csvLines); $i++) {
 			throw new Exception('utgstasjon_kd feil: ' . $obj->utgstasjon_kd
 				. chr(10) . 'Objekt: ' . chr(10) . print_r($obj, true));
 		}
-		$togNrKey = $obj->tog_nr . ' - ' . substr($obj->planlagt_avgang, $startPosKlokkeslett);
+		$togNrKey = substr($obj->planlagt_avgang, $startPosKlokkeslett) . ' - ' . $obj->tog_nr . ' til ' . $obj->endestasjon_kd;
 		if(!isset($perTognrAvganger[$togNrKey])) {
 			$perTognrAvganger[$togNrKey] = array();
 		}
@@ -58,14 +58,25 @@ for($i = 1; $i < count($csvLines); $i++) {
 
 }
 
-// Sjekk at alle med samme tognummer har samme avgangstid
+// Sjekk at alle med samme tognummer har samme avgangstid, ankomststed, etc
+// Gjør at man kan bruke data på item [0] ved utlisting
 foreach($perTognrAvganger as $tognr) {
 	$tidspunkt = substr($tognr[0]->planlagt_avgang, $startPosKlokkeslett);
+	$ankomstSted = $tognr[0]->endestasjon_kd;
 	foreach($tognr as $avgang) {
 		if (substr($avgang->planlagt_avgang, $startPosKlokkeslett) != $tidspunkt) {
 			throw new Exception('Ulikt klokkeslett for planlagt_avgang:' . chr(10)
 				. 'Tog 0: ' . $tidspunkt . chr(10)
 				. 'Tog X: ' . substr($avgang->planlagt_avgang, $startPosKlokkeslett) . chr(10)
+				. 'Objekter: ' . chr(10)
+				. print_r($tognr[0], true)
+				. print_r($avgang, true)
+			);
+		}
+		if ($avgang->endestasjon_kd != $ankomstSted) {
+			throw new Exception('Ulikt endestasjon_kd:' . chr(10)
+				. 'Tog 0: ' . $ankomstSted . chr(10)
+				. 'Tog X: ' . $avgang->endestasjon_kd . chr(10)
 				. 'Objekter: ' . chr(10)
 				. print_r($tognr[0], true)
 				. print_r($avgang, true)
