@@ -4,6 +4,14 @@ Utregninger basert på innsynshendvendelse til BaneNor:
 
 - https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan
 
+## CSV-fil
+
+LibreOffice Calc - save as CSV:
+- UTF-8
+- Field delimiter: ,
+- Text delimiter: "
+- "Save cell content as shown"
+
 ## Informasjon fra BaneNor (ark i regnearket)
 
 Info om utvalget av data fra TIOS database, per 12.10.2017 for perioden 01.01.-30.09.2017			
