@@ -5,18 +5,30 @@ table {
 }
 table td, table th {
 	border: 1px solid black;
+	vertical-align: top;
+}
+.diff-good {
+	color: green;
+}
+.diff-bad {
+	color: red;
+}
+.diff-medium {
+	color: #b77621;
 }
 </style>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
 Antall ankomster: 1
 
+<li><span class="diff-good">0-2 min</span>: 1 (100,00 %)
 <table>
 <thead><tr>
 <th>Togtype</th>
 <th>Planlagt ankomst</th>
 <th>Faktisk ankomst</th>
 <th>Differanse</th>
+<th>Kategori</th>
 </tr></thead>
 <tbody>
 <tr>
@@ -24,6 +36,7 @@ Antall ankomster: 1
 <td>01.01.2017 15:05</td>
 <td>01.01.2017 15:05</td>
 <td>0 minutter. </td>
+<td><span class="diff-good">0-2 min</span></td>
 </tr>
 </tbody>
 </table>

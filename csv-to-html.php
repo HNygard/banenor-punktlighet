@@ -136,7 +136,7 @@ function getDiffTekst($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 		$innstiltTekst = 'Helinnstilt tog';
 	}
 	else if ($innstiltTog == 'P') {
-		$innstiltTekst = 'Delinnstil tog';
+		$innstiltTekst = 'Delinnstilt tog';
 	}
 	else if ($innstiltTog == 'B') {
 		$innstiltTekst = 'Buss for tog';
@@ -150,6 +150,71 @@ function getDiffTekst($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	return ($faktisk == -1 ? '?' : (($faktisk - $planlagt) / 60)) . ' minutter'
 		. '. ' . $innstiltTekst;
 }
+function getDiffKategori($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
+	if ($innstiltTog == 'Y') {
+		return '<span class="diff-bad">Helinnstilt tog</span>';
+	}
+	else if ($innstiltTog == 'P') {
+		return '<span class="diff-bad">Delinnstilt tog</span>';
+	}
+	else if ($innstiltTog == 'B') {
+		return '<span class="diff-bad">Buss for tog</span>';
+	}
+	else if ($innstiltTog == 'N') {
+		$innstiltTekst = '';
+	}
+	else {
+		throw new Exception('Ukjent innstilt tog verdi: ' . $innstiltTog);
+	}
+
+	if ($faktisk == -1) {
+		return '<span class="diff-medium">? min</span>';
+	}
+
+	$diffMinutter = (($faktisk - $planlagt) / 60);
+	if ($diffMinutter < 0) {
+		return '<span class="diff-good">' . $diffMinutter . ' min</span>';
+	}
+
+	if ($diffMinutter <= 2) {
+		return '<span class="diff-good">0-2 min</span>';
+	}
+	if ($diffMinutter <= 10) {
+		return '<span class="diff-medium">3-10 min</span>';
+	}
+	return '<span class="diff-bad">Over 10 min</span>';
+}
+function getDiffKategoriSummary($tog, $erDetteAvganger) {
+	$kategorier = array();
+	foreach($tog as $avgang) {
+		if ($erDetteAvganger) {
+			$kat = getDiffKategori(
+					$avgang->planlagt_avgang_unixtime,
+					$avgang->faktisk_avgang_unixtime,
+					$avgang->innstilt_tog,
+					$avgang->delinnstilt_STV
+				);
+		}
+		else {
+			$kat = getDiffKategori(
+					$avgang->planlagt_ankomst_unixtime,
+					$avgang->faktisk_ankomst_unixtime,
+					$avgang->innstilt_tog,
+					$avgang->delinnstilt_STV
+				);
+		}
+		if (!isset($kategorier[$kat])) {
+			$kategorier[$kat] = 0;
+		}
+		$kategorier[$kat] ++;
+	}
+	ksort($kategorier);
+
+	foreach($kategorier as $kat => $antall) {
+		$kategorier[$kat] = $antall . ' (' . str_replace('.', ',', number_format($antall / count($tog) * 100, 2)) . ' %)';
+	}
+	return $kategorier;
+}
 
 $simpleStyling = '<style>
 table {
@@ -157,6 +222,16 @@ table {
 }
 table td, table th {
 	border: 1px solid black;
+	vertical-align: top;
+}
+.diff-good {
+	color: green;
+}
+.diff-bad {
+	color: red;
+}
+.diff-medium {
+	color: #b77621;
 }
 </style>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
@@ -168,6 +243,10 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 	$content = '<h1>' . $tittel . '</h1>' . chr(10);
 	$content .= $simpleStyling;
 	$content .= 'Antall avganger: ' . count($avganger) . chr(10);
+	$kategorier = getDiffKategoriSummary($avganger, true);
+	foreach($kategorier as $kategori => $antall) {
+		$content .= '<li>' . $kategori . ': ' . $antall . chr(10);
+	}
 
 	$content .= '<table>' . chr(10);
 	$content .= '<thead><tr>' . chr(10);
@@ -175,6 +254,7 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 	$content .= '<th>Planlagt avgang</th>' . chr(10);
 	$content .= '<th>Faktisk avgang</th>' . chr(10);
 	$content .= '<th>Differanse</th>' . chr(10);
+	$content .= '<th>Kategori</th>' . chr(10);
 	$content .= '</tr></thead>' . chr(10);
 
 	$content .= '<tbody>' . chr(10);
@@ -189,6 +269,12 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 				$avgang->innstilt_tog,
 				$avgang->delinnstilt_STV
 			) . '</td>' . chr(10);
+		$content .= '<td>' . getDiffKategori(
+				$avgang->planlagt_avgang_unixtime,
+				$avgang->faktisk_avgang_unixtime,
+				$avgang->innstilt_tog,
+				$avgang->delinnstilt_STV
+			) . '</td>' . chr(10);
 		$content .= '</tr>' . chr(10);
 	}
 	$content .= '</tbody>' . chr(10);
@@ -197,11 +283,15 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 
 	file_put_contents($fil, $content);
 }
-function writeAnkomstliste($fil, $tittel, $avganger) {
+function writeAnkomstliste($fil, $tittel, $avkomster) {
 	global $simpleStyling;
 	$content = '<h1>' . $tittel . '</h1>' . chr(10);
 	$content .= $simpleStyling;
-	$content .= 'Antall ankomster: ' . count($avganger) . chr(10) . chr(10);
+	$content .= 'Antall ankomster: ' . count($avkomster) . chr(10) . chr(10);
+	$kategorier = getDiffKategoriSummary($avkomster, false);
+	foreach($kategorier as $kategori => $antall) {
+		$content .= '<li>' . $kategori . ': ' . $antall . chr(10);
+	}
 
 	$content .= '<table>' . chr(10);
 	$content .= '<thead><tr>' . chr(10);
@@ -209,15 +299,22 @@ function writeAnkomstliste($fil, $tittel, $avganger) {
 	$content .= '<th>Planlagt ankomst</th>' . chr(10);
 	$content .= '<th>Faktisk ankomst</th>' . chr(10);
 	$content .= '<th>Differanse</th>' . chr(10);
+	$content .= '<th>Kategori</th>' . chr(10);
 	$content .= '</tr></thead>' . chr(10);
 
 	$content .= '<tbody>' . chr(10);
-	foreach($avganger as $avgang) {
+	foreach($avkomster as $avgang) {
 		$content .= '<tr>' . chr(10);
 		$content .= '<td>' . $avgang->togtype_nv . '</td>' . chr(10);
 		$content .= '<td>' . $avgang->planlagt_ankomst . '</td>' . chr(10);
 		$content .= '<td>' . $avgang->faktisk_ankomst . '</td>' . chr(10);
 		$content .= '<td>' . getDiffTekst(
+				$avgang->planlagt_ankomst_unixtime,
+				$avgang->faktisk_ankomst_unixtime,
+				$avgang->innstilt_tog,
+				$avgang->delinnstilt_STV
+			) . '</td>' . chr(10);
+		$content .= '<td>' . getDiffKategori(
 				$avgang->planlagt_ankomst_unixtime,
 				$avgang->faktisk_ankomst_unixtime,
 				$avgang->innstilt_tog,
@@ -235,12 +332,26 @@ $content = '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
 $content .= $simpleStyling;
 $content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
 foreach($perTognrAvganger as $tognrOgAvgang => $avganger) {
-	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($avganger) . ' avganger' . chr(10);
+	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($avganger) . ' avganger';
+	$kategorier = getDiffKategoriSummary($avganger, true);
+	$content .= '<br><span style="font-size: 0.8em;">';
+	foreach($kategorier as $kategori => $antall) {
+		$content .= ' - ' . $kategori . ': ' . $antall . '<br>';
+	}
+	$content .= '</span>';
+	$content .= chr(10);
 	writeAvgangsliste(__DIR__ . '/docs/' . tognrLink($tognrOgAvgang), 'Avgang ' . $tognrOgAvgang, $avganger);
 }
 $content .= '</td><td><h2>Ankomster</h2>' . chr(10);
 foreach($perTognrAnkomster as $tognrOgAvgang => $ankomster) {
-	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($ankomster) . ' ankomster' . chr(10);
+	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($ankomster) . ' ankomster';
+	$kategorier = getDiffKategoriSummary($ankomster, false);
+	$content .= '<br><span style="font-size: 0.8em;">';
+	foreach($kategorier as $kategori => $antall) {
+		$content .= ' - ' . $kategori . ': ' . $antall . '<br>';
+	}
+	$content .= '</span>';
+	$content .= chr(10);
 	writeAnkomstliste(__DIR__ . '/docs/' . tognrLink($tognrOgAvgang), 'Ankomst ' . $tognrOgAvgang, $ankomster);
 }
 $content .= '</td></tr></table>';
