@@ -1,6 +1,7 @@
 <?php
 
 $csvLines = file(__DIR__ . '/Stavanger Togtrafikk Planlagt faktisk Pt Ept 20170101 20170930 20171012.csv');
+$datasettBeskrivelse = 'Togtrafikk på Stavanger Stasjon i perioden 01.01.2017 til 30.09.2017';
 
 $csvHeadings = explode(',', trim($csvLines[0]));
 var_dump($csvHeadings);
@@ -36,7 +37,7 @@ for($i = 1; $i < count($csvLines); $i++) {
 			throw new Exception('utgstasjon_kd feil: ' . $obj->utgstasjon_kd
 				. chr(10) . 'Objekt: ' . chr(10) . print_r($obj, true));
 		}
-		$togNrKey = $obj->tog_nr . ' - ' . substr($obj->planlagt_avgang, $startPosKlokkeslett);
+		$togNrKey = substr($obj->planlagt_avgang, $startPosKlokkeslett) . ' - ' . $obj->tog_nr;
 		if(!isset($perTognrAvganger[$togNrKey])) {
 			$perTognrAvganger[$togNrKey] = array();
 		}
@@ -77,3 +78,31 @@ echo count($alleAvganger) . ' avganger (stasjonsbruk U).'.chr(10);
 echo count($alleAnkomster) . ' ankomster (stasjonsbruk E).'.chr(10);
 var_dump($alleAvganger[0]);
 var_dump($alleAnkomster[0]);
+
+function tognrLink ($tognrOgAvgang) {
+	return 'tognr-'.str_replace(' ', '-', str_replace(':', '', $tognrOgAvgang)) . '.html';
+}
+function writeAvgangsliste($fil, $tittel, $avganger) {
+	$content = '<h1>' . $tittel . '</h1>';
+	$content .= 'Antall avganger: ' . count($avganger);
+	file_put_contents($fil, $content);
+}
+function writeAnkomstliste($fil, $tittel, $avganger) {
+	$content = '<h1>' . $tittel . '</h1>';
+	$content .= 'Antall ankomster: ' . count($avganger);
+	file_put_contents($fil, $content);
+}
+$content = '<h1>' . $datasettBeskrivelse . '</h1>';
+$content .= '<table class="table" style="width: 100%;"><tr><td><h2>Avganger</h2>' . chr(10);
+foreach($perTognrAvganger as $tognrOgAvgang => $avganger) {
+	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($avganger) . ' avganger';
+	writeAvgangsliste(__DIR__ . '/docs/' . tognrLink($tognrOgAvgang), 'Avgang ' . $tognrOgAvgang, $avganger);
+}
+$content .= '</td><td><h2>Ankomster</h2>' . chr(10);
+foreach($perTognrAnkomster as $tognrOgAvgang => $ankomster) {
+	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($ankomster) . ' ankomster';
+	writeAnkomstliste(__DIR__ . '/docs/' . tognrLink($tognrOgAvgang), 'Ankomst ' . $tognrOgAvgang, $ankomster);
+}
+$content .= '</td></tr></table>';
+
+file_put_contents(__DIR__ . '/docs/index.html', $content);
