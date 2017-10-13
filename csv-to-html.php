@@ -428,12 +428,14 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 	$content = '<tr>';
 	$content .= getAndWriteAvgangslisteSummaryInner($filename, $title, $avganger, $avgangerBeskrivelse, $erDetteAvgang);
 	$kunRush = array_filter($avganger, function($value, $key){
-		if (strpos($value->planlagt_ankomst, ' 06:') != false
-			|| strpos($value->planlagt_avgang, ' 06:') != false
-			|| strpos($value->planlagt_ankomst, ' 07:') != false
+		if (strpos($value->planlagt_ankomst, ' 07:') != false
 			|| strpos($value->planlagt_avgang, ' 07:') != false
 			|| strpos($value->planlagt_ankomst, ' 08:') != false
-			|| strpos($value->planlagt_avgang, ' 08:') != false) {
+			|| strpos($value->planlagt_avgang, ' 08:') != false
+			|| strpos($value->planlagt_ankomst, ' 15:') != false
+			|| strpos($value->planlagt_avgang, ' 15:') != false
+			|| strpos($value->planlagt_ankomst, ' 16:') != false
+			|| strpos($value->planlagt_avgang, ' 16:') != false) {
 			return true;
 		}
 		else {
@@ -442,6 +444,54 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 	}, ARRAY_FILTER_USE_BOTH);
 	if (count($kunRush) > 0) {
 		$content .= getAndWriteAvgangslisteSummaryInner(str_replace('.html', '-kun-rush.html', $filename), $title . ' - Kun rush', $kunRush, 
+			$avgangerBeskrivelse, $erDetteAvgang);
+	}
+	else {
+		$content .= '<td>&nbsp;</td>';
+	}
+	$kunRush = array_filter($avganger, function($value, $key){
+		if ((strpos($value->planlagt_ankomst, '.05.2017') != false
+			|| strpos($value->planlagt_avgang, '.05.2017') != false)
+			&& (strpos($value->planlagt_ankomst, ' 07:') != false
+			|| strpos($value->planlagt_avgang, ' 07:') != false
+			|| strpos($value->planlagt_ankomst, ' 08:') != false
+			|| strpos($value->planlagt_avgang, ' 08:') != false
+			|| strpos($value->planlagt_ankomst, ' 15:') != false
+			|| strpos($value->planlagt_avgang, ' 15:') != false
+			|| strpos($value->planlagt_ankomst, ' 16:') != false
+			|| strpos($value->planlagt_avgang, ' 16:') != false)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}, ARRAY_FILTER_USE_BOTH);
+	if (count($kunRush) > 0) {
+		$content .= getAndWriteAvgangslisteSummaryInner(str_replace('.html', '-kun-rush-mai.html', $filename), $title . ' - Kun rush i Mai', $kunRush, 
+			$avgangerBeskrivelse, $erDetteAvgang);
+	}
+	else {
+		$content .= '<td>&nbsp;</td>';
+	}
+	$kunRush = array_filter($avganger, function($value, $key){
+		if ((strpos($value->planlagt_ankomst, '.09.2017') != false
+			|| strpos($value->planlagt_avgang, '.09.2017') != false)
+			&& (strpos($value->planlagt_ankomst, ' 07:') != false
+			|| strpos($value->planlagt_avgang, ' 07:') != false
+			|| strpos($value->planlagt_ankomst, ' 08:') != false
+			|| strpos($value->planlagt_avgang, ' 08:') != false
+			|| strpos($value->planlagt_ankomst, ' 15:') != false
+			|| strpos($value->planlagt_avgang, ' 15:') != false
+			|| strpos($value->planlagt_ankomst, ' 16:') != false
+			|| strpos($value->planlagt_avgang, ' 16:') != false)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}, ARRAY_FILTER_USE_BOTH);
+	if (count($kunRush) > 0) {
+		$content .= getAndWriteAvgangslisteSummaryInner(str_replace('.html', '-kun-rush-september.html', $filename), $title . ' - Kun rush i September', $kunRush, 
 			$avgangerBeskrivelse, $erDetteAvgang);
 	}
 	else {
