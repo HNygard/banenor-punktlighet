@@ -157,13 +157,13 @@ function getDiffTekst($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 }
 function getDiffKategori($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	if ($innstiltTog == 'Y') {
-		return '<span class="sort-7 diff-bad">Helinnstilt tog</span>';
+		return '<span class="sort-8 diff-bad">Helinnstilt tog</span>';
 	}
 	else if ($innstiltTog == 'P') {
-		return '<span class="sort-5 diff-bad">Delinnstilt tog</span>';
+		return '<span class="sort-6 diff-bad">Delinnstilt tog</span>';
 	}
 	else if ($innstiltTog == 'B') {
-		return '<span class="sort-6 diff-bad">Buss for tog</span>';
+		return '<span class="sort-7 diff-bad">Buss for tog</span>';
 	}
 	else if ($innstiltTog == 'N') {
 		$innstiltTekst = '';
@@ -187,7 +187,10 @@ function getDiffKategori($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	if ($diffMinutter <= 10) {
 		return '<span class="sort-2 diff-medium">3-10 min</span>';
 	}
-	return '<span class="sort-4 diff-bad">Over 10 min</span>';
+	if ($diffMinutter <= 30) {
+		return '<span class="sort-4 diff-bad">10-30 min</span>';
+	}
+	return '<span class="sort-5 diff-bad">Over 30 min</span>';
 }
 function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	$kategorier = array();
