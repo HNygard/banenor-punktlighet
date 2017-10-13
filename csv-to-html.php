@@ -20,6 +20,11 @@ for($i = 1; $i < count($csvLines); $i++) {
 	foreach($csvHeadings as $csvHeadingKey => $csvHeadingName) {
 		$obj->$csvHeadingName = $row[$csvHeadingKey];
 	}
+
+	// Encoding error somewhere. Fuck it.
+	$obj->endestasjon_kd = str_replace('NB?', 'NBØ', $obj->endestasjon_kd);
+	$obj->utgstasjon_kd = str_replace('NB?', 'NBØ', $obj->utgstasjon_kd);
+
 	if($obj->stasjonsbruk == 'E') {
 		// Endestasjon
 		$alleAnkomster[] = $obj;
@@ -129,7 +134,7 @@ function norskTidTilUnixtime($norskTid) {
 	return $unixtime;
 }
 function tognrLink ($tognrOgAvgang) {
-	return 'tognr-'.str_replace(' ', '-', str_replace(':', '', $tognrOgAvgang)) . '.html';
+	return 'tognr-'.str_replace(' ', '-', str_replace(':', '', str_replace('Ø', 'OE', $tognrOgAvgang))) . '.html';
 }
 function getDiffTekst($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	if ($innstiltTog == 'Y') {
