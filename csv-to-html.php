@@ -13,6 +13,8 @@ $alleAvganger = array();
 $alleAnkomster = array();
 $perTognrAvganger = array();
 $perTognrAnkomster = array();
+$avgangerPerEndestasjon = array();
+$avkomsterPerUtgangstasjon= array();
 $startPosKlokkeslett = strlen('01.01.2017 ');
 for($i = 1; $i < count($csvLines); $i++) {
 	$row = explode(',', trim($csvLines[$i]));
@@ -37,6 +39,12 @@ for($i = 1; $i < count($csvLines); $i++) {
 			$perTognrAnkomster[$togNrKey] = array();
 		}
 		$perTognrAnkomster[$togNrKey][] = $obj;
+
+		$stasjonsKey = 'Ankomst fra ' . $obj->utgstasjon_kd;
+		if(!isset($avkomsterPerUtgangstasjon[$stasjonsKey])) {
+			$avkomsterPerUtgangstasjon[$stasjonsKey] = array();
+		}
+		$avkomsterPerUtgangstasjon[$stasjonsKey][] = $obj;
 	}
 	elseif($obj->stasjonsbruk == 'U') {
 		// Utgangsstasjon
@@ -50,6 +58,12 @@ for($i = 1; $i < count($csvLines); $i++) {
 			$perTognrAvganger[$togNrKey] = array();
 		}
 		$perTognrAvganger[$togNrKey][] = $obj;
+
+		$stasjonsKey = 'Avganger til ' . $obj->endestasjon_kd;
+		if(!isset($avgangerPerEndestasjon[$stasjonsKey])) {
+			$avgangerPerEndestasjon[$stasjonsKey] = array();
+		}
+		$avgangerPerEndestasjon[$stasjonsKey][] = $obj;
 	}
 	else {
 		throw new Exception('Uhåndtert stasjonsbruk: ' . $obj->stasjonsbruk
@@ -105,6 +119,8 @@ var_dump($alleAnkomster[0]);
 
 ksort($perTognrAvganger);
 ksort($perTognrAnkomster);
+ksort($avgangerPerEndestasjon);
+ksort($avkomsterPerUtgangstasjon);
 
 function norskTidTilUnixtime($norskTid) {
 	if ($norskTid == '_') {
@@ -135,6 +151,9 @@ function norskTidTilUnixtime($norskTid) {
 }
 function tognrLink ($tognrOgAvgang) {
 	return 'tognr-'.str_replace(' ', '-', str_replace(':', '', str_replace('Ø', 'OE', $tognrOgAvgang))) . '.html';
+}
+function avgangTilFraLink ($tognrOgAvgang) {
+	return strtolower(str_replace(' ', '-', str_replace(':', '', str_replace('Ø', 'OE', $tognrOgAvgang)))) . '.html';
 }
 function getDiffTekst($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	if ($innstiltTog == 'Y') {
@@ -386,31 +405,46 @@ function writeAnkomstliste($fil, $tittel, $avkomster) {
 
 	file_put_contents($fil, $content);
 }
-$content = '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
-$content .= $simpleStyling;
-$content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
-foreach($perTognrAvganger as $tognrOgAvgang => $avganger) {
-	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($avganger) . ' avganger';
-	$kategorier = getDiffKategoriSummary($avganger, true);
+function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerBeskrivelse, $erDetteAvgang) {
+	$content = '';
+	$content .= '<li><a href="' . $filename . '">' . $title . '</a> - ' . count($avganger) . ' ' . $avgangerBeskrivelse;
+	$kategorier = getDiffKategoriSummary($avganger, $erDetteAvgang);
 	$content .= '<br><span style="font-size: 0.8em;">';
 	foreach($kategorier as $kategori => $antall) {
 		$content .= ' - ' . $kategori . ': ' . $antall['main'] . '<br>';
 	}
 	$content .= '</span>';
 	$content .= chr(10);
-	writeAvgangsliste(__DIR__ . '/docs/' . tognrLink($tognrOgAvgang), 'Avgang ' . $tognrOgAvgang, $avganger);
+	if($erDetteAvgang) {
+		writeAvgangsliste(__DIR__ . '/docs/' . $filename, $title, $avganger);
+	}
+	else {
+		writeAnkomstliste(__DIR__ . '/docs/' . $filename, $title, $avganger);
+	}
+	return $content;
+}
+$content = '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
+$content .= $simpleStyling;
+
+$content .= '<h2>Ankomster og avganger per utgangstasjon/endestasjon</h2>' . chr(10);
+$content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
+foreach($avgangerPerEndestasjon as $tognrOgAvgang => $avganger) {
+	$content .= getAndWriteAvgangslisteSummary(avgangTilFraLink($tognrOgAvgang), $tognrOgAvgang, $avganger, 'avganger', true);
+}
+$content .= '</td><td><h2>Ankomster</h2>' . chr(10);
+foreach($avkomsterPerUtgangstasjon as $tognrOgAvgang => $ankomster) {
+	$content .= getAndWriteAvgangslisteSummary(avgangTilFraLink($tognrOgAvgang), $tognrOgAvgang, $ankomster, 'ankomster', false);
+}
+$content .= '</td></tr></table>';
+
+$content .= '<h2>Alle ankomster og avganger</h2>' . chr(10);
+$content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
+foreach($perTognrAvganger as $tognrOgAvgang => $avganger) {
+	$content .= getAndWriteAvgangslisteSummary(tognrLink($tognrOgAvgang), 'Avgang ' . $tognrOgAvgang, $avganger, 'avganger', true);
 }
 $content .= '</td><td><h2>Ankomster</h2>' . chr(10);
 foreach($perTognrAnkomster as $tognrOgAvgang => $ankomster) {
-	$content .= '<li><a href="' . tognrLink($tognrOgAvgang) . '">' . $tognrOgAvgang . '</a> - ' . count($ankomster) . ' ankomster';
-	$kategorier = getDiffKategoriSummary($ankomster, false);
-	$content .= '<br><span style="font-size: 0.8em;">';
-	foreach($kategorier as $kategori => $antall) {
-		$content .= ' - ' . $kategori . ': ' . $antall['main'] . '<br>';
-	}
-	$content .= '</span>';
-	$content .= chr(10);
-	writeAnkomstliste(__DIR__ . '/docs/' . tognrLink($tognrOgAvgang), 'Ankomst ' . $tognrOgAvgang, $ankomster);
+	$content .= getAndWriteAvgangslisteSummary(tognrLink($tognrOgAvgang), 'Ankomst ' . $tognrOgAvgang, $ankomster, 'ankomster', false);
 }
 $content .= '</td></tr></table>';
 
