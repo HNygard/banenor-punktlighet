@@ -405,9 +405,9 @@ function writeAnkomstliste($fil, $tittel, $avkomster) {
 
 	file_put_contents($fil, $content);
 }
-function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerBeskrivelse, $erDetteAvgang) {
+function getAndWriteAvgangslisteSummaryInner($filename, $title, $avganger, $avgangerBeskrivelse, $erDetteAvgang) {
 	$content = '';
-	$content .= '<li><a href="' . $filename . '">' . $title . '</a> - ' . count($avganger) . ' ' . $avgangerBeskrivelse;
+	$content .= '<td><a href="' . $filename . '">' . $title . '</a> - ' . count($avganger) . ' ' . $avgangerBeskrivelse;
 	$kategorier = getDiffKategoriSummary($avganger, $erDetteAvgang);
 	$content .= '<br><span style="font-size: 0.8em;">';
 	foreach($kategorier as $kategori => $antall) {
@@ -421,6 +421,33 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 	else {
 		writeAnkomstliste(__DIR__ . '/docs/' . $filename, $title, $avganger);
 	}
+	$content .= '</td>';
+	return $content;
+}
+function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerBeskrivelse, $erDetteAvgang) {
+	$content = '<tr>';
+	$content .= getAndWriteAvgangslisteSummaryInner($filename, $title, $avganger, $avgangerBeskrivelse, $erDetteAvgang);
+	$kunRush = array_filter($avganger, function($value, $key){
+		if (strpos($value->planlagt_ankomst, ' 06:') != false
+			|| strpos($value->planlagt_avgang, ' 06:') != false
+			|| strpos($value->planlagt_ankomst, ' 07:') != false
+			|| strpos($value->planlagt_avgang, ' 07:') != false
+			|| strpos($value->planlagt_ankomst, ' 08:') != false
+			|| strpos($value->planlagt_avgang, ' 08:') != false) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}, ARRAY_FILTER_USE_BOTH);
+	if (count($kunRush) > 0) {
+		$content .= getAndWriteAvgangslisteSummaryInner(str_replace('.html', '-kun-rush.html', $filename), $title . ' - Kun rush', $kunRush, 
+			$avgangerBeskrivelse, $erDetteAvgang);
+	}
+	else {
+		$content .= '<td>&nbsp;</td>';
+	}
+	$content .= '</tr>';
 	return $content;
 }
 $content = '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
@@ -428,24 +455,32 @@ $content .= $simpleStyling;
 
 $content .= '<h2>Ankomster og avganger per utgangstasjon/endestasjon</h2>' . chr(10);
 $content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
+$content .= '<table>';
 foreach($avgangerPerEndestasjon as $tognrOgAvgang => $avganger) {
 	$content .= getAndWriteAvgangslisteSummary(avgangTilFraLink($tognrOgAvgang), $tognrOgAvgang, $avganger, 'avganger', true);
 }
+$content .= '</table>';
 $content .= '</td><td><h2>Ankomster</h2>' . chr(10);
+$content .= '<table>';
 foreach($avkomsterPerUtgangstasjon as $tognrOgAvgang => $ankomster) {
 	$content .= getAndWriteAvgangslisteSummary(avgangTilFraLink($tognrOgAvgang), $tognrOgAvgang, $ankomster, 'ankomster', false);
 }
+$content .= '</table>';
 $content .= '</td></tr></table>';
 
 $content .= '<h2>Alle ankomster og avganger</h2>' . chr(10);
 $content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
+$content .= '<table>';
 foreach($perTognrAvganger as $tognrOgAvgang => $avganger) {
 	$content .= getAndWriteAvgangslisteSummary(tognrLink($tognrOgAvgang), 'Avgang ' . $tognrOgAvgang, $avganger, 'avganger', true);
 }
+$content .= '</table>';
 $content .= '</td><td><h2>Ankomster</h2>' . chr(10);
+$content .= '<table>';
 foreach($perTognrAnkomster as $tognrOgAvgang => $ankomster) {
 	$content .= getAndWriteAvgangslisteSummary(tognrLink($tognrOgAvgang), 'Ankomst ' . $tognrOgAvgang, $ankomster, 'ankomster', false);
 }
+$content .= '</table>';
 $content .= '</td></tr></table>';
 
 file_put_contents(__DIR__ . '/docs/index.html', $content);
