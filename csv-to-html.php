@@ -157,13 +157,13 @@ function getDiffTekst($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 }
 function getDiffKategori($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	if ($innstiltTog == 'Y') {
-		return '<span class="diff-bad">Helinnstilt tog</span>';
+		return '<span class="sort-7 diff-bad">Helinnstilt tog</span>';
 	}
 	else if ($innstiltTog == 'P') {
-		return '<span class="diff-bad">Delinnstilt tog</span>';
+		return '<span class="sort-5 diff-bad">Delinnstilt tog</span>';
 	}
 	else if ($innstiltTog == 'B') {
-		return '<span class="diff-bad">Buss for tog</span>';
+		return '<span class="sort-6 diff-bad">Buss for tog</span>';
 	}
 	else if ($innstiltTog == 'N') {
 		$innstiltTekst = '';
@@ -173,21 +173,21 @@ function getDiffKategori($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	}
 
 	if ($faktisk == -1) {
-		return '<span class="diff-medium">? min</span>';
+		return '<span class="sort-3 diff-medium">? min</span>';
 	}
 
 	$diffMinutter = (($faktisk - $planlagt) / 60);
 	if ($diffMinutter < 0) {
-		return '<span class="diff-good">' . $diffMinutter . ' min</span>';
+		return '<span class="sort-0 diff-good">' . $diffMinutter . ' min</span>';
 	}
 
 	if ($diffMinutter <= 2) {
-		return '<span class="diff-good">0-2 min</span>';
+		return '<span class="sort-1 diff-good">0-2 min</span>';
 	}
 	if ($diffMinutter <= 10) {
-		return '<span class="diff-medium">3-10 min</span>';
+		return '<span class="sort-2 diff-medium">3-10 min</span>';
 	}
-	return '<span class="diff-bad">Over 10 min</span>';
+	return '<span class="sort-4 diff-bad">Over 10 min</span>';
 }
 function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	$kategorier = array();
@@ -215,10 +215,34 @@ function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	}
 	ksort($kategorier);
 
+	$sumKategorier = array(
+		'<span class="sort-10 diff-good">OK</span>' => array('main' => 0),
+		'<span class="sort-11 diff-medium">Litt forsinket</span>' => array('main' => 0),
+		'<span class="sort-12 diff-bad">Forsinket/innstilt</span>' => array('main' => 0),
+	);
 	foreach($kategorier as $kat => $antall) {
-		$kategorier[$kat] = $antall . ' (' . str_replace('.', ',', number_format($antall / count($tog) * 100, 2)) . ' %)';
+		$antallMedProsent = $antall . ' (' . str_replace('.', ',', number_format($antall / count($tog) * 100, 2)) . ' %)';
+		if(strpos($kat, 'diff-good') !== false) {
+			$sumKategorier['<span class="sort-10 diff-good">OK</span>']['main'] += $antall;
+			$sumKategorier['<span class="sort-10 diff-good">OK</span>'][$kat] = $antallMedProsent;
+		}
+		elseif(strpos($kat, 'diff-medium') !== false) {
+			$sumKategorier['<span class="sort-11 diff-medium">Litt forsinket</span>']['main'] += $antall;
+			$sumKategorier['<span class="sort-11 diff-medium">Litt forsinket</span>'][$kat] = $antallMedProsent;
+		}
+		elseif(strpos($kat, 'diff-bad') !== false) {
+			$sumKategorier['<span class="sort-12 diff-bad">Forsinket/innstilt</span>']['main'] += $antall;
+			$sumKategorier['<span class="sort-12 diff-bad">Forsinket/innstilt</span>'][$kat] = $antallMedProsent;
+		}
+		else {
+			throw new Exception('Ukjent kategori: ' . $kat);
+		}
 	}
-	return $kategorier;
+
+	foreach($sumKategorier as $kat => $antall) {
+		$sumKategorier[$kat]['main'] = $antall['main'] . ' (' . str_replace('.', ',', number_format($antall['main'] / count($tog) * 100, 2)) . ' %)';
+	}
+	return $sumKategorier;
 }
 
 $simpleStyling = '<style>
@@ -238,21 +262,38 @@ table td, table th {
 .diff-medium {
 	color: #b77621;
 }
+.diff-sub-kat {
+	margin: 0;
+}
 </style>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  basert på <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan">data fra Bane NOR</a> (innsynshenvendelse via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
 ';
 
+function getDiffKategorySummaryHtml($avganger, $erDenneAvgang) {
+	$content = '';
+	$kategorier = getDiffKategoriSummary($avganger, $erDenneAvgang);
+	foreach($kategorier as $kategori => $subKat) {
+		$content .= '<li>' . $kategori . ': ' . $subKat['main'] . chr(10);
+		$content .= '<ul class="diff-sub-kat">';
+		foreach($subKat as $subKatKey => $antall) {
+			if($subKatKey != 'main') {
+				$content .= '<li>' . $subKatKey . ': '.$antall . '</li>' . chr(10);
+			}
+		}
+		$content .= '</ul>';
+		$content .= '</li>'. chr(10);
+	}
+	return $content;
+}
+
 function writeAvgangsliste($fil, $tittel, $avganger) {
 	global $simpleStyling;
 	$content = '<h1>' . $tittel . '</h1>' . chr(10);
 	$content .= $simpleStyling;
 	$content .= 'Antall avganger: ' . count($avganger) . chr(10);
-	$kategorier = getDiffKategoriSummary($avganger, true);
-	foreach($kategorier as $kategori => $antall) {
-		$content .= '<li>' . $kategori . ': ' . $antall . chr(10);
-	}
+	$content .= getDiffKategorySummaryHtml($avganger, true);
 
 	$content .= '<table>' . chr(10);
 	$content .= '<thead><tr>' . chr(10);
@@ -294,10 +335,7 @@ function writeAnkomstliste($fil, $tittel, $avkomster) {
 	$content = '<h1>' . $tittel . '</h1>' . chr(10);
 	$content .= $simpleStyling;
 	$content .= 'Antall ankomster: ' . count($avkomster) . chr(10) . chr(10);
-	$kategorier = getDiffKategoriSummary($avkomster, false);
-	foreach($kategorier as $kategori => $antall) {
-		$content .= '<li>' . $kategori . ': ' . $antall . chr(10);
-	}
+	$content .= getDiffKategorySummaryHtml($avkomster, false);
 
 	$content .= '<table>' . chr(10);
 	$content .= '<thead><tr>' . chr(10);
@@ -342,7 +380,7 @@ foreach($perTognrAvganger as $tognrOgAvgang => $avganger) {
 	$kategorier = getDiffKategoriSummary($avganger, true);
 	$content .= '<br><span style="font-size: 0.8em;">';
 	foreach($kategorier as $kategori => $antall) {
-		$content .= ' - ' . $kategori . ': ' . $antall . '<br>';
+		$content .= ' - ' . $kategori . ': ' . $antall['main'] . '<br>';
 	}
 	$content .= '</span>';
 	$content .= chr(10);
@@ -354,7 +392,7 @@ foreach($perTognrAnkomster as $tognrOgAvgang => $ankomster) {
 	$kategorier = getDiffKategoriSummary($ankomster, false);
 	$content .= '<br><span style="font-size: 0.8em;">';
 	foreach($kategorier as $kategori => $antall) {
-		$content .= ' - ' . $kategori . ': ' . $antall . '<br>';
+		$content .= ' - ' . $kategori . ': ' . $antall['main'] . '<br>';
 	}
 	$content .= '</span>';
 	$content .= chr(10);
