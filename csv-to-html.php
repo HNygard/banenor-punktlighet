@@ -157,13 +157,13 @@ function getDiffTekst($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 }
 function getDiffKategori($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	if ($innstiltTog == 'Y') {
-		return '<span class="sort-8 diff-bad">Helinnstilt tog</span>';
+		return '<span class="sort-8 diff-innstilt">Helinnstilt tog</span>';
 	}
 	else if ($innstiltTog == 'P') {
-		return '<span class="sort-6 diff-bad">Delinnstilt tog</span>';
+		return '<span class="sort-6 diff-innstilt">Delinnstilt tog</span>';
 	}
 	else if ($innstiltTog == 'B') {
-		return '<span class="sort-7 diff-bad">Buss for tog</span>';
+		return '<span class="sort-7 diff-innstilt">Buss for tog</span>';
 	}
 	else if ($innstiltTog == 'N') {
 		$innstiltTekst = '';
@@ -218,24 +218,35 @@ function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	}
 	ksort($kategorier);
 
+	$sumKategorierKeys = array(
+		0 => '<span class="sort-10 diff-good">OK</span>',
+		1 => '<span class="sort-11 diff-medium">Litt forsinket</span>',
+		2 => '<span class="sort-12 diff-bad">Forsinket</span>',
+		3 => '<span class="sort-13 diff-innstilt">Innstilt/Delinnstilt</span>'
+	);
 	$sumKategorier = array(
-		'<span class="sort-10 diff-good">OK</span>' => array('main' => 0),
-		'<span class="sort-11 diff-medium">Litt forsinket</span>' => array('main' => 0),
-		'<span class="sort-12 diff-bad">Forsinket/innstilt</span>' => array('main' => 0),
+		$sumKategorierKeys[0] => array('main' => 0),
+		$sumKategorierKeys[1] => array('main' => 0),
+		$sumKategorierKeys[2] => array('main' => 0),
+		$sumKategorierKeys[3] => array('main' => 0),
 	);
 	foreach($kategorier as $kat => $antall) {
 		$antallMedProsent = $antall . ' (' . str_replace('.', ',', number_format($antall / count($tog) * 100, 2)) . ' %)';
 		if(strpos($kat, 'diff-good') !== false) {
-			$sumKategorier['<span class="sort-10 diff-good">OK</span>']['main'] += $antall;
-			$sumKategorier['<span class="sort-10 diff-good">OK</span>'][$kat] = $antallMedProsent;
+			$sumKategorier[$sumKategorierKeys[0]]['main'] += $antall;
+			$sumKategorier[$sumKategorierKeys[0]][$kat] = $antallMedProsent;
 		}
 		elseif(strpos($kat, 'diff-medium') !== false) {
-			$sumKategorier['<span class="sort-11 diff-medium">Litt forsinket</span>']['main'] += $antall;
-			$sumKategorier['<span class="sort-11 diff-medium">Litt forsinket</span>'][$kat] = $antallMedProsent;
+			$sumKategorier[$sumKategorierKeys[1]]['main'] += $antall;
+			$sumKategorier[$sumKategorierKeys[1]][$kat] = $antallMedProsent;
 		}
 		elseif(strpos($kat, 'diff-bad') !== false) {
-			$sumKategorier['<span class="sort-12 diff-bad">Forsinket/innstilt</span>']['main'] += $antall;
-			$sumKategorier['<span class="sort-12 diff-bad">Forsinket/innstilt</span>'][$kat] = $antallMedProsent;
+			$sumKategorier[$sumKategorierKeys[2]]['main'] += $antall;
+			$sumKategorier[$sumKategorierKeys[2]][$kat] = $antallMedProsent;
+		}
+		elseif(strpos($kat, 'diff-innstilt') !== false) {
+			$sumKategorier[$sumKategorierKeys[3]]['main'] += $antall;
+			$sumKategorier[$sumKategorierKeys[3]][$kat] = $antallMedProsent;
 		}
 		else {
 			throw new Exception('Ukjent kategori: ' . $kat);
@@ -259,7 +270,7 @@ table td, table th {
 .diff-good {
 	color: green;
 }
-.diff-bad {
+.diff-bad, .diff-innstilt {
 	color: red;
 }
 .diff-medium {
