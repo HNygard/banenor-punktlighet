@@ -1,8 +1,11 @@
 # Bane NOR - Punktlighet
 
+Visning: https://hnygard.github.io/banenor-punktlighet/
+
 Utregninger basert på innsynshendvendelse til Bane NOR:
 
-- https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan
+- 01.01.2017 - 30.09.2017: https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan
+- 01.10.2017 - 31.10.2017: https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2
 
 ## CSV-fil
 
