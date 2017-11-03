@@ -1,12 +1,25 @@
 <?php
 
-$csvLines = file(__DIR__ . '/Stavanger Togtrafikk Planlagt faktisk Pt Ept 20170101 20170930 20171012.csv');
-$datasettBeskrivelse = 'Togtrafikk på Stavanger Stasjon i perioden 01.01.2017 til 30.09.2017';
+$datasettBeskrivelse = 'Togtrafikk på Stavanger Stasjon i perioden 01.01.2017 til 301.10.2017';
+$csvLines = array_merge(
+	readCsvFile(__DIR__ . '/Stavanger Togtrafikk Planlagt faktisk Pt Ept 20170101 20170930 20171012.csv', ','),
+	readCsvFile(__DIR__ . '/Stavanger Togtrafikk Planlagt faktisk Pt Ept 20171001 20171031 20171103.csv', ';')
+);
 
-$csvHeadings = explode(',', trim($csvLines[0]));
-var_dump($csvHeadings);
-for($i = 0; $i < count($csvHeadings); $i++) {
-	$csvHeadings[$i] = str_replace(' ', '_', $csvHeadings[$i]);
+function readCsvFile($filename, $delimiter) {
+	global $csvHeadings;
+	$csvLines = file($filename);
+
+	$csvHeadings = explode($delimiter, trim($csvLines[0]));
+	var_dump($csvHeadings);
+	for($i = 0; $i < count($csvHeadings); $i++) {
+		$csvHeadings[$i] = str_replace(' ', '_', $csvHeadings[$i]);
+	}
+	$csvLines2 = array();
+	for($i = 1; $i < count($csvLines); $i++) {
+		$csvLines2[] = str_replace(';', ',', $csvLines[$i]);
+	}
+	return $csvLines2;
 }
 
 $alleAvganger = array();
@@ -16,7 +29,7 @@ $perTognrAnkomster = array();
 $avgangerPerEndestasjon = array();
 $avkomsterPerUtgangstasjon= array();
 $startPosKlokkeslett = strlen('01.01.2017 ');
-for($i = 1; $i < count($csvLines); $i++) {
+for($i = 0; $i < count($csvLines); $i++) {
 	$row = explode(',', trim($csvLines[$i]));
 	$obj = new stdClass();
 	foreach($csvHeadings as $csvHeadingKey => $csvHeadingName) {
@@ -493,6 +506,30 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 	}, ARRAY_FILTER_USE_BOTH);
 	if (count($kunRush) > 0) {
 		$content .= getAndWriteAvgangslisteSummaryInner(str_replace('.html', '-kun-rush-september.html', $filename), $title . ' - Kun rush i September', $kunRush, 
+			$avgangerBeskrivelse, $erDetteAvgang);
+	}
+	else {
+		$content .= '<td>&nbsp;</td>';
+	}
+	$kunRush = array_filter($avganger, function($value, $key){
+		if ((strpos($value->planlagt_ankomst, '.10.2017') != false
+			|| strpos($value->planlagt_avgang, '.10.2017') != false)
+			&& (strpos($value->planlagt_ankomst, ' 07:') != false
+			|| strpos($value->planlagt_avgang, ' 07:') != false
+			|| strpos($value->planlagt_ankomst, ' 08:') != false
+			|| strpos($value->planlagt_avgang, ' 08:') != false
+			|| strpos($value->planlagt_ankomst, ' 15:') != false
+			|| strpos($value->planlagt_avgang, ' 15:') != false
+			|| strpos($value->planlagt_ankomst, ' 16:') != false
+			|| strpos($value->planlagt_avgang, ' 16:') != false)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}, ARRAY_FILTER_USE_BOTH);
+	if (count($kunRush) > 0) {
+		$content .= getAndWriteAvgangslisteSummaryInner(str_replace('.html', '-kun-rush-oktober.html', $filename), $title . ' - Kun rush i September', $kunRush,
 			$avgangerBeskrivelse, $erDetteAvgang);
 	}
 	else {
