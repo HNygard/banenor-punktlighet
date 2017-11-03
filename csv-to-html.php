@@ -1,6 +1,6 @@
 <?php
 
-$datasettBeskrivelse = 'Togtrafikk på Stavanger Stasjon i perioden 01.01.2017 til 301.10.2017';
+$datasettBeskrivelse = 'Togtrafikk på Stavanger Stasjon i perioden 01.01.2017 til 31.10.2017';
 $csvLines = array_merge(
 	readCsvFile(__DIR__ . '/Stavanger Togtrafikk Planlagt faktisk Pt Ept 20170101 20170930 20171012.csv', ','),
 	readCsvFile(__DIR__ . '/Stavanger Togtrafikk Planlagt faktisk Pt Ept 20171001 20171031 20171103.csv', ';')
@@ -314,7 +314,10 @@ table td, table th {
 </style>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
- basert på <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan">data fra Bane NOR</a> (innsynshenvendelse via Mimes Brønn)
+ basert på data fra BaneNOR (
+<a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan">[1]</a>,
+<a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
+ - innsynshenvendelser via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
 ';
 
