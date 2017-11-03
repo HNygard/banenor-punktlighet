@@ -529,7 +529,7 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 		}
 	}, ARRAY_FILTER_USE_BOTH);
 	if (count($kunRush) > 0) {
-		$content .= getAndWriteAvgangslisteSummaryInner(str_replace('.html', '-kun-rush-oktober.html', $filename), $title . ' - Kun rush i September', $kunRush,
+		$content .= getAndWriteAvgangslisteSummaryInner(str_replace('.html', '-kun-rush-oktober.html', $filename), $title . ' - Kun rush i Oktober', $kunRush,
 			$avgangerBeskrivelse, $erDetteAvgang);
 	}
 	else {
