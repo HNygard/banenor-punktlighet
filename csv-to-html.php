@@ -218,24 +218,27 @@ function getDiffKategori($erDetteAvgang, $avgang) {
 	}
 
 	if ($faktisk == -1) {
-		return '<span class="sort-3 diff-medium">? min</span>';
+		return '<span class="sort-3 diff-medium" data-min="0">? min</span>';
 	}
 
 	$diffMinutter = (($faktisk - $planlagt) / 60);
+	$min = ' data-min="'. $diffMinutter . '"';
 	if ($diffMinutter < 0) {
-		return '<span class="sort-0 diff-good">' . $diffMinutter . ' min</span>';
+		return '<span class="sort-0 diff-good"' . $min . '>' . $diffMinutter . ' min</span>';
 	}
 
 	if ($diffMinutter <= 2) {
-		return '<span class="sort-1 diff-good">0-2 min</span>';
+		return '<span class="sort-1 diff-good"' . $min . '>0-2 min</span>';
 	}
 	if ($diffMinutter <= 10) {
-		return '<span class="sort-2 diff-medium">3-10 min</span>';
+	//if ($diffMinutter <= 9) {
+	//	return '<span class="sort-2 diff-medium"' . $min . '>3-9 min</span>';
+		return '<span class="sort-2 diff-medium"' . $min . '>3-10 min</span>';
 	}
 	if ($diffMinutter <= 30) {
-		return '<span class="sort-4 diff-bad">10-30 min</span>';
+		return '<span class="sort-4 diff-bad"' . $min . '>10-30 min</span>';
 	}
-	return '<span class="sort-5 diff-bad">Over 30 min</span>';
+	return '<span class="sort-5 diff-bad"' . $min . '>Over 30 min</span>';
 }
 function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	$kategorier = array();
@@ -244,6 +247,7 @@ function getDiffKategoriSummary($tog, $erDetteAvganger) {
 				$erDetteAvganger,
 				$avgang
 			);
+		$kat = preg_replace('/ data-min="([\-0-9]*)"/', '', $kat);
 		if (!isset($kategorier[$kat])) {
 			$kategorier[$kat] = 0;
 		}
@@ -331,6 +335,140 @@ table td, table th {
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
 ';
 
+$simpleStyling .= '
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
+';
+
+function highcharts($tittel, $avganger, $erAvganger) {
+	global $diff_color_good, $diff_color_medium, $diff_color_bad, $diff_color_bad2;
+	$labels = array();
+	$good = array();
+	$medium = array();
+	$bad = array();
+	$bad2 = array();
+	foreach($avganger as $avgang) {
+		$kat = getDiffKategori($erAvganger, $avgang);
+		$unixtime = $erAvganger ? $avgang->planlagt_avgang_unixtime : $avgang->planlagt_ankomst_unixtime;
+		$unixtimeFaktisk = $erAvganger ? $avgang->faktisk_avgang_unixtime : $avgang->faktisk_ankomst_unixtime;
+		$date = 'Date.UTC('
+			. date('Y', $unixtime) .','
+			. (date('m', $unixtime)-1) . ','
+			. date('d,H,i', $unixtime) . ')';
+		if (str_contains($kat, 'diff-innstilt')) {
+			$name = 'Planlagt: ' . date('H:i d.m.Y', $unixtime);
+			$bad2[] = "{x: $date, y: 0, name: '$name'}\n";
+		}
+		else {
+			preg_match('/ data-min="([\-0-9]*)"/', $kat, $matches);
+
+			if (!isset($matches[1])) {
+				throw new Exception('Unknown kat 1: ' . $kat);
+			}
+			$name = 'Planlagt: ' . date('H:i d.m.Y', $unixtime) . '<br>'
+				. 'Faktisk: ' . date('H:i d.m.Y', $unixtimeFaktisk) . '<br>'
+				. 'Forsinkelse: ' . $matches[1] . ' minutter';
+			$item = '{x: '.$date.', y: ' . $matches[1] . ', name: \'' . $name . '\'}' . chr(10);
+			if (str_contains($kat, 'diff-medium')) {
+				$medium[] = $item;
+			}
+			else if (str_contains($kat, 'diff-bad')) {
+				$bad[] = $item;
+			} 
+			else if (str_contains($kat, 'diff-good')) {
+				$good[] = $item;
+			}
+			else {
+				throw new Exception('Unknown kat: ' . $kat);
+			}
+		}
+	}
+	return "<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: '$tittel'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '$diff_color_good',
+        data: [" . implode($good, ', ')."]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '$diff_color_medium',
+        data: [" . implode($medium, ', ')."]
+    }, {
+        name: 'Forsinket',
+        color: '$diff_color_bad',
+        data: [" . implode($bad, ', ')."]
+    }, {
+        name: 'Innstilt',
+        color: '$diff_color_bad2',
+        data: [" . implode($bad2, ', ')."]
+    }]
+});
+document.getElementById('container').style.display='block';
+</script>";
+}
+
 function str_contains($haystack, $needle) {
 	return strpos($haystack, $needle) !== false;
 }
@@ -387,6 +525,8 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 
 	$content .= '</table>' . chr(10);
 
+	$content .= highcharts($tittel, $avganger, true);
+
 	file_put_contents($fil, $content);
 }
 function writeAnkomstliste($fil, $tittel, $avkomster) {
@@ -423,6 +563,8 @@ function writeAnkomstliste($fil, $tittel, $avkomster) {
 	$content .= '</tbody>' . chr(10);
 
 	$content .= '</table>' . chr(10);
+
+	$content .= highcharts($tittel, $avkomster, false);
 
 	file_put_contents($fil, $content);
 }

@@ -30,6 +30,12 @@ table td, table th {
 <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
  - innsynshenvendelser via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
 Antall ankomster: 1
 
 <li><span class="sort-10 diff-good">OK</span>: 0 (0,00 %)
@@ -59,3 +65,85 @@ Antall ankomster: 1
 </tr>
 </tbody>
 </table>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Ankomst  - 719 fra OSL'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+        data: []
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+        data: []
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+        data: []
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+        data: [{x: Date.UTC(1970,0,01,00,59), y: 0, name: 'Planlagt: 00:59 01.01.1970'}
+]
+    }]
+});
+document.getElementById('container').style.display='block';
+</script>

@@ -30,6 +30,12 @@ table td, table th {
 <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
  - innsynshenvendelser via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
 Antall avganger: 1
 <li><span class="sort-10 diff-good">OK</span>: 0 (0,00 %)
 <ul class="diff-sub-kat"></ul></li>
@@ -54,7 +60,89 @@ Antall avganger: 1
 <td>17.06.2017 23:30</td>
 <td>17.06.2017 23:41</td>
 <td>11 minutter. </td>
-<td><span class="sort-4 diff-bad">10-30 min</span></td>
+<td><span class="sort-4 diff-bad" data-min="11">10-30 min</span></td>
 </tr>
 </tbody>
 </table>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Avgang 23:30 - 3228 til SAS'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+        data: []
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+        data: []
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+        data: [{x: Date.UTC(2017,5,17,23,30), y: 11, name: 'Planlagt: 23:30 17.06.2017<br>Faktisk: 23:41 17.06.2017<br>Forsinkelse: 11 minutter'}
+]
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+        data: []
+    }]
+});
+document.getElementById('container').style.display='block';
+</script>

@@ -30,6 +30,12 @@ table td, table th {
 <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
  - innsynshenvendelser via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
 Antall ankomster: 4
 
 <li><span class="sort-10 diff-good">OK</span>: 4 (100,00 %)
@@ -56,28 +62,113 @@ Antall ankomster: 4
 <td>07.10.2017 16:00</td>
 <td>07.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>14.10.2017 16:00</td>
 <td>14.10.2017 16:01</td>
 <td>1 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>21.10.2017 16:00</td>
 <td>21.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>28.10.2017 16:00</td>
 <td>28.10.2017 16:00</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 </tbody>
 </table>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Ankomst 16:00 - 3043 fra NBØ - Kun rush i Oktober'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+        data: [{x: Date.UTC(2017,9,07,16,00), y: -1, name: 'Planlagt: 16:00 07.10.2017<br>Faktisk: 15:59 07.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,14,16,00), y: 1, name: 'Planlagt: 16:00 14.10.2017<br>Faktisk: 16:01 14.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,21,16,00), y: -1, name: 'Planlagt: 16:00 21.10.2017<br>Faktisk: 15:59 21.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,28,16,00), y: 0, name: 'Planlagt: 16:00 28.10.2017<br>Faktisk: 16:00 28.10.2017<br>Forsinkelse: 0 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+        data: []
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+        data: []
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+        data: []
+    }]
+});
+document.getElementById('container').style.display='block';
+</script>

@@ -30,6 +30,12 @@ table td, table th {
 <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
  - innsynshenvendelser via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
 Antall avganger: 5
 <li><span class="sort-10 diff-good">OK</span>: 5 (100,00 %)
 <ul class="diff-sub-kat"><li><span class="sort-1 diff-good">0-2 min</span>: 5 (100,00 %)</li>
@@ -54,35 +60,121 @@ Antall avganger: 5
 <td>02.09.2017 16:24</td>
 <td>02.09.2017 16:24</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>09.09.2017 16:24</td>
 <td>09.09.2017 16:24</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>16.09.2017 16:24</td>
 <td>16.09.2017 16:24</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>23.09.2017 16:24</td>
 <td>23.09.2017 16:24</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>30.09.2017 16:24</td>
 <td>30.09.2017 16:24</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 </tbody>
 </table>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Avgang 16:24 - 3050 til NBØ - Kun rush i September'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+        data: [{x: Date.UTC(2017,8,02,16,24), y: 0, name: 'Planlagt: 16:24 02.09.2017<br>Faktisk: 16:24 02.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,09,16,24), y: 0, name: 'Planlagt: 16:24 09.09.2017<br>Faktisk: 16:24 09.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,16,16,24), y: 0, name: 'Planlagt: 16:24 16.09.2017<br>Faktisk: 16:24 16.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,23,16,24), y: 0, name: 'Planlagt: 16:24 23.09.2017<br>Faktisk: 16:24 23.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,30,16,24), y: 0, name: 'Planlagt: 16:24 30.09.2017<br>Faktisk: 16:24 30.09.2017<br>Forsinkelse: 0 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+        data: []
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+        data: []
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+        data: []
+    }]
+});
+document.getElementById('container').style.display='block';
+</script>

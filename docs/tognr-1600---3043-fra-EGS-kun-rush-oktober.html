@@ -30,6 +30,12 @@ table td, table th {
 <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
  - innsynshenvendelser via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
 Antall ankomster: 22
 
 <li><span class="sort-10 diff-good">OK</span>: 17 (77,27 %)
@@ -58,154 +64,257 @@ Antall ankomster: 22
 <td>02.10.2017 16:00</td>
 <td>02.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>03.10.2017 16:00</td>
 <td>03.10.2017 16:18</td>
 <td>18 minutter. </td>
-<td><span class="sort-4 diff-bad">10-30 min</span></td>
+<td><span class="sort-4 diff-bad" data-min="18">10-30 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>04.10.2017 16:00</td>
 <td>04.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>05.10.2017 16:00</td>
 <td>05.10.2017 16:08</td>
 <td>8 minutter. </td>
-<td><span class="sort-2 diff-medium">3-10 min</span></td>
+<td><span class="sort-2 diff-medium" data-min="8">3-10 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>06.10.2017 16:00</td>
 <td>06.10.2017 16:00</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>09.10.2017 16:00</td>
 <td>09.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>10.10.2017 16:00</td>
 <td>10.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>11.10.2017 16:00</td>
 <td>11.10.2017 16:00</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>12.10.2017 16:00</td>
 <td>12.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>13.10.2017 16:00</td>
 <td>13.10.2017 16:00</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>16.10.2017 16:00</td>
 <td>16.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>17.10.2017 16:00</td>
 <td>17.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>18.10.2017 16:00</td>
 <td>18.10.2017 16:15</td>
 <td>15 minutter. </td>
-<td><span class="sort-4 diff-bad">10-30 min</span></td>
+<td><span class="sort-4 diff-bad" data-min="15">10-30 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>19.10.2017 16:00</td>
 <td>19.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>20.10.2017 16:00</td>
 <td>20.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>23.10.2017 16:00</td>
 <td>23.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>24.10.2017 16:00</td>
 <td>24.10.2017 16:03</td>
 <td>3 minutter. </td>
-<td><span class="sort-2 diff-medium">3-10 min</span></td>
+<td><span class="sort-2 diff-medium" data-min="3">3-10 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>25.10.2017 16:00</td>
 <td>25.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>26.10.2017 16:00</td>
 <td>26.10.2017 16:00</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>27.10.2017 16:00</td>
 <td>27.10.2017 16:00</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>30.10.2017 16:00</td>
 <td>30.10.2017 16:06</td>
 <td>6 minutter. </td>
-<td><span class="sort-2 diff-medium">3-10 min</span></td>
+<td><span class="sort-2 diff-medium" data-min="6">3-10 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
 <td>31.10.2017 16:00</td>
 <td>31.10.2017 15:59</td>
 <td>-1 minutter. </td>
-<td><span class="sort-0 diff-good">-1 min</span></td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
 </tr>
 </tbody>
 </table>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Ankomst 16:00 - 3043 fra EGS - Kun rush i Oktober'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+        data: [{x: Date.UTC(2017,9,02,16,00), y: -1, name: 'Planlagt: 16:00 02.10.2017<br>Faktisk: 15:59 02.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,04,16,00), y: -1, name: 'Planlagt: 16:00 04.10.2017<br>Faktisk: 15:59 04.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,06,16,00), y: 0, name: 'Planlagt: 16:00 06.10.2017<br>Faktisk: 16:00 06.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,09,16,00), y: -1, name: 'Planlagt: 16:00 09.10.2017<br>Faktisk: 15:59 09.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,10,16,00), y: -1, name: 'Planlagt: 16:00 10.10.2017<br>Faktisk: 15:59 10.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,11,16,00), y: 0, name: 'Planlagt: 16:00 11.10.2017<br>Faktisk: 16:00 11.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,12,16,00), y: -1, name: 'Planlagt: 16:00 12.10.2017<br>Faktisk: 15:59 12.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,13,16,00), y: 0, name: 'Planlagt: 16:00 13.10.2017<br>Faktisk: 16:00 13.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,16,16,00), y: -1, name: 'Planlagt: 16:00 16.10.2017<br>Faktisk: 15:59 16.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,17,16,00), y: -1, name: 'Planlagt: 16:00 17.10.2017<br>Faktisk: 15:59 17.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,19,16,00), y: -1, name: 'Planlagt: 16:00 19.10.2017<br>Faktisk: 15:59 19.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,20,16,00), y: -1, name: 'Planlagt: 16:00 20.10.2017<br>Faktisk: 15:59 20.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,23,16,00), y: -1, name: 'Planlagt: 16:00 23.10.2017<br>Faktisk: 15:59 23.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,25,16,00), y: -1, name: 'Planlagt: 16:00 25.10.2017<br>Faktisk: 15:59 25.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,26,16,00), y: 0, name: 'Planlagt: 16:00 26.10.2017<br>Faktisk: 16:00 26.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,27,16,00), y: 0, name: 'Planlagt: 16:00 27.10.2017<br>Faktisk: 16:00 27.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,31,16,00), y: -1, name: 'Planlagt: 16:00 31.10.2017<br>Faktisk: 15:59 31.10.2017<br>Forsinkelse: -1 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+        data: [{x: Date.UTC(2017,9,05,16,00), y: 8, name: 'Planlagt: 16:00 05.10.2017<br>Faktisk: 16:08 05.10.2017<br>Forsinkelse: 8 minutter'}
+, {x: Date.UTC(2017,9,24,16,00), y: 3, name: 'Planlagt: 16:00 24.10.2017<br>Faktisk: 16:03 24.10.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,9,30,16,00), y: 6, name: 'Planlagt: 16:00 30.10.2017<br>Faktisk: 16:06 30.10.2017<br>Forsinkelse: 6 minutter'}
+]
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+        data: [{x: Date.UTC(2017,9,03,16,00), y: 18, name: 'Planlagt: 16:00 03.10.2017<br>Faktisk: 16:18 03.10.2017<br>Forsinkelse: 18 minutter'}
+, {x: Date.UTC(2017,9,18,16,00), y: 15, name: 'Planlagt: 16:00 18.10.2017<br>Faktisk: 16:15 18.10.2017<br>Forsinkelse: 15 minutter'}
+]
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+        data: []
+    }]
+});
+document.getElementById('container').style.display='block';
+</script>

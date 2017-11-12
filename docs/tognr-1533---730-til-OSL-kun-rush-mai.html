@@ -30,6 +30,12 @@ table td, table th {
 <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
  - innsynshenvendelser via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
 Antall avganger: 27
 <li><span class="sort-10 diff-good">OK</span>: 6 (22,22 %)
 <ul class="diff-sub-kat"><li><span class="sort-1 diff-good">0-2 min</span>: 6 (22,22 %)</li>
@@ -84,14 +90,14 @@ Antall avganger: 27
 <td>05.05.2017 15:33</td>
 <td>05.05.2017 15:33</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
 <td>07.05.2017 15:33</td>
 <td>07.05.2017 15:33</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
@@ -126,14 +132,14 @@ Antall avganger: 27
 <td>12.05.2017 15:33</td>
 <td>12.05.2017 15:34</td>
 <td>1 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
 <td>14.05.2017 15:33</td>
 <td>14.05.2017 15:37</td>
 <td>4 minutter. </td>
-<td><span class="sort-2 diff-medium">3-10 min</span></td>
+<td><span class="sort-2 diff-medium" data-min="4">3-10 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
@@ -154,7 +160,7 @@ Antall avganger: 27
 <td>17.05.2017 15:33</td>
 <td>17.05.2017 15:34</td>
 <td>1 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
@@ -168,7 +174,7 @@ Antall avganger: 27
 <td>19.05.2017 15:33</td>
 <td>19.05.2017 15:33</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
@@ -210,14 +216,14 @@ Antall avganger: 27
 <td>26.05.2017 15:33</td>
 <td>26.05.2017 15:41</td>
 <td>8 minutter. </td>
-<td><span class="sort-2 diff-medium">3-10 min</span></td>
+<td><span class="sort-2 diff-medium" data-min="8">3-10 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
 <td>28.05.2017 15:33</td>
 <td>28.05.2017 15:33</td>
 <td>0 minutter. </td>
-<td><span class="sort-1 diff-good">0-2 min</span></td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
@@ -242,3 +248,111 @@ Antall avganger: 27
 </tr>
 </tbody>
 </table>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Avgang 15:33 - 730 til OSL - Kun rush i Mai'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+        data: [{x: Date.UTC(2017,4,05,15,33), y: 0, name: 'Planlagt: 15:33 05.05.2017<br>Faktisk: 15:33 05.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,07,15,33), y: 0, name: 'Planlagt: 15:33 07.05.2017<br>Faktisk: 15:33 07.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,12,15,33), y: 1, name: 'Planlagt: 15:33 12.05.2017<br>Faktisk: 15:34 12.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,17,15,33), y: 1, name: 'Planlagt: 15:33 17.05.2017<br>Faktisk: 15:34 17.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,19,15,33), y: 0, name: 'Planlagt: 15:33 19.05.2017<br>Faktisk: 15:33 19.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,28,15,33), y: 0, name: 'Planlagt: 15:33 28.05.2017<br>Faktisk: 15:33 28.05.2017<br>Forsinkelse: 0 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+        data: [{x: Date.UTC(2017,4,14,15,33), y: 4, name: 'Planlagt: 15:33 14.05.2017<br>Faktisk: 15:37 14.05.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,4,26,15,33), y: 8, name: 'Planlagt: 15:33 26.05.2017<br>Faktisk: 15:41 26.05.2017<br>Forsinkelse: 8 minutter'}
+]
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+        data: []
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+        data: [{x: Date.UTC(2017,4,01,15,33), y: 0, name: 'Planlagt: 15:33 01.05.2017'}
+, {x: Date.UTC(2017,4,02,15,33), y: 0, name: 'Planlagt: 15:33 02.05.2017'}
+, {x: Date.UTC(2017,4,03,15,33), y: 0, name: 'Planlagt: 15:33 03.05.2017'}
+, {x: Date.UTC(2017,4,04,15,33), y: 0, name: 'Planlagt: 15:33 04.05.2017'}
+, {x: Date.UTC(2017,4,08,15,33), y: 0, name: 'Planlagt: 15:33 08.05.2017'}
+, {x: Date.UTC(2017,4,09,15,33), y: 0, name: 'Planlagt: 15:33 09.05.2017'}
+, {x: Date.UTC(2017,4,10,15,33), y: 0, name: 'Planlagt: 15:33 10.05.2017'}
+, {x: Date.UTC(2017,4,11,15,33), y: 0, name: 'Planlagt: 15:33 11.05.2017'}
+, {x: Date.UTC(2017,4,15,15,33), y: 0, name: 'Planlagt: 15:33 15.05.2017'}
+, {x: Date.UTC(2017,4,16,15,33), y: 0, name: 'Planlagt: 15:33 16.05.2017'}
+, {x: Date.UTC(2017,4,18,15,33), y: 0, name: 'Planlagt: 15:33 18.05.2017'}
+, {x: Date.UTC(2017,4,21,15,33), y: 0, name: 'Planlagt: 15:33 21.05.2017'}
+, {x: Date.UTC(2017,4,22,15,33), y: 0, name: 'Planlagt: 15:33 22.05.2017'}
+, {x: Date.UTC(2017,4,23,15,33), y: 0, name: 'Planlagt: 15:33 23.05.2017'}
+, {x: Date.UTC(2017,4,24,15,33), y: 0, name: 'Planlagt: 15:33 24.05.2017'}
+, {x: Date.UTC(2017,4,25,15,33), y: 0, name: 'Planlagt: 15:33 25.05.2017'}
+, {x: Date.UTC(2017,4,29,15,33), y: 0, name: 'Planlagt: 15:33 29.05.2017'}
+, {x: Date.UTC(2017,4,30,15,33), y: 0, name: 'Planlagt: 15:33 30.05.2017'}
+, {x: Date.UTC(2017,4,31,15,33), y: 0, name: 'Planlagt: 15:33 31.05.2017'}
+]
+    }]
+});
+document.getElementById('container').style.display='block';
+</script>
