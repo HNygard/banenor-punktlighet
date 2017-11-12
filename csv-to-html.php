@@ -315,10 +315,10 @@ function styling($tittel, $twitterImage) {
 <meta name="twitter:site" content="@hallny">
 <meta name="twitter:title" content="Innsyn i ' . lcfirst($tittel) . '">
 <meta name="twitter:image:src" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
-<meta property="og:title" content="Innsyn i ' . lcfirst($tittel) . '">
-<meta property="og:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
-<meta property="og:type" content="article">
-<meta property="og:description" content="'. $description .'">
+<meta property="og:title" content="Innsyn i ' . lcfirst($tittel) . '" />
+<meta property="og:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="'. $description .'" />
 
 <meta itemprop="name" content="Innsyn i ' . lcfirst($tittel) . '">
 <meta itemprop="description" content="'. $description .'">
@@ -586,6 +586,8 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 
 	$content .= highcharts($fil, $tittel, $avganger, true);
 
+	$content .= '</body></html>';
+
 	file_put_contents($fil, $content);
 }
 function writeAnkomstliste($fil, $tittel, $avkomster) {
@@ -624,6 +626,8 @@ function writeAnkomstliste($fil, $tittel, $avkomster) {
 	$content .= '</table>' . chr(10);
 
 	$content .= highcharts($fil, $tittel, $avkomster, false);
+
+	$content .= '</body></html>';
 
 	file_put_contents($fil, $content);
 }
@@ -778,6 +782,8 @@ foreach($perTognrAnkomster as $tognrOgAvgang => $ankomster) {
 }
 $content .= '</table>';
 $content .= '</td></tr></table>';
+
+$content .= '</body></html>';
 
 file_put_contents(__DIR__ . '/docs/index.html', $content);
 
