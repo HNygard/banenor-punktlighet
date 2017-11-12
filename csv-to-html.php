@@ -265,19 +265,19 @@ function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	);
 	foreach($kategorier as $kat => $antall) {
 		$antallMedProsent = $antall . ' (' . str_replace('.', ',', number_format($antall / count($tog) * 100, 2)) . ' %)';
-		if(strpos($kat, 'diff-good') !== false) {
+		if(str_contains($kat, 'diff-good')) {
 			$sumKategorier[$sumKategorierKeys[0]]['main'] += $antall;
 			$sumKategorier[$sumKategorierKeys[0]][$kat] = $antallMedProsent;
 		}
-		elseif(strpos($kat, 'diff-medium') !== false) {
+		elseif(str_contains($kat, 'diff-medium')) {
 			$sumKategorier[$sumKategorierKeys[1]]['main'] += $antall;
 			$sumKategorier[$sumKategorierKeys[1]][$kat] = $antallMedProsent;
 		}
-		elseif(strpos($kat, 'diff-bad') !== false) {
+		elseif(str_contains($kat, 'diff-bad')) {
 			$sumKategorier[$sumKategorierKeys[2]]['main'] += $antall;
 			$sumKategorier[$sumKategorierKeys[2]][$kat] = $antallMedProsent;
 		}
-		elseif(strpos($kat, 'diff-innstilt') !== false) {
+		elseif(str_contains($kat, 'diff-innstilt')) {
 			$sumKategorier[$sumKategorierKeys[3]]['main'] += $antall;
 			$sumKategorier[$sumKategorierKeys[3]][$kat] = $antallMedProsent;
 		}
@@ -330,6 +330,10 @@ table td, table th {
  - innsynshenvendelser via Mimes Brønn)
  - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
 ';
+
+function str_contains($haystack, $needle) {
+	return strpos($haystack, $needle) !== false;
+}
 
 function getDiffKategorySummaryHtml($avganger, $erDenneAvgang) {
 	$content = '';
@@ -445,14 +449,14 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 	$content = '<tr>';
 	$content .= getAndWriteAvgangslisteSummaryInner($filename, $title, $avganger, $avgangerBeskrivelse, $erDetteAvgang);
 	$kunRush = array_filter($avganger, function($value, $key){
-		if (strpos($value->planlagt_ankomst, ' 07:') != false
-			|| strpos($value->planlagt_avgang, ' 07:') != false
-			|| strpos($value->planlagt_ankomst, ' 08:') != false
-			|| strpos($value->planlagt_avgang, ' 08:') != false
-			|| strpos($value->planlagt_ankomst, ' 15:') != false
-			|| strpos($value->planlagt_avgang, ' 15:') != false
-			|| strpos($value->planlagt_ankomst, ' 16:') != false
-			|| strpos($value->planlagt_avgang, ' 16:') != false) {
+		if (str_contains($value->planlagt_ankomst, ' 07:')
+			|| str_contains($value->planlagt_avgang, ' 07:')
+			|| str_contains($value->planlagt_ankomst, ' 08:')
+			|| str_contains($value->planlagt_avgang, ' 08:')
+			|| str_contains($value->planlagt_ankomst, ' 15:')
+			|| str_contains($value->planlagt_avgang, ' 15:')
+			|| str_contains($value->planlagt_ankomst, ' 16:')
+			|| str_contains($value->planlagt_avgang, ' 16:')) {
 			return true;
 		}
 		else {
@@ -467,16 +471,16 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 		$content .= '<td>&nbsp;</td>';
 	}
 	$kunRush = array_filter($avganger, function($value, $key){
-		if ((strpos($value->planlagt_ankomst, '.05.2017') != false
-			|| strpos($value->planlagt_avgang, '.05.2017') != false)
-			&& (strpos($value->planlagt_ankomst, ' 07:') != false
-			|| strpos($value->planlagt_avgang, ' 07:') != false
-			|| strpos($value->planlagt_ankomst, ' 08:') != false
-			|| strpos($value->planlagt_avgang, ' 08:') != false
-			|| strpos($value->planlagt_ankomst, ' 15:') != false
-			|| strpos($value->planlagt_avgang, ' 15:') != false
-			|| strpos($value->planlagt_ankomst, ' 16:') != false
-			|| strpos($value->planlagt_avgang, ' 16:') != false)) {
+		if ((str_contains($value->planlagt_ankomst, '.05.2017')
+			|| str_contains($value->planlagt_avgang, '.05.2017'))
+			&& (str_contains($value->planlagt_ankomst, ' 07:')
+			|| str_contains($value->planlagt_avgang, ' 07:')
+			|| str_contains($value->planlagt_ankomst, ' 08:')
+			|| str_contains($value->planlagt_avgang, ' 08:')
+			|| str_contains($value->planlagt_ankomst, ' 15:')
+			|| str_contains($value->planlagt_avgang, ' 15:')
+			|| str_contains($value->planlagt_ankomst, ' 16:')
+			|| str_contains($value->planlagt_avgang, ' 16:'))) {
 			return true;
 		}
 		else {
@@ -491,16 +495,16 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 		$content .= '<td>&nbsp;</td>';
 	}
 	$kunRush = array_filter($avganger, function($value, $key){
-		if ((strpos($value->planlagt_ankomst, '.09.2017') != false
-			|| strpos($value->planlagt_avgang, '.09.2017') != false)
-			&& (strpos($value->planlagt_ankomst, ' 07:') != false
-			|| strpos($value->planlagt_avgang, ' 07:') != false
-			|| strpos($value->planlagt_ankomst, ' 08:') != false
-			|| strpos($value->planlagt_avgang, ' 08:') != false
-			|| strpos($value->planlagt_ankomst, ' 15:') != false
-			|| strpos($value->planlagt_avgang, ' 15:') != false
-			|| strpos($value->planlagt_ankomst, ' 16:') != false
-			|| strpos($value->planlagt_avgang, ' 16:') != false)) {
+		if ((str_contains($value->planlagt_ankomst, '.09.2017')
+			|| str_contains($value->planlagt_avgang, '.09.2017'))
+			&& (str_contains($value->planlagt_ankomst, ' 07:')
+			|| str_contains($value->planlagt_avgang, ' 07:')
+			|| str_contains($value->planlagt_ankomst, ' 08:')
+			|| str_contains($value->planlagt_avgang, ' 08:')
+			|| str_contains($value->planlagt_ankomst, ' 15:')
+			|| str_contains($value->planlagt_avgang, ' 15:')
+			|| str_contains($value->planlagt_ankomst, ' 16:')
+			|| str_contains($value->planlagt_avgang, ' 16:'))) {
 			return true;
 		}
 		else {
@@ -515,16 +519,16 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 		$content .= '<td>&nbsp;</td>';
 	}
 	$kunRush = array_filter($avganger, function($value, $key){
-		if ((strpos($value->planlagt_ankomst, '.10.2017') != false
-			|| strpos($value->planlagt_avgang, '.10.2017') != false)
-			&& (strpos($value->planlagt_ankomst, ' 07:') != false
-			|| strpos($value->planlagt_avgang, ' 07:') != false
-			|| strpos($value->planlagt_ankomst, ' 08:') != false
-			|| strpos($value->planlagt_avgang, ' 08:') != false
-			|| strpos($value->planlagt_ankomst, ' 15:') != false
-			|| strpos($value->planlagt_avgang, ' 15:') != false
-			|| strpos($value->planlagt_ankomst, ' 16:') != false
-			|| strpos($value->planlagt_avgang, ' 16:') != false)) {
+		if ((str_contains($value->planlagt_ankomst, '.10.2017')
+			|| str_contains($value->planlagt_avgang, '.10.2017'))
+			&& (str_contains($value->planlagt_ankomst, ' 07:')
+			|| str_contains($value->planlagt_avgang, ' 07:')
+			|| str_contains($value->planlagt_ankomst, ' 08:')
+			|| str_contains($value->planlagt_avgang, ' 08:')
+			|| str_contains($value->planlagt_ankomst, ' 15:')
+			|| str_contains($value->planlagt_avgang, ' 15:')
+			|| str_contains($value->planlagt_ankomst, ' 16:')
+			|| str_contains($value->planlagt_avgang, ' 16:'))) {
 			return true;
 		}
 		else {
