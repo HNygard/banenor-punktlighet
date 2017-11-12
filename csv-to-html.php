@@ -308,47 +308,48 @@ function styling($tittel, $twitterImage) {
 <head>
 <title>'. $tittel . '</title>
 
-<meta name="author" content="Hallvard Nygård, @hallny">
-<meta name="description" content="'. $description .'">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content="@hallny">
-<meta name="twitter:site" content="@hallny">
-<meta name="twitter:title" content="Innsyn i ' . lcfirst($tittel) . '">
-<meta name="twitter:image:src" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
-<meta property="og:title" content="Innsyn i ' . lcfirst($tittel) . '" />
-<meta property="og:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '" />
-<meta property="og:type" content="article" />
-<meta property="og:description" content="'. $description .'" />
+	<meta name="author" content="Hallvard Nygård, @hallny">
+	<meta name="description" content="'. $description .'">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@hallny">
+	<meta name="twitter:site" content="@hallny">
+	<meta name="twitter:title" content="Innsyn i ' . lcfirst($tittel) . '">
+	<meta name="twitter:image:src" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
+	<meta property="og:title" content="Innsyn i ' . lcfirst($tittel) . '" />
+	<meta property="og:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '" />
+	<meta property="og:type" content="article" />
+	<meta property="og:description" content="'. $description .'" />
 
-<meta itemprop="name" content="Innsyn i ' . lcfirst($tittel) . '">
-<meta itemprop="description" content="'. $description .'">
+	<meta itemprop="name" content="Innsyn i ' . lcfirst($tittel) . '">
+	<meta itemprop="description" content="'. $description .'">
 
-</head>';
+';
 
-$simpleStyling .= '<style>
-table {
-    border-collapse: collapse;
-}
-table td, table th {
-	border: 1px solid black;
-	vertical-align: top;
-}
-.diff-good {
-	color: ' . $diff_color_good . ';
-}
-.diff-medium {
-	color: ' . $diff_color_medium . ';
-}
-.diff-bad {
-	color: ' . $diff_color_bad . ';
-}
-.diff-innstilt {
-	color: ' . $diff_color_bad2 . ';
-}
-.diff-sub-kat {
-	margin: 0;
-}
-</style>
+$simpleStyling .= '
+	<style>
+		table {
+		    border-collapse: collapse;
+		}
+		table td, table th {
+			border: 1px solid black;
+			vertical-align: top;
+		}
+		.diff-good {
+			color: ' . $diff_color_good . ';
+		}
+		.diff-medium {
+			color: ' . $diff_color_medium . ';
+		}
+		.diff-bad {
+			color: ' . $diff_color_bad . ';
+		}
+		.diff-innstilt {
+			color: ' . $diff_color_bad2 . ';
+		}
+		.diff-sub-kat {
+			margin: 0;
+		}
+	</style>
 </head>
 <body>
 <a href="index.html">Til hovedside</a><br><br>
