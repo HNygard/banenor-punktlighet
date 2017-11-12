@@ -1,5 +1,19 @@
 <h1>Avganger til EGS fra STV - Kun rush i Oktober</h1>
-<style>
+<html>
+<head>
+<title>Avganger til EGS fra STV - Kun rush i Oktober</title>
+
+<meta name="author" content="Hallvard Nygård, @hallny">
+<meta name="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@hallny">
+<meta name="twitter:site" content="@hallny">
+<meta name="twitter:title" content="Innsyn i avganger til EGS fra STV - Kun rush i Oktober">
+<meta name="twitter:image" content="screenshots/avganger-til-egs-fra-stv-kun-rush-oktober.png">
+<meta itemprop="name" content="Innsyn i avganger til EGS fra STV - Kun rush i Oktober">
+<meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+
+</head><style>
 table {
     border-collapse: collapse;
 }
@@ -23,6 +37,8 @@ table td, table th {
 	margin: 0;
 }
 </style>
+</head>
+<body>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  basert på data fra BaneNOR (
@@ -35,6 +51,8 @@ table td, table th {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
+<a id="containerlink" style="float: right; display: none;" href="screenshots/avganger-til-egs-fra-stv-kun-rush-oktober.png">Last ned graf</a>
 
 Antall avganger: 163
 <li><span class="sort-10 diff-good">OK</span>: 152 (93,25 %)
@@ -1211,7 +1229,7 @@ Highcharts.chart('container', {
         text: 'Avganger til EGS fra STV - Kun rush i Oktober'
     },
     subtitle: {
-        text: 'https://hnygard.github.io/banenor-punktlighet/'
+        text: 'https://hnygard.github.io/banenor-punktlighet/avganger-til-egs-fra-stv-kun-rush-oktober.html'
     },
     xAxis: {
         type: 'datetime',
@@ -1264,6 +1282,7 @@ Highcharts.chart('container', {
     series: [{
         name: 'På tiden',
         color: '#008000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,9,01,08,54), y: 0, name: 'Planlagt: 08:54 01.10.2017<br>Faktisk: 08:54 01.10.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,9,01,15,54), y: 2, name: 'Planlagt: 15:54 01.10.2017<br>Faktisk: 15:56 01.10.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,9,01,16,54), y: 1, name: 'Planlagt: 16:54 01.10.2017<br>Faktisk: 16:55 01.10.2017<br>Forsinkelse: 1 minutter'}
@@ -1421,6 +1440,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Litt forsinket',
         color: '#b77621',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,9,02,07,54), y: 5, name: 'Planlagt: 07:54 02.10.2017<br>Faktisk: 07:59 02.10.2017<br>Forsinkelse: 5 minutter'}
 , {x: Date.UTC(2017,9,06,07,54), y: 5, name: 'Planlagt: 07:54 06.10.2017<br>Faktisk: 07:59 06.10.2017<br>Forsinkelse: 5 minutter'}
 , {x: Date.UTC(2017,9,18,16,54), y: 6, name: 'Planlagt: 16:54 18.10.2017<br>Faktisk: 17:00 18.10.2017<br>Forsinkelse: 6 minutter'}
@@ -1429,6 +1449,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Forsinket',
         color: '#ff0000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,9,06,08,54), y: 10, name: 'Planlagt: 08:54 06.10.2017<br>Faktisk: 09:04 06.10.2017<br>Forsinkelse: 10 minutter'}
 , {x: Date.UTC(2017,9,18,15,54), y: 15, name: 'Planlagt: 15:54 18.10.2017<br>Faktisk: 16:09 18.10.2017<br>Forsinkelse: 15 minutter'}
 , {x: Date.UTC(2017,9,25,15,24), y: 10, name: 'Planlagt: 15:24 25.10.2017<br>Faktisk: 15:34 25.10.2017<br>Forsinkelse: 10 minutter'}
@@ -1436,6 +1457,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Innstilt',
         color: '#a20404',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,9,07,08,54), y: 0, name: 'Planlagt: 08:54 07.10.2017'}
 , {x: Date.UTC(2017,9,28,15,54), y: 0, name: 'Planlagt: 15:54 28.10.2017'}
 , {x: Date.UTC(2017,9,28,16,54), y: 0, name: 'Planlagt: 16:54 28.10.2017'}
@@ -1444,4 +1466,5 @@ Highcharts.chart('container', {
     }]
 });
 document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
 </script>

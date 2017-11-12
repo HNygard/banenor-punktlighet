@@ -294,13 +294,32 @@ function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	return $sumKategorier;
 }
 
+$screenshotPaths = array();
+
 $diff_color_good = '#008000';
 $diff_color_medium = '#b77621';
 $diff_color_bad = '#ff0000';
 $diff_color_bad2 = '#a20404';
 
+function styling($tittel, $twitterImage) {
+	global $diff_color_good, $diff_color_medium, $diff_color_bad, $diff_color_bad2;
+	$simpleStyling = '<html>
+<head>
+<title>'. $tittel . '</title>
 
-$simpleStyling = '<style>
+<meta name="author" content="Hallvard Nygård, @hallny">
+<meta name="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@hallny">
+<meta name="twitter:site" content="@hallny">
+<meta name="twitter:title" content="Innsyn i ' . lcfirst($tittel) . '">
+<meta name="twitter:image" content="' . $twitterImage . '">
+<meta itemprop="name" content="Innsyn i ' . lcfirst($tittel) . '">
+<meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+
+</head>';
+
+$simpleStyling .= '<style>
 table {
     border-collapse: collapse;
 }
@@ -324,6 +343,8 @@ table td, table th {
 	margin: 0;
 }
 </style>
+</head>
+<body>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  basert på data fra BaneNOR (
@@ -340,8 +361,10 @@ $simpleStyling .= '
 <div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
 
 ';
+	return $simpleStyling;
+}
 
-function highcharts($tittel, $avganger, $erAvganger) {
+function highcharts($fil, $tittel, $avganger, $erAvganger) {
 	global $diff_color_good, $diff_color_medium, $diff_color_bad, $diff_color_bad2;
 	$labels = array();
 	$good = array();
@@ -369,7 +392,12 @@ function highcharts($tittel, $avganger, $erAvganger) {
 			$name = 'Planlagt: ' . date('H:i d.m.Y', $unixtime) . '<br>'
 				. 'Faktisk: ' . date('H:i d.m.Y', $unixtimeFaktisk) . '<br>'
 				. 'Forsinkelse: ' . $matches[1] . ' minutter';
-			$item = '{x: '.$date.', y: ' . $matches[1] . ', name: \'' . $name . '\'}' . chr(10);
+			$korrigertForsinkelse = $matches[1];
+			if ($korrigertForsinkelse < -5) {
+				// -463 minutt ødelegger grafen...
+				$korrigertForsinkelse = -5;
+			}
+			$item = '{x: '.$date.', y: ' . $korrigertForsinkelse . ', name: \'' . $name . '\'}' . chr(10);
 			if (str_contains($kat, 'diff-medium')) {
 				$medium[] = $item;
 			}
@@ -384,7 +412,7 @@ function highcharts($tittel, $avganger, $erAvganger) {
 			}
 		}
 	}
-	return "<script>
+	$highcharts = "<script>
 Highcharts.chart('container', {
     chart: {
         type: 'scatter',
@@ -394,7 +422,7 @@ Highcharts.chart('container', {
         text: '$tittel'
     },
     subtitle: {
-        text: 'https://hnygard.github.io/banenor-punktlighet/'
+        text: 'https://hnygard.github.io/banenor-punktlighet/" . str_replace(__DIR__ . '/docs/', '', $fil) . "'
     },
     xAxis: {
         type: 'datetime',
@@ -447,24 +475,40 @@ Highcharts.chart('container', {
     series: [{
         name: 'På tiden',
         color: '$diff_color_good',
+	turboThreshold: 0,
         data: [" . implode($good, ', ')."]
 
     }, {
         name: 'Litt forsinket',
         color: '$diff_color_medium',
+	turboThreshold: 0,
         data: [" . implode($medium, ', ')."]
     }, {
         name: 'Forsinket',
         color: '$diff_color_bad',
+	turboThreshold: 0,
         data: [" . implode($bad, ', ')."]
     }, {
         name: 'Innstilt',
         color: '$diff_color_bad2',
+	turboThreshold: 0,
         data: [" . implode($bad2, ', ')."]
     }]
 });
 document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
 </script>";
+
+	global $screenshotPaths;
+	$screenshotPath = str_replace('docs/', 'docs/screenshots/', $fil);
+	$screenshotPaths[] = str_replace(__DIR__, '', $screenshotPath);
+	file_put_contents(
+		$screenshotPath,
+		'<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+		<div id="container" style="width: 100%; height: 100%; margin: 0 auto; display: none;"></div>
+		'.$highcharts);
+
+	return $highcharts;
 }
 
 function str_contains($haystack, $needle) {
@@ -488,10 +532,21 @@ function getDiffKategorySummaryHtml($avganger, $erDenneAvgang) {
 	return $content;
 }
 
+function getScreenshotPath($file) {
+	return str_replace(__DIR__ . '/docs/', 'screenshots/',
+		  str_replace('.html', '.png', $file));
+}
+
+function grafLink($file) {
+	return '<a id="containerlink" style="float: right; display: none;" href="'
+		. getScreenshotPath($file)
+		. '">Last ned graf</a>' . chr(10).chr(10);
+}
+
 function writeAvgangsliste($fil, $tittel, $avganger) {
-	global $simpleStyling;
 	$content = '<h1>' . $tittel . '</h1>' . chr(10);
-	$content .= $simpleStyling;
+	$content .= styling($tittel, getScreenshotPath($fil));
+	$content .= grafLink($fil);
 	$content .= 'Antall avganger: ' . count($avganger) . chr(10);
 	$content .= getDiffKategorySummaryHtml($avganger, true);
 
@@ -523,14 +578,14 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 
 	$content .= '</table>' . chr(10);
 
-	$content .= highcharts($tittel, $avganger, true);
+	$content .= highcharts($fil, $tittel, $avganger, true);
 
 	file_put_contents($fil, $content);
 }
 function writeAnkomstliste($fil, $tittel, $avkomster) {
-	global $simpleStyling;
 	$content = '<h1>' . $tittel . '</h1>' . chr(10);
-	$content .= $simpleStyling;
+	$content .= styling($tittel, getScreenshotPath($fil));
+	$content .= grafLink($fil);
 	$content .= 'Antall ankomster: ' . count($avkomster) . chr(10) . chr(10);
 	$content .= getDiffKategorySummaryHtml($avkomster, false);
 
@@ -562,7 +617,7 @@ function writeAnkomstliste($fil, $tittel, $avkomster) {
 
 	$content .= '</table>' . chr(10);
 
-	$content .= highcharts($tittel, $avkomster, false);
+	$content .= highcharts($fil, $tittel, $avkomster, false);
 
 	file_put_contents($fil, $content);
 }
@@ -686,7 +741,7 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 	return $content;
 }
 $content = '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
-$content .= $simpleStyling;
+$content .= styling($datasettBeskrivelse, 'screenshots/ankomst-fra-egs.png');
 
 $content .= '<h2>Ankomster og avganger per utgangstasjon/endestasjon</h2>' . chr(10);
 $content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
@@ -719,3 +774,5 @@ $content .= '</table>';
 $content .= '</td></tr></table>';
 
 file_put_contents(__DIR__ . '/docs/index.html', $content);
+
+file_put_contents(__DIR__ . '/screenshot-maker/path.txt', implode(chr(10), $screenshotPaths));

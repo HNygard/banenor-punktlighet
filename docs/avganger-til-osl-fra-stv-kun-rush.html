@@ -1,5 +1,19 @@
 <h1>Avganger til OSL fra STV - Kun rush</h1>
-<style>
+<html>
+<head>
+<title>Avganger til OSL fra STV - Kun rush</title>
+
+<meta name="author" content="Hallvard Nygård, @hallny">
+<meta name="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@hallny">
+<meta name="twitter:site" content="@hallny">
+<meta name="twitter:title" content="Innsyn i avganger til OSL fra STV - Kun rush">
+<meta name="twitter:image" content="screenshots/avganger-til-osl-fra-stv-kun-rush.png">
+<meta itemprop="name" content="Innsyn i avganger til OSL fra STV - Kun rush">
+<meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+
+</head><style>
 table {
     border-collapse: collapse;
 }
@@ -23,6 +37,8 @@ table td, table th {
 	margin: 0;
 }
 </style>
+</head>
+<body>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  basert på data fra BaneNOR (
@@ -35,6 +51,8 @@ table td, table th {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
+<a id="containerlink" style="float: right; display: none;" href="screenshots/avganger-til-osl-fra-stv-kun-rush.png">Last ned graf</a>
 
 Antall avganger: 561
 <li><span class="sort-10 diff-good">OK</span>: 246 (43,85 %)
@@ -3999,7 +4017,7 @@ Highcharts.chart('container', {
         text: 'Avganger til OSL fra STV - Kun rush'
     },
     subtitle: {
-        text: 'https://hnygard.github.io/banenor-punktlighet/'
+        text: 'https://hnygard.github.io/banenor-punktlighet/avganger-til-osl-fra-stv-kun-rush.html'
     },
     xAxis: {
         type: 'datetime',
@@ -4052,6 +4070,7 @@ Highcharts.chart('container', {
     series: [{
         name: 'På tiden',
         color: '#008000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,0,01,08,49), y: 1, name: 'Planlagt: 08:49 01.01.2017<br>Faktisk: 08:50 01.01.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,0,01,15,33), y: 0, name: 'Planlagt: 15:33 01.01.2017<br>Faktisk: 15:33 01.01.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,0,02,08,49), y: 0, name: 'Planlagt: 08:49 02.01.2017<br>Faktisk: 08:49 02.01.2017<br>Forsinkelse: 0 minutter'}
@@ -4303,6 +4322,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Litt forsinket',
         color: '#b77621',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,1,05,08,49), y: 3, name: 'Planlagt: 08:49 05.02.2017<br>Faktisk: 08:52 05.02.2017<br>Forsinkelse: 3 minutter'}
 , {x: Date.UTC(2017,2,18,08,49), y: 0, name: 'Planlagt: 08:49 18.03.2017<br>Faktisk: 00:59 01.01.1970<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,3,30,15,33), y: 8, name: 'Planlagt: 15:33 30.04.2017<br>Faktisk: 15:41 30.04.2017<br>Forsinkelse: 8 minutter'}
@@ -4319,6 +4339,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Forsinket',
         color: '#ff0000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,1,03,15,33), y: 13, name: 'Planlagt: 15:33 03.02.2017<br>Faktisk: 15:46 03.02.2017<br>Forsinkelse: 13 minutter'}
 , {x: Date.UTC(2017,2,17,15,33), y: 13, name: 'Planlagt: 15:33 17.03.2017<br>Faktisk: 15:46 17.03.2017<br>Forsinkelse: 13 minutter'}
 , {x: Date.UTC(2017,3,18,15,33), y: 13, name: 'Planlagt: 15:33 18.04.2017<br>Faktisk: 15:46 18.04.2017<br>Forsinkelse: 13 minutter'}
@@ -4329,6 +4350,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Innstilt',
         color: '#a20404',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,0,02,15,33), y: 0, name: 'Planlagt: 15:33 02.01.2017'}
 , {x: Date.UTC(2017,0,03,15,33), y: 0, name: 'Planlagt: 15:33 03.01.2017'}
 , {x: Date.UTC(2017,0,04,15,33), y: 0, name: 'Planlagt: 15:33 04.01.2017'}
@@ -4630,4 +4652,5 @@ Highcharts.chart('container', {
     }]
 });
 document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
 </script>

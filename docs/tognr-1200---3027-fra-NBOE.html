@@ -1,5 +1,19 @@
 <h1>Ankomst 12:00 - 3027 fra NBØ</h1>
-<style>
+<html>
+<head>
+<title>Ankomst 12:00 - 3027 fra NBØ</title>
+
+<meta name="author" content="Hallvard Nygård, @hallny">
+<meta name="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@hallny">
+<meta name="twitter:site" content="@hallny">
+<meta name="twitter:title" content="Innsyn i ankomst 12:00 - 3027 fra NBØ">
+<meta name="twitter:image" content="screenshots/tognr-1200---3027-fra-NBOE.png">
+<meta itemprop="name" content="Innsyn i ankomst 12:00 - 3027 fra NBØ">
+<meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+
+</head><style>
 table {
     border-collapse: collapse;
 }
@@ -23,6 +37,8 @@ table td, table th {
 	margin: 0;
 }
 </style>
+</head>
+<body>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  basert på data fra BaneNOR (
@@ -35,6 +51,8 @@ table td, table th {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
+<a id="containerlink" style="float: right; display: none;" href="screenshots/tognr-1200---3027-fra-NBOE.png">Last ned graf</a>
 
 Antall ankomster: 209
 
@@ -1539,7 +1557,7 @@ Highcharts.chart('container', {
         text: 'Ankomst 12:00 - 3027 fra NBØ'
     },
     subtitle: {
-        text: 'https://hnygard.github.io/banenor-punktlighet/'
+        text: 'https://hnygard.github.io/banenor-punktlighet/tognr-1200---3027-fra-NBOE.html'
     },
     xAxis: {
         type: 'datetime',
@@ -1592,6 +1610,7 @@ Highcharts.chart('container', {
     series: [{
         name: 'På tiden',
         color: '#008000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,0,02,12,00), y: -1, name: 'Planlagt: 12:00 02.01.2017<br>Faktisk: 11:59 02.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,03,12,00), y: -1, name: 'Planlagt: 12:00 03.01.2017<br>Faktisk: 11:59 03.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,04,12,00), y: 0, name: 'Planlagt: 12:00 04.01.2017<br>Faktisk: 12:00 04.01.2017<br>Forsinkelse: 0 minutter'}
@@ -1755,6 +1774,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Litt forsinket',
         color: '#b77621',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,0,11,12,00), y: 7, name: 'Planlagt: 12:00 11.01.2017<br>Faktisk: 12:07 11.01.2017<br>Forsinkelse: 7 minutter'}
 , {x: Date.UTC(2017,1,16,12,00), y: 7, name: 'Planlagt: 12:00 16.02.2017<br>Faktisk: 12:07 16.02.2017<br>Forsinkelse: 7 minutter'}
 , {x: Date.UTC(2017,2,08,12,00), y: 3, name: 'Planlagt: 12:00 08.03.2017<br>Faktisk: 12:03 08.03.2017<br>Forsinkelse: 3 minutter'}
@@ -1766,6 +1786,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Forsinket',
         color: '#ff0000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,3,26,12,00), y: 25, name: 'Planlagt: 12:00 26.04.2017<br>Faktisk: 12:25 26.04.2017<br>Forsinkelse: 25 minutter'}
 , {x: Date.UTC(2017,4,18,12,00), y: 11, name: 'Planlagt: 12:00 18.05.2017<br>Faktisk: 12:11 18.05.2017<br>Forsinkelse: 11 minutter'}
 , {x: Date.UTC(2017,8,22,12,00), y: 33, name: 'Planlagt: 12:00 22.09.2017<br>Faktisk: 12:33 22.09.2017<br>Forsinkelse: 33 minutter'}
@@ -1773,6 +1794,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Innstilt',
         color: '#a20404',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,5,19,12,00), y: 0, name: 'Planlagt: 12:00 19.06.2017'}
 , {x: Date.UTC(2017,5,20,12,00), y: 0, name: 'Planlagt: 12:00 20.06.2017'}
 , {x: Date.UTC(2017,5,21,12,00), y: 0, name: 'Planlagt: 12:00 21.06.2017'}
@@ -1818,4 +1840,5 @@ Highcharts.chart('container', {
     }]
 });
 document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
 </script>

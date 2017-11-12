@@ -1,0 +1,110 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+		<div id="container" style="width: 100%; height: 100%; margin: 0 auto; display: none;"></div>
+		<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Ankomst 08:15 - 3113 fra SAS - Kun rush i Oktober'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/tognr-0815---3113-fra-SAS-kun-rush-oktober.html'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,9,02,08,15), y: 1, name: 'Planlagt: 08:15 02.10.2017<br>Faktisk: 08:16 02.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,03,08,15), y: -1, name: 'Planlagt: 08:15 03.10.2017<br>Faktisk: 08:14 03.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,04,08,15), y: 1, name: 'Planlagt: 08:15 04.10.2017<br>Faktisk: 08:16 04.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,05,08,15), y: 0, name: 'Planlagt: 08:15 05.10.2017<br>Faktisk: 08:15 05.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,09,08,15), y: -1, name: 'Planlagt: 08:15 09.10.2017<br>Faktisk: 08:14 09.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,10,08,15), y: -1, name: 'Planlagt: 08:15 10.10.2017<br>Faktisk: 08:14 10.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,11,08,15), y: -1, name: 'Planlagt: 08:15 11.10.2017<br>Faktisk: 08:14 11.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,12,08,15), y: 0, name: 'Planlagt: 08:15 12.10.2017<br>Faktisk: 08:15 12.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,13,08,15), y: 1, name: 'Planlagt: 08:15 13.10.2017<br>Faktisk: 08:16 13.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,16,08,15), y: -1, name: 'Planlagt: 08:15 16.10.2017<br>Faktisk: 08:14 16.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,17,08,15), y: 2, name: 'Planlagt: 08:15 17.10.2017<br>Faktisk: 08:17 17.10.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,9,18,08,15), y: -1, name: 'Planlagt: 08:15 18.10.2017<br>Faktisk: 08:14 18.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,19,08,15), y: 0, name: 'Planlagt: 08:15 19.10.2017<br>Faktisk: 08:15 19.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,20,08,15), y: -1, name: 'Planlagt: 08:15 20.10.2017<br>Faktisk: 08:14 20.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,23,08,15), y: -1, name: 'Planlagt: 08:15 23.10.2017<br>Faktisk: 08:14 23.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,24,08,15), y: 1, name: 'Planlagt: 08:15 24.10.2017<br>Faktisk: 08:16 24.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,26,08,15), y: -1, name: 'Planlagt: 08:15 26.10.2017<br>Faktisk: 08:14 26.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,27,08,15), y: 1, name: 'Planlagt: 08:15 27.10.2017<br>Faktisk: 08:16 27.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,31,08,15), y: -1, name: 'Planlagt: 08:15 31.10.2017<br>Faktisk: 08:14 31.10.2017<br>Forsinkelse: -1 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,9,06,08,15), y: 8, name: 'Planlagt: 08:15 06.10.2017<br>Faktisk: 08:23 06.10.2017<br>Forsinkelse: 8 minutter'}
+, {x: Date.UTC(2017,9,25,08,15), y: 5, name: 'Planlagt: 08:15 25.10.2017<br>Faktisk: 08:20 25.10.2017<br>Forsinkelse: 5 minutter'}
+, {x: Date.UTC(2017,9,30,08,15), y: 0, name: 'Planlagt: 08:15 30.10.2017<br>Faktisk: 00:59 01.01.1970<br>Forsinkelse: 0 minutter'}
+]
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+	turboThreshold: 0,
+        data: []
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+	turboThreshold: 0,
+        data: []
+    }]
+});
+document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
+</script>

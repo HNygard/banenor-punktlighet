@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "dawood/phpchromepdf": "^1.3"
+    }
+}

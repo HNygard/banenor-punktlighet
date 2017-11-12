@@ -1,5 +1,19 @@
 <h1>Ankomst 07:20 - 745 fra OSL - Kun rush i Mai</h1>
-<style>
+<html>
+<head>
+<title>Ankomst 07:20 - 745 fra OSL - Kun rush i Mai</title>
+
+<meta name="author" content="Hallvard Nygård, @hallny">
+<meta name="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@hallny">
+<meta name="twitter:site" content="@hallny">
+<meta name="twitter:title" content="Innsyn i ankomst 07:20 - 745 fra OSL - Kun rush i Mai">
+<meta name="twitter:image" content="screenshots/tognr-0720---745-fra-OSL-kun-rush-mai.png">
+<meta itemprop="name" content="Innsyn i ankomst 07:20 - 745 fra OSL - Kun rush i Mai">
+<meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+
+</head><style>
 table {
     border-collapse: collapse;
 }
@@ -23,6 +37,8 @@ table td, table th {
 	margin: 0;
 }
 </style>
+</head>
+<body>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  basert på data fra BaneNOR (
@@ -35,6 +51,8 @@ table td, table th {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
+<a id="containerlink" style="float: right; display: none;" href="screenshots/tognr-0720---745-fra-OSL-kun-rush-mai.png">Last ned graf</a>
 
 Antall ankomster: 24
 
@@ -245,7 +263,7 @@ Highcharts.chart('container', {
         text: 'Ankomst 07:20 - 745 fra OSL - Kun rush i Mai'
     },
     subtitle: {
-        text: 'https://hnygard.github.io/banenor-punktlighet/'
+        text: 'https://hnygard.github.io/banenor-punktlighet/tognr-0720---745-fra-OSL-kun-rush-mai.html'
     },
     xAxis: {
         type: 'datetime',
@@ -298,25 +316,26 @@ Highcharts.chart('container', {
     series: [{
         name: 'På tiden',
         color: '#008000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,4,02,07,20), y: -1, name: 'Planlagt: 07:20 02.05.2017<br>Faktisk: 07:19 02.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,03,07,20), y: -2, name: 'Planlagt: 07:20 03.05.2017<br>Faktisk: 07:18 03.05.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,4,04,07,20), y: -1, name: 'Planlagt: 07:20 04.05.2017<br>Faktisk: 07:19 04.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,05,07,20), y: -2, name: 'Planlagt: 07:20 05.05.2017<br>Faktisk: 07:18 05.05.2017<br>Forsinkelse: -2 minutter'}
-, {x: Date.UTC(2017,4,06,07,20), y: -17, name: 'Planlagt: 07:20 06.05.2017<br>Faktisk: 07:03 06.05.2017<br>Forsinkelse: -17 minutter'}
+, {x: Date.UTC(2017,4,06,07,20), y: -5, name: 'Planlagt: 07:20 06.05.2017<br>Faktisk: 07:03 06.05.2017<br>Forsinkelse: -17 minutter'}
 , {x: Date.UTC(2017,4,08,07,20), y: 0, name: 'Planlagt: 07:20 08.05.2017<br>Faktisk: 07:20 08.05.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,4,09,07,20), y: -2, name: 'Planlagt: 07:20 09.05.2017<br>Faktisk: 07:18 09.05.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,4,10,07,20), y: -1, name: 'Planlagt: 07:20 10.05.2017<br>Faktisk: 07:19 10.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,11,07,20), y: -1, name: 'Planlagt: 07:20 11.05.2017<br>Faktisk: 07:19 11.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,12,07,20), y: -1, name: 'Planlagt: 07:20 12.05.2017<br>Faktisk: 07:19 12.05.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,4,13,07,20), y: -9, name: 'Planlagt: 07:20 13.05.2017<br>Faktisk: 07:11 13.05.2017<br>Forsinkelse: -9 minutter'}
+, {x: Date.UTC(2017,4,13,07,20), y: -5, name: 'Planlagt: 07:20 13.05.2017<br>Faktisk: 07:11 13.05.2017<br>Forsinkelse: -9 minutter'}
 , {x: Date.UTC(2017,4,15,07,20), y: 0, name: 'Planlagt: 07:20 15.05.2017<br>Faktisk: 07:20 15.05.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,4,16,07,20), y: -1, name: 'Planlagt: 07:20 16.05.2017<br>Faktisk: 07:19 16.05.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,4,17,07,20), y: -16, name: 'Planlagt: 07:20 17.05.2017<br>Faktisk: 07:04 17.05.2017<br>Forsinkelse: -16 minutter'}
+, {x: Date.UTC(2017,4,17,07,20), y: -5, name: 'Planlagt: 07:20 17.05.2017<br>Faktisk: 07:04 17.05.2017<br>Forsinkelse: -16 minutter'}
 , {x: Date.UTC(2017,4,19,07,20), y: -2, name: 'Planlagt: 07:20 19.05.2017<br>Faktisk: 07:18 19.05.2017<br>Forsinkelse: -2 minutter'}
-, {x: Date.UTC(2017,4,20,07,20), y: -20, name: 'Planlagt: 07:20 20.05.2017<br>Faktisk: 07:00 20.05.2017<br>Forsinkelse: -20 minutter'}
+, {x: Date.UTC(2017,4,20,07,20), y: -5, name: 'Planlagt: 07:20 20.05.2017<br>Faktisk: 07:00 20.05.2017<br>Forsinkelse: -20 minutter'}
 , {x: Date.UTC(2017,4,24,07,20), y: -1, name: 'Planlagt: 07:20 24.05.2017<br>Faktisk: 07:19 24.05.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,4,25,07,20), y: -26, name: 'Planlagt: 07:20 25.05.2017<br>Faktisk: 06:54 25.05.2017<br>Forsinkelse: -26 minutter'}
-, {x: Date.UTC(2017,4,27,07,20), y: -26, name: 'Planlagt: 07:20 27.05.2017<br>Faktisk: 06:54 27.05.2017<br>Forsinkelse: -26 minutter'}
+, {x: Date.UTC(2017,4,25,07,20), y: -5, name: 'Planlagt: 07:20 25.05.2017<br>Faktisk: 06:54 25.05.2017<br>Forsinkelse: -26 minutter'}
+, {x: Date.UTC(2017,4,27,07,20), y: -5, name: 'Planlagt: 07:20 27.05.2017<br>Faktisk: 06:54 27.05.2017<br>Forsinkelse: -26 minutter'}
 , {x: Date.UTC(2017,4,29,07,20), y: -1, name: 'Planlagt: 07:20 29.05.2017<br>Faktisk: 07:19 29.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,30,07,20), y: -1, name: 'Planlagt: 07:20 30.05.2017<br>Faktisk: 07:19 30.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,31,07,20), y: -1, name: 'Planlagt: 07:20 31.05.2017<br>Faktisk: 07:19 31.05.2017<br>Forsinkelse: -1 minutter'}
@@ -325,18 +344,22 @@ Highcharts.chart('container', {
     }, {
         name: 'Litt forsinket',
         color: '#b77621',
+	turboThreshold: 0,
         data: []
     }, {
         name: 'Forsinket',
         color: '#ff0000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,4,23,07,20), y: 28, name: 'Planlagt: 07:20 23.05.2017<br>Faktisk: 07:48 23.05.2017<br>Forsinkelse: 28 minutter'}
 ]
     }, {
         name: 'Innstilt',
         color: '#a20404',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,4,22,07,20), y: 0, name: 'Planlagt: 07:20 22.05.2017'}
 ]
     }]
 });
 document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
 </script>

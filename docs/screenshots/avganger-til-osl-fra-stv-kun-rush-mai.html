@@ -1,0 +1,145 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+		<div id="container" style="width: 100%; height: 100%; margin: 0 auto; display: none;"></div>
+		<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Avganger til OSL fra STV - Kun rush i Mai'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/avganger-til-osl-fra-stv-kun-rush-mai.html'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,4,02,08,49), y: 0, name: 'Planlagt: 08:49 02.05.2017<br>Faktisk: 08:49 02.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,03,08,49), y: 0, name: 'Planlagt: 08:49 03.05.2017<br>Faktisk: 08:49 03.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,04,08,49), y: 0, name: 'Planlagt: 08:49 04.05.2017<br>Faktisk: 08:49 04.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,05,08,49), y: 0, name: 'Planlagt: 08:49 05.05.2017<br>Faktisk: 08:49 05.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,05,15,33), y: 0, name: 'Planlagt: 15:33 05.05.2017<br>Faktisk: 15:33 05.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,06,08,49), y: 0, name: 'Planlagt: 08:49 06.05.2017<br>Faktisk: 08:49 06.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,07,15,33), y: 0, name: 'Planlagt: 15:33 07.05.2017<br>Faktisk: 15:33 07.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,08,08,49), y: 0, name: 'Planlagt: 08:49 08.05.2017<br>Faktisk: 08:49 08.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,09,08,49), y: 1, name: 'Planlagt: 08:49 09.05.2017<br>Faktisk: 08:50 09.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,10,08,49), y: 0, name: 'Planlagt: 08:49 10.05.2017<br>Faktisk: 08:49 10.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,11,08,49), y: 0, name: 'Planlagt: 08:49 11.05.2017<br>Faktisk: 08:49 11.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,12,15,33), y: 1, name: 'Planlagt: 15:33 12.05.2017<br>Faktisk: 15:34 12.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,15,08,49), y: 0, name: 'Planlagt: 08:49 15.05.2017<br>Faktisk: 08:49 15.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,16,08,49), y: 0, name: 'Planlagt: 08:49 16.05.2017<br>Faktisk: 08:49 16.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,17,15,33), y: 1, name: 'Planlagt: 15:33 17.05.2017<br>Faktisk: 15:34 17.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,18,08,49), y: 0, name: 'Planlagt: 08:49 18.05.2017<br>Faktisk: 08:49 18.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,19,08,49), y: 0, name: 'Planlagt: 08:49 19.05.2017<br>Faktisk: 08:49 19.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,19,15,33), y: 0, name: 'Planlagt: 15:33 19.05.2017<br>Faktisk: 15:33 19.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,22,08,49), y: 0, name: 'Planlagt: 08:49 22.05.2017<br>Faktisk: 08:49 22.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,23,08,49), y: 2, name: 'Planlagt: 08:49 23.05.2017<br>Faktisk: 08:51 23.05.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,4,24,08,49), y: 0, name: 'Planlagt: 08:49 24.05.2017<br>Faktisk: 08:49 24.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,25,08,49), y: 1, name: 'Planlagt: 08:49 25.05.2017<br>Faktisk: 08:50 25.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,27,08,49), y: 0, name: 'Planlagt: 08:49 27.05.2017<br>Faktisk: 08:49 27.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,28,15,33), y: 0, name: 'Planlagt: 15:33 28.05.2017<br>Faktisk: 15:33 28.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,29,08,49), y: 0, name: 'Planlagt: 08:49 29.05.2017<br>Faktisk: 08:49 29.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,30,08,49), y: 1, name: 'Planlagt: 08:49 30.05.2017<br>Faktisk: 08:50 30.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,31,08,49), y: 0, name: 'Planlagt: 08:49 31.05.2017<br>Faktisk: 08:49 31.05.2017<br>Forsinkelse: 0 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,4,01,08,49), y: 0, name: 'Planlagt: 08:49 01.05.2017<br>Faktisk: 00:59 01.01.1970<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,12,08,49), y: 6, name: 'Planlagt: 08:49 12.05.2017<br>Faktisk: 08:55 12.05.2017<br>Forsinkelse: 6 minutter'}
+, {x: Date.UTC(2017,4,14,15,33), y: 4, name: 'Planlagt: 15:33 14.05.2017<br>Faktisk: 15:37 14.05.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,4,26,15,33), y: 8, name: 'Planlagt: 15:33 26.05.2017<br>Faktisk: 15:41 26.05.2017<br>Forsinkelse: 8 minutter'}
+]
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+	turboThreshold: 0,
+        data: []
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,4,01,15,33), y: 0, name: 'Planlagt: 15:33 01.05.2017'}
+, {x: Date.UTC(2017,4,02,15,33), y: 0, name: 'Planlagt: 15:33 02.05.2017'}
+, {x: Date.UTC(2017,4,03,15,33), y: 0, name: 'Planlagt: 15:33 03.05.2017'}
+, {x: Date.UTC(2017,4,04,15,33), y: 0, name: 'Planlagt: 15:33 04.05.2017'}
+, {x: Date.UTC(2017,4,07,08,49), y: 0, name: 'Planlagt: 08:49 07.05.2017'}
+, {x: Date.UTC(2017,4,08,15,33), y: 0, name: 'Planlagt: 15:33 08.05.2017'}
+, {x: Date.UTC(2017,4,09,15,33), y: 0, name: 'Planlagt: 15:33 09.05.2017'}
+, {x: Date.UTC(2017,4,10,15,33), y: 0, name: 'Planlagt: 15:33 10.05.2017'}
+, {x: Date.UTC(2017,4,11,15,33), y: 0, name: 'Planlagt: 15:33 11.05.2017'}
+, {x: Date.UTC(2017,4,13,08,49), y: 0, name: 'Planlagt: 08:49 13.05.2017'}
+, {x: Date.UTC(2017,4,14,08,49), y: 0, name: 'Planlagt: 08:49 14.05.2017'}
+, {x: Date.UTC(2017,4,15,15,33), y: 0, name: 'Planlagt: 15:33 15.05.2017'}
+, {x: Date.UTC(2017,4,16,15,33), y: 0, name: 'Planlagt: 15:33 16.05.2017'}
+, {x: Date.UTC(2017,4,18,15,33), y: 0, name: 'Planlagt: 15:33 18.05.2017'}
+, {x: Date.UTC(2017,4,20,08,49), y: 0, name: 'Planlagt: 08:49 20.05.2017'}
+, {x: Date.UTC(2017,4,21,08,49), y: 0, name: 'Planlagt: 08:49 21.05.2017'}
+, {x: Date.UTC(2017,4,21,15,33), y: 0, name: 'Planlagt: 15:33 21.05.2017'}
+, {x: Date.UTC(2017,4,22,15,33), y: 0, name: 'Planlagt: 15:33 22.05.2017'}
+, {x: Date.UTC(2017,4,23,15,33), y: 0, name: 'Planlagt: 15:33 23.05.2017'}
+, {x: Date.UTC(2017,4,24,15,33), y: 0, name: 'Planlagt: 15:33 24.05.2017'}
+, {x: Date.UTC(2017,4,25,15,33), y: 0, name: 'Planlagt: 15:33 25.05.2017'}
+, {x: Date.UTC(2017,4,26,08,49), y: 0, name: 'Planlagt: 08:49 26.05.2017'}
+, {x: Date.UTC(2017,4,28,08,49), y: 0, name: 'Planlagt: 08:49 28.05.2017'}
+, {x: Date.UTC(2017,4,29,15,33), y: 0, name: 'Planlagt: 15:33 29.05.2017'}
+, {x: Date.UTC(2017,4,30,15,33), y: 0, name: 'Planlagt: 15:33 30.05.2017'}
+, {x: Date.UTC(2017,4,31,15,33), y: 0, name: 'Planlagt: 15:33 31.05.2017'}
+]
+    }]
+});
+document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
+</script>

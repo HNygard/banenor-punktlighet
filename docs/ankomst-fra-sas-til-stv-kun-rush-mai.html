@@ -1,5 +1,19 @@
 <h1>Ankomst fra SAS til STV - Kun rush i Mai</h1>
-<style>
+<html>
+<head>
+<title>Ankomst fra SAS til STV - Kun rush i Mai</title>
+
+<meta name="author" content="Hallvard Nygård, @hallny">
+<meta name="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@hallny">
+<meta name="twitter:site" content="@hallny">
+<meta name="twitter:title" content="Innsyn i ankomst fra SAS til STV - Kun rush i Mai">
+<meta name="twitter:image" content="screenshots/ankomst-fra-sas-til-stv-kun-rush-mai.png">
+<meta itemprop="name" content="Innsyn i ankomst fra SAS til STV - Kun rush i Mai">
+<meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+
+</head><style>
 table {
     border-collapse: collapse;
 }
@@ -23,6 +37,8 @@ table td, table th {
 	margin: 0;
 }
 </style>
+</head>
+<body>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  basert på data fra BaneNOR (
@@ -35,6 +51,8 @@ table td, table th {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
+<a id="containerlink" style="float: right; display: none;" href="screenshots/ankomst-fra-sas-til-stv-kun-rush-mai.png">Last ned graf</a>
 
 Antall ankomster: 160
 
@@ -1191,7 +1209,7 @@ Highcharts.chart('container', {
         text: 'Ankomst fra SAS til STV - Kun rush i Mai'
     },
     subtitle: {
-        text: 'https://hnygard.github.io/banenor-punktlighet/'
+        text: 'https://hnygard.github.io/banenor-punktlighet/ankomst-fra-sas-til-stv-kun-rush-mai.html'
     },
     xAxis: {
         type: 'datetime',
@@ -1244,6 +1262,7 @@ Highcharts.chart('container', {
     series: [{
         name: 'På tiden',
         color: '#008000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,4,02,07,15), y: -1, name: 'Planlagt: 07:15 02.05.2017<br>Faktisk: 07:14 02.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,02,07,45), y: -1, name: 'Planlagt: 07:45 02.05.2017<br>Faktisk: 07:44 02.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,02,08,15), y: 1, name: 'Planlagt: 08:15 02.05.2017<br>Faktisk: 08:16 02.05.2017<br>Forsinkelse: 1 minutter'}
@@ -1406,19 +1425,23 @@ Highcharts.chart('container', {
     }, {
         name: 'Litt forsinket',
         color: '#b77621',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,4,10,07,45), y: 6, name: 'Planlagt: 07:45 10.05.2017<br>Faktisk: 07:51 10.05.2017<br>Forsinkelse: 6 minutter'}
 ]
     }, {
         name: 'Forsinket',
         color: '#ff0000',
+	turboThreshold: 0,
         data: []
     }, {
         name: 'Innstilt',
         color: '#a20404',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,4,02,08,45), y: 0, name: 'Planlagt: 08:45 02.05.2017'}
 , {x: Date.UTC(2017,4,12,07,45), y: 0, name: 'Planlagt: 07:45 12.05.2017'}
 ]
     }]
 });
 document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
 </script>

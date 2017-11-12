@@ -1,0 +1,298 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+		<div id="container" style="width: 100%; height: 100%; margin: 0 auto; display: none;"></div>
+		<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Avgang 17:24 - 3054 til NBØ'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/tognr-1724---3054-til-NBOE.html'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,0,02,17,24), y: 0, name: 'Planlagt: 17:24 02.01.2017<br>Faktisk: 17:24 02.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,03,17,24), y: 0, name: 'Planlagt: 17:24 03.01.2017<br>Faktisk: 17:24 03.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,04,17,24), y: 0, name: 'Planlagt: 17:24 04.01.2017<br>Faktisk: 17:24 04.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,05,17,24), y: 0, name: 'Planlagt: 17:24 05.01.2017<br>Faktisk: 17:24 05.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,06,17,24), y: 0, name: 'Planlagt: 17:24 06.01.2017<br>Faktisk: 17:24 06.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,09,17,24), y: 0, name: 'Planlagt: 17:24 09.01.2017<br>Faktisk: 17:24 09.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,10,17,24), y: 0, name: 'Planlagt: 17:24 10.01.2017<br>Faktisk: 17:24 10.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,12,17,24), y: 0, name: 'Planlagt: 17:24 12.01.2017<br>Faktisk: 17:24 12.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,13,17,24), y: 0, name: 'Planlagt: 17:24 13.01.2017<br>Faktisk: 17:24 13.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,16,17,24), y: 0, name: 'Planlagt: 17:24 16.01.2017<br>Faktisk: 17:24 16.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,17,17,24), y: 0, name: 'Planlagt: 17:24 17.01.2017<br>Faktisk: 17:24 17.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,18,17,24), y: 0, name: 'Planlagt: 17:24 18.01.2017<br>Faktisk: 17:24 18.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,19,17,24), y: 0, name: 'Planlagt: 17:24 19.01.2017<br>Faktisk: 17:24 19.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,20,17,24), y: 0, name: 'Planlagt: 17:24 20.01.2017<br>Faktisk: 17:24 20.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,23,17,24), y: 0, name: 'Planlagt: 17:24 23.01.2017<br>Faktisk: 17:24 23.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,24,17,24), y: 0, name: 'Planlagt: 17:24 24.01.2017<br>Faktisk: 17:24 24.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,25,17,24), y: 0, name: 'Planlagt: 17:24 25.01.2017<br>Faktisk: 17:24 25.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,26,17,24), y: 0, name: 'Planlagt: 17:24 26.01.2017<br>Faktisk: 17:24 26.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,27,17,24), y: 0, name: 'Planlagt: 17:24 27.01.2017<br>Faktisk: 17:24 27.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,30,17,24), y: 0, name: 'Planlagt: 17:24 30.01.2017<br>Faktisk: 17:24 30.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,31,17,24), y: 0, name: 'Planlagt: 17:24 31.01.2017<br>Faktisk: 17:24 31.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,01,17,24), y: 0, name: 'Planlagt: 17:24 01.02.2017<br>Faktisk: 17:24 01.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,02,17,24), y: 0, name: 'Planlagt: 17:24 02.02.2017<br>Faktisk: 17:24 02.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,03,17,24), y: 0, name: 'Planlagt: 17:24 03.02.2017<br>Faktisk: 17:24 03.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,06,17,24), y: 0, name: 'Planlagt: 17:24 06.02.2017<br>Faktisk: 17:24 06.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,07,17,24), y: 0, name: 'Planlagt: 17:24 07.02.2017<br>Faktisk: 17:24 07.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,08,17,24), y: 0, name: 'Planlagt: 17:24 08.02.2017<br>Faktisk: 17:24 08.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,09,17,24), y: 0, name: 'Planlagt: 17:24 09.02.2017<br>Faktisk: 17:24 09.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,10,17,24), y: 0, name: 'Planlagt: 17:24 10.02.2017<br>Faktisk: 17:24 10.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,13,17,24), y: 0, name: 'Planlagt: 17:24 13.02.2017<br>Faktisk: 17:24 13.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,14,17,24), y: 0, name: 'Planlagt: 17:24 14.02.2017<br>Faktisk: 17:24 14.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,15,17,24), y: 0, name: 'Planlagt: 17:24 15.02.2017<br>Faktisk: 17:24 15.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,16,17,24), y: 0, name: 'Planlagt: 17:24 16.02.2017<br>Faktisk: 17:24 16.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,17,17,24), y: 0, name: 'Planlagt: 17:24 17.02.2017<br>Faktisk: 17:24 17.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,21,17,24), y: 0, name: 'Planlagt: 17:24 21.02.2017<br>Faktisk: 17:24 21.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,22,17,24), y: 2, name: 'Planlagt: 17:24 22.02.2017<br>Faktisk: 17:26 22.02.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,1,23,17,24), y: 0, name: 'Planlagt: 17:24 23.02.2017<br>Faktisk: 17:24 23.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,24,17,24), y: 0, name: 'Planlagt: 17:24 24.02.2017<br>Faktisk: 17:24 24.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,27,17,24), y: 0, name: 'Planlagt: 17:24 27.02.2017<br>Faktisk: 17:24 27.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,28,17,24), y: 0, name: 'Planlagt: 17:24 28.02.2017<br>Faktisk: 17:24 28.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,01,17,24), y: 0, name: 'Planlagt: 17:24 01.03.2017<br>Faktisk: 17:24 01.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,02,17,24), y: 0, name: 'Planlagt: 17:24 02.03.2017<br>Faktisk: 17:24 02.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,03,17,24), y: 0, name: 'Planlagt: 17:24 03.03.2017<br>Faktisk: 17:24 03.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,06,17,24), y: 0, name: 'Planlagt: 17:24 06.03.2017<br>Faktisk: 17:24 06.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,07,17,24), y: 0, name: 'Planlagt: 17:24 07.03.2017<br>Faktisk: 17:24 07.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,09,17,24), y: 0, name: 'Planlagt: 17:24 09.03.2017<br>Faktisk: 17:24 09.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,10,17,24), y: 0, name: 'Planlagt: 17:24 10.03.2017<br>Faktisk: 17:24 10.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,13,17,24), y: 0, name: 'Planlagt: 17:24 13.03.2017<br>Faktisk: 17:24 13.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,14,17,24), y: 0, name: 'Planlagt: 17:24 14.03.2017<br>Faktisk: 17:24 14.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,15,17,24), y: 0, name: 'Planlagt: 17:24 15.03.2017<br>Faktisk: 17:24 15.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,16,17,24), y: 0, name: 'Planlagt: 17:24 16.03.2017<br>Faktisk: 17:24 16.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,17,17,24), y: 0, name: 'Planlagt: 17:24 17.03.2017<br>Faktisk: 17:24 17.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,20,17,24), y: 0, name: 'Planlagt: 17:24 20.03.2017<br>Faktisk: 17:24 20.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,21,17,24), y: 0, name: 'Planlagt: 17:24 21.03.2017<br>Faktisk: 17:24 21.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,22,17,24), y: 0, name: 'Planlagt: 17:24 22.03.2017<br>Faktisk: 17:24 22.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,23,17,24), y: 0, name: 'Planlagt: 17:24 23.03.2017<br>Faktisk: 17:24 23.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,24,17,24), y: 0, name: 'Planlagt: 17:24 24.03.2017<br>Faktisk: 17:24 24.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,27,17,24), y: 0, name: 'Planlagt: 17:24 27.03.2017<br>Faktisk: 17:24 27.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,28,17,24), y: 0, name: 'Planlagt: 17:24 28.03.2017<br>Faktisk: 17:24 28.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,29,17,24), y: 0, name: 'Planlagt: 17:24 29.03.2017<br>Faktisk: 17:24 29.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,30,17,24), y: 0, name: 'Planlagt: 17:24 30.03.2017<br>Faktisk: 17:24 30.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,31,17,24), y: 0, name: 'Planlagt: 17:24 31.03.2017<br>Faktisk: 17:24 31.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,03,17,24), y: 0, name: 'Planlagt: 17:24 03.04.2017<br>Faktisk: 17:24 03.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,04,17,24), y: 0, name: 'Planlagt: 17:24 04.04.2017<br>Faktisk: 17:24 04.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,05,17,24), y: 0, name: 'Planlagt: 17:24 05.04.2017<br>Faktisk: 17:24 05.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,06,17,24), y: 0, name: 'Planlagt: 17:24 06.04.2017<br>Faktisk: 17:24 06.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,07,17,24), y: 0, name: 'Planlagt: 17:24 07.04.2017<br>Faktisk: 17:24 07.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,10,17,24), y: 1, name: 'Planlagt: 17:24 10.04.2017<br>Faktisk: 17:25 10.04.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,3,11,17,24), y: 0, name: 'Planlagt: 17:24 11.04.2017<br>Faktisk: 17:24 11.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,12,17,24), y: 0, name: 'Planlagt: 17:24 12.04.2017<br>Faktisk: 17:24 12.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,18,17,24), y: 0, name: 'Planlagt: 17:24 18.04.2017<br>Faktisk: 17:24 18.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,19,17,24), y: 0, name: 'Planlagt: 17:24 19.04.2017<br>Faktisk: 17:24 19.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,20,17,24), y: 0, name: 'Planlagt: 17:24 20.04.2017<br>Faktisk: 17:24 20.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,21,17,24), y: 0, name: 'Planlagt: 17:24 21.04.2017<br>Faktisk: 17:24 21.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,24,17,24), y: 0, name: 'Planlagt: 17:24 24.04.2017<br>Faktisk: 17:24 24.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,25,17,24), y: 0, name: 'Planlagt: 17:24 25.04.2017<br>Faktisk: 17:24 25.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,26,17,24), y: 0, name: 'Planlagt: 17:24 26.04.2017<br>Faktisk: 17:24 26.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,27,17,24), y: 0, name: 'Planlagt: 17:24 27.04.2017<br>Faktisk: 17:24 27.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,28,17,24), y: 0, name: 'Planlagt: 17:24 28.04.2017<br>Faktisk: 17:24 28.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,02,17,24), y: 0, name: 'Planlagt: 17:24 02.05.2017<br>Faktisk: 17:24 02.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,03,17,24), y: 0, name: 'Planlagt: 17:24 03.05.2017<br>Faktisk: 17:24 03.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,04,17,24), y: 0, name: 'Planlagt: 17:24 04.05.2017<br>Faktisk: 17:24 04.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,05,17,24), y: 0, name: 'Planlagt: 17:24 05.05.2017<br>Faktisk: 17:24 05.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,08,17,24), y: 0, name: 'Planlagt: 17:24 08.05.2017<br>Faktisk: 17:24 08.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,09,17,24), y: 0, name: 'Planlagt: 17:24 09.05.2017<br>Faktisk: 17:24 09.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,10,17,24), y: 0, name: 'Planlagt: 17:24 10.05.2017<br>Faktisk: 17:24 10.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,11,17,24), y: 0, name: 'Planlagt: 17:24 11.05.2017<br>Faktisk: 17:24 11.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,12,17,24), y: 0, name: 'Planlagt: 17:24 12.05.2017<br>Faktisk: 17:24 12.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,15,17,24), y: 0, name: 'Planlagt: 17:24 15.05.2017<br>Faktisk: 17:24 15.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,16,17,24), y: 0, name: 'Planlagt: 17:24 16.05.2017<br>Faktisk: 17:24 16.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,18,17,24), y: 0, name: 'Planlagt: 17:24 18.05.2017<br>Faktisk: 17:24 18.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,19,17,24), y: 0, name: 'Planlagt: 17:24 19.05.2017<br>Faktisk: 17:24 19.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,22,17,24), y: 0, name: 'Planlagt: 17:24 22.05.2017<br>Faktisk: 17:24 22.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,23,17,24), y: 0, name: 'Planlagt: 17:24 23.05.2017<br>Faktisk: 17:24 23.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,24,17,24), y: 0, name: 'Planlagt: 17:24 24.05.2017<br>Faktisk: 17:24 24.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,26,17,24), y: 0, name: 'Planlagt: 17:24 26.05.2017<br>Faktisk: 17:24 26.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,29,17,24), y: 1, name: 'Planlagt: 17:24 29.05.2017<br>Faktisk: 17:25 29.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,30,17,24), y: 0, name: 'Planlagt: 17:24 30.05.2017<br>Faktisk: 17:24 30.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,31,17,24), y: 0, name: 'Planlagt: 17:24 31.05.2017<br>Faktisk: 17:24 31.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,01,17,24), y: 0, name: 'Planlagt: 17:24 01.06.2017<br>Faktisk: 17:24 01.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,06,17,24), y: 0, name: 'Planlagt: 17:24 06.06.2017<br>Faktisk: 17:24 06.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,07,17,24), y: 1, name: 'Planlagt: 17:24 07.06.2017<br>Faktisk: 17:25 07.06.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,5,08,17,24), y: 0, name: 'Planlagt: 17:24 08.06.2017<br>Faktisk: 17:24 08.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,09,17,24), y: 0, name: 'Planlagt: 17:24 09.06.2017<br>Faktisk: 17:24 09.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,12,17,24), y: 0, name: 'Planlagt: 17:24 12.06.2017<br>Faktisk: 17:24 12.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,13,17,24), y: 2, name: 'Planlagt: 17:24 13.06.2017<br>Faktisk: 17:26 13.06.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,5,14,17,24), y: 0, name: 'Planlagt: 17:24 14.06.2017<br>Faktisk: 17:24 14.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,15,17,24), y: 0, name: 'Planlagt: 17:24 15.06.2017<br>Faktisk: 17:24 15.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,16,17,24), y: 0, name: 'Planlagt: 17:24 16.06.2017<br>Faktisk: 17:24 16.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,14,17,24), y: 0, name: 'Planlagt: 17:24 14.08.2017<br>Faktisk: 17:24 14.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,15,17,24), y: 1, name: 'Planlagt: 17:24 15.08.2017<br>Faktisk: 17:25 15.08.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,7,16,17,24), y: 0, name: 'Planlagt: 17:24 16.08.2017<br>Faktisk: 17:24 16.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,17,17,24), y: 0, name: 'Planlagt: 17:24 17.08.2017<br>Faktisk: 17:24 17.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,18,17,24), y: 0, name: 'Planlagt: 17:24 18.08.2017<br>Faktisk: 17:24 18.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,21,17,24), y: 0, name: 'Planlagt: 17:24 21.08.2017<br>Faktisk: 17:24 21.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,22,17,24), y: 0, name: 'Planlagt: 17:24 22.08.2017<br>Faktisk: 17:24 22.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,23,17,24), y: 0, name: 'Planlagt: 17:24 23.08.2017<br>Faktisk: 17:24 23.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,24,17,24), y: 0, name: 'Planlagt: 17:24 24.08.2017<br>Faktisk: 17:24 24.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,25,17,24), y: 0, name: 'Planlagt: 17:24 25.08.2017<br>Faktisk: 17:24 25.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,28,17,24), y: 0, name: 'Planlagt: 17:24 28.08.2017<br>Faktisk: 17:24 28.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,29,17,24), y: 0, name: 'Planlagt: 17:24 29.08.2017<br>Faktisk: 17:24 29.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,30,17,24), y: 0, name: 'Planlagt: 17:24 30.08.2017<br>Faktisk: 17:24 30.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,31,17,24), y: 0, name: 'Planlagt: 17:24 31.08.2017<br>Faktisk: 17:24 31.08.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,01,17,24), y: 0, name: 'Planlagt: 17:24 01.09.2017<br>Faktisk: 17:24 01.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,04,17,24), y: 0, name: 'Planlagt: 17:24 04.09.2017<br>Faktisk: 17:24 04.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,05,17,24), y: 0, name: 'Planlagt: 17:24 05.09.2017<br>Faktisk: 17:24 05.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,06,17,24), y: 0, name: 'Planlagt: 17:24 06.09.2017<br>Faktisk: 17:24 06.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,07,17,24), y: 0, name: 'Planlagt: 17:24 07.09.2017<br>Faktisk: 17:24 07.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,08,17,24), y: 0, name: 'Planlagt: 17:24 08.09.2017<br>Faktisk: 17:24 08.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,11,17,24), y: 0, name: 'Planlagt: 17:24 11.09.2017<br>Faktisk: 17:24 11.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,12,17,24), y: 0, name: 'Planlagt: 17:24 12.09.2017<br>Faktisk: 17:24 12.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,13,17,24), y: 0, name: 'Planlagt: 17:24 13.09.2017<br>Faktisk: 17:24 13.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,14,17,24), y: 0, name: 'Planlagt: 17:24 14.09.2017<br>Faktisk: 17:24 14.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,15,17,24), y: 0, name: 'Planlagt: 17:24 15.09.2017<br>Faktisk: 17:24 15.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,18,17,24), y: 0, name: 'Planlagt: 17:24 18.09.2017<br>Faktisk: 17:24 18.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,19,17,24), y: 0, name: 'Planlagt: 17:24 19.09.2017<br>Faktisk: 17:24 19.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,20,17,24), y: 0, name: 'Planlagt: 17:24 20.09.2017<br>Faktisk: 17:24 20.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,21,17,24), y: 0, name: 'Planlagt: 17:24 21.09.2017<br>Faktisk: 17:24 21.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,22,17,24), y: 0, name: 'Planlagt: 17:24 22.09.2017<br>Faktisk: 17:24 22.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,25,17,24), y: 0, name: 'Planlagt: 17:24 25.09.2017<br>Faktisk: 17:24 25.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,26,17,24), y: 1, name: 'Planlagt: 17:24 26.09.2017<br>Faktisk: 17:25 26.09.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,8,27,17,24), y: 0, name: 'Planlagt: 17:24 27.09.2017<br>Faktisk: 17:24 27.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,28,17,24), y: 0, name: 'Planlagt: 17:24 28.09.2017<br>Faktisk: 17:24 28.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,8,29,17,24), y: 0, name: 'Planlagt: 17:24 29.09.2017<br>Faktisk: 17:24 29.09.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,02,17,24), y: 0, name: 'Planlagt: 17:24 02.10.2017<br>Faktisk: 17:24 02.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,03,17,24), y: 0, name: 'Planlagt: 17:24 03.10.2017<br>Faktisk: 17:24 03.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,04,17,24), y: 0, name: 'Planlagt: 17:24 04.10.2017<br>Faktisk: 17:24 04.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,05,17,24), y: 0, name: 'Planlagt: 17:24 05.10.2017<br>Faktisk: 17:24 05.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,06,17,24), y: 0, name: 'Planlagt: 17:24 06.10.2017<br>Faktisk: 17:24 06.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,09,17,24), y: 0, name: 'Planlagt: 17:24 09.10.2017<br>Faktisk: 17:24 09.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,10,17,24), y: 0, name: 'Planlagt: 17:24 10.10.2017<br>Faktisk: 17:24 10.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,11,17,24), y: 0, name: 'Planlagt: 17:24 11.10.2017<br>Faktisk: 17:24 11.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,12,17,24), y: 0, name: 'Planlagt: 17:24 12.10.2017<br>Faktisk: 17:24 12.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,13,17,24), y: 0, name: 'Planlagt: 17:24 13.10.2017<br>Faktisk: 17:24 13.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,16,17,24), y: 0, name: 'Planlagt: 17:24 16.10.2017<br>Faktisk: 17:24 16.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,17,17,24), y: 0, name: 'Planlagt: 17:24 17.10.2017<br>Faktisk: 17:24 17.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,18,17,24), y: 0, name: 'Planlagt: 17:24 18.10.2017<br>Faktisk: 17:24 18.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,19,17,24), y: 0, name: 'Planlagt: 17:24 19.10.2017<br>Faktisk: 17:24 19.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,20,17,24), y: 0, name: 'Planlagt: 17:24 20.10.2017<br>Faktisk: 17:24 20.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,23,17,24), y: 0, name: 'Planlagt: 17:24 23.10.2017<br>Faktisk: 17:24 23.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,24,17,24), y: 0, name: 'Planlagt: 17:24 24.10.2017<br>Faktisk: 17:24 24.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,25,17,24), y: 0, name: 'Planlagt: 17:24 25.10.2017<br>Faktisk: 17:24 25.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,26,17,24), y: 0, name: 'Planlagt: 17:24 26.10.2017<br>Faktisk: 17:24 26.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,27,17,24), y: 0, name: 'Planlagt: 17:24 27.10.2017<br>Faktisk: 17:24 27.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,30,17,24), y: 0, name: 'Planlagt: 17:24 30.10.2017<br>Faktisk: 17:24 30.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,31,17,24), y: 0, name: 'Planlagt: 17:24 31.10.2017<br>Faktisk: 17:24 31.10.2017<br>Forsinkelse: 0 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,1,20,17,24), y: 4, name: 'Planlagt: 17:24 20.02.2017<br>Faktisk: 17:28 20.02.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,2,08,17,24), y: 8, name: 'Planlagt: 17:24 08.03.2017<br>Faktisk: 17:32 08.03.2017<br>Forsinkelse: 8 minutter'}
+, {x: Date.UTC(2017,5,02,17,24), y: 9, name: 'Planlagt: 17:24 02.06.2017<br>Faktisk: 17:33 02.06.2017<br>Forsinkelse: 9 minutter'}
+]
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+	turboThreshold: 0,
+        data: []
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,0,11,17,24), y: 0, name: 'Planlagt: 17:24 11.01.2017'}
+, {x: Date.UTC(2017,5,19,17,24), y: 0, name: 'Planlagt: 17:24 19.06.2017'}
+, {x: Date.UTC(2017,5,20,17,24), y: 0, name: 'Planlagt: 17:24 20.06.2017'}
+, {x: Date.UTC(2017,5,21,17,24), y: 0, name: 'Planlagt: 17:24 21.06.2017'}
+, {x: Date.UTC(2017,5,22,17,24), y: 0, name: 'Planlagt: 17:24 22.06.2017'}
+, {x: Date.UTC(2017,5,23,17,24), y: 0, name: 'Planlagt: 17:24 23.06.2017'}
+, {x: Date.UTC(2017,5,26,17,24), y: 0, name: 'Planlagt: 17:24 26.06.2017'}
+, {x: Date.UTC(2017,5,27,17,24), y: 0, name: 'Planlagt: 17:24 27.06.2017'}
+, {x: Date.UTC(2017,5,28,17,24), y: 0, name: 'Planlagt: 17:24 28.06.2017'}
+, {x: Date.UTC(2017,5,29,17,24), y: 0, name: 'Planlagt: 17:24 29.06.2017'}
+, {x: Date.UTC(2017,5,30,17,24), y: 0, name: 'Planlagt: 17:24 30.06.2017'}
+, {x: Date.UTC(2017,6,03,17,24), y: 0, name: 'Planlagt: 17:24 03.07.2017'}
+, {x: Date.UTC(2017,6,04,17,24), y: 0, name: 'Planlagt: 17:24 04.07.2017'}
+, {x: Date.UTC(2017,6,05,17,24), y: 0, name: 'Planlagt: 17:24 05.07.2017'}
+, {x: Date.UTC(2017,6,06,17,24), y: 0, name: 'Planlagt: 17:24 06.07.2017'}
+, {x: Date.UTC(2017,6,07,17,24), y: 0, name: 'Planlagt: 17:24 07.07.2017'}
+, {x: Date.UTC(2017,6,10,17,24), y: 0, name: 'Planlagt: 17:24 10.07.2017'}
+, {x: Date.UTC(2017,6,11,17,24), y: 0, name: 'Planlagt: 17:24 11.07.2017'}
+, {x: Date.UTC(2017,6,12,17,24), y: 0, name: 'Planlagt: 17:24 12.07.2017'}
+, {x: Date.UTC(2017,6,13,17,24), y: 0, name: 'Planlagt: 17:24 13.07.2017'}
+, {x: Date.UTC(2017,6,14,17,24), y: 0, name: 'Planlagt: 17:24 14.07.2017'}
+, {x: Date.UTC(2017,6,17,17,24), y: 0, name: 'Planlagt: 17:24 17.07.2017'}
+, {x: Date.UTC(2017,6,18,17,24), y: 0, name: 'Planlagt: 17:24 18.07.2017'}
+, {x: Date.UTC(2017,6,19,17,24), y: 0, name: 'Planlagt: 17:24 19.07.2017'}
+, {x: Date.UTC(2017,6,20,17,24), y: 0, name: 'Planlagt: 17:24 20.07.2017'}
+, {x: Date.UTC(2017,6,21,17,24), y: 0, name: 'Planlagt: 17:24 21.07.2017'}
+, {x: Date.UTC(2017,6,24,17,24), y: 0, name: 'Planlagt: 17:24 24.07.2017'}
+, {x: Date.UTC(2017,6,25,17,24), y: 0, name: 'Planlagt: 17:24 25.07.2017'}
+, {x: Date.UTC(2017,6,26,17,24), y: 0, name: 'Planlagt: 17:24 26.07.2017'}
+, {x: Date.UTC(2017,6,27,17,24), y: 0, name: 'Planlagt: 17:24 27.07.2017'}
+, {x: Date.UTC(2017,6,28,17,24), y: 0, name: 'Planlagt: 17:24 28.07.2017'}
+, {x: Date.UTC(2017,6,31,17,24), y: 0, name: 'Planlagt: 17:24 31.07.2017'}
+, {x: Date.UTC(2017,7,01,17,24), y: 0, name: 'Planlagt: 17:24 01.08.2017'}
+, {x: Date.UTC(2017,7,02,17,24), y: 0, name: 'Planlagt: 17:24 02.08.2017'}
+, {x: Date.UTC(2017,7,03,17,24), y: 0, name: 'Planlagt: 17:24 03.08.2017'}
+, {x: Date.UTC(2017,7,04,17,24), y: 0, name: 'Planlagt: 17:24 04.08.2017'}
+, {x: Date.UTC(2017,7,07,17,24), y: 0, name: 'Planlagt: 17:24 07.08.2017'}
+, {x: Date.UTC(2017,7,08,17,24), y: 0, name: 'Planlagt: 17:24 08.08.2017'}
+, {x: Date.UTC(2017,7,09,17,24), y: 0, name: 'Planlagt: 17:24 09.08.2017'}
+, {x: Date.UTC(2017,7,10,17,24), y: 0, name: 'Planlagt: 17:24 10.08.2017'}
+, {x: Date.UTC(2017,7,11,17,24), y: 0, name: 'Planlagt: 17:24 11.08.2017'}
+]
+    }]
+});
+document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
+</script>

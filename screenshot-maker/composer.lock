@@ -1,0 +1,101 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "9d76ebd8e0b9625f445d1304f7b33e79",
+    "content-hash": "d3b69867f7e48ef5ebd9c17a55925007",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "dawood/phpchromepdf",
+            "version": "v1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/daudmalik06/PhpChromeToPdf.git",
+                "reference": "8e713417fa4cf8d636af27e60e75f34ce8a03706"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/daudmalik06/PhpChromeToPdf/zipball/8e713417fa4cf8d636af27e60e75f34ce8a03706",
+                "reference": "8e713417fa4cf8d636af27e60e75f34ce8a03706",
+                "shasum": ""
+            },
+            "require": {
+                "mikehaertl/php-shellcommand": "^1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dawood\\phpChrome\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dawood Ikhlaq",
+                    "email": "daudmalik06@gmail.com"
+                }
+            ],
+            "description": "A slim PHP wrapper around google-chrome to convert url to pdf or to take screenshots , easy to use and clean OOP interface",
+            "keywords": [
+                "chrome",
+                "pdf",
+                "php",
+                "screenshots",
+                "shell"
+            ],
+            "time": "2017-07-24 16:41:27"
+        },
+        {
+            "name": "mikehaertl/php-shellcommand",
+            "version": "1.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mikehaertl/php-shellcommand.git",
+                "reference": "35a81f344bd771b0b1c1ae3f4dc986dddfd234b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikehaertl/php-shellcommand/zipball/35a81f344bd771b0b1c1ae3f4dc986dddfd234b9",
+                "reference": "35a81f344bd771b0b1c1ae3f4dc986dddfd234b9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "mikehaertl\\shellcommand\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Härtl",
+                    "email": "haertl.mike@gmail.com"
+                }
+            ],
+            "description": "An object oriented interface to shell commands",
+            "keywords": [
+                "shell"
+            ],
+            "time": "2017-06-30 06:21:01"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

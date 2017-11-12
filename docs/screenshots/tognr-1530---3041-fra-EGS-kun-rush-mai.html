@@ -1,0 +1,119 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+		<div id="container" style="width: 100%; height: 100%; margin: 0 auto; display: none;"></div>
+		<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Ankomst 15:30 - 3041 fra EGS - Kun rush i Mai'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/tognr-1530---3041-fra-EGS-kun-rush-mai.html'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,4,01,15,30), y: -1, name: 'Planlagt: 15:30 01.05.2017<br>Faktisk: 15:29 01.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,02,15,30), y: 0, name: 'Planlagt: 15:30 02.05.2017<br>Faktisk: 15:30 02.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,03,15,30), y: -1, name: 'Planlagt: 15:30 03.05.2017<br>Faktisk: 15:29 03.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,04,15,30), y: 0, name: 'Planlagt: 15:30 04.05.2017<br>Faktisk: 15:30 04.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,05,15,30), y: 0, name: 'Planlagt: 15:30 05.05.2017<br>Faktisk: 15:30 05.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,06,15,30), y: -1, name: 'Planlagt: 15:30 06.05.2017<br>Faktisk: 15:29 06.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,07,15,30), y: -1, name: 'Planlagt: 15:30 07.05.2017<br>Faktisk: 15:29 07.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,08,15,30), y: -1, name: 'Planlagt: 15:30 08.05.2017<br>Faktisk: 15:29 08.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,09,15,30), y: 0, name: 'Planlagt: 15:30 09.05.2017<br>Faktisk: 15:30 09.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,10,15,30), y: 1, name: 'Planlagt: 15:30 10.05.2017<br>Faktisk: 15:31 10.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,11,15,30), y: -1, name: 'Planlagt: 15:30 11.05.2017<br>Faktisk: 15:29 11.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,12,15,30), y: -1, name: 'Planlagt: 15:30 12.05.2017<br>Faktisk: 15:29 12.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,13,15,30), y: -1, name: 'Planlagt: 15:30 13.05.2017<br>Faktisk: 15:29 13.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,14,15,30), y: -1, name: 'Planlagt: 15:30 14.05.2017<br>Faktisk: 15:29 14.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,15,15,30), y: -1, name: 'Planlagt: 15:30 15.05.2017<br>Faktisk: 15:29 15.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,16,15,30), y: -1, name: 'Planlagt: 15:30 16.05.2017<br>Faktisk: 15:29 16.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,18,15,30), y: -1, name: 'Planlagt: 15:30 18.05.2017<br>Faktisk: 15:29 18.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,19,15,30), y: -1, name: 'Planlagt: 15:30 19.05.2017<br>Faktisk: 15:29 19.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,20,15,30), y: 2, name: 'Planlagt: 15:30 20.05.2017<br>Faktisk: 15:32 20.05.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,4,21,15,30), y: -1, name: 'Planlagt: 15:30 21.05.2017<br>Faktisk: 15:29 21.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,22,15,30), y: 0, name: 'Planlagt: 15:30 22.05.2017<br>Faktisk: 15:30 22.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,23,15,30), y: -1, name: 'Planlagt: 15:30 23.05.2017<br>Faktisk: 15:29 23.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,24,15,30), y: 0, name: 'Planlagt: 15:30 24.05.2017<br>Faktisk: 15:30 24.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,25,15,30), y: -1, name: 'Planlagt: 15:30 25.05.2017<br>Faktisk: 15:29 25.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,26,15,30), y: -1, name: 'Planlagt: 15:30 26.05.2017<br>Faktisk: 15:29 26.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,28,15,30), y: -1, name: 'Planlagt: 15:30 28.05.2017<br>Faktisk: 15:29 28.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,29,15,30), y: -1, name: 'Planlagt: 15:30 29.05.2017<br>Faktisk: 15:29 29.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,30,15,30), y: -1, name: 'Planlagt: 15:30 30.05.2017<br>Faktisk: 15:29 30.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,31,15,30), y: 2, name: 'Planlagt: 15:30 31.05.2017<br>Faktisk: 15:32 31.05.2017<br>Forsinkelse: 2 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+	turboThreshold: 0,
+        data: [{x: Date.UTC(2017,4,17,15,30), y: 3, name: 'Planlagt: 15:30 17.05.2017<br>Faktisk: 15:33 17.05.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,4,27,15,30), y: 3, name: 'Planlagt: 15:30 27.05.2017<br>Faktisk: 15:33 27.05.2017<br>Forsinkelse: 3 minutter'}
+]
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+	turboThreshold: 0,
+        data: []
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+	turboThreshold: 0,
+        data: []
+    }]
+});
+document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
+</script>

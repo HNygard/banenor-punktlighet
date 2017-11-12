@@ -1,5 +1,19 @@
 <h1>Ankomst fra OSL til STV</h1>
-<style>
+<html>
+<head>
+<title>Ankomst fra OSL til STV</title>
+
+<meta name="author" content="Hallvard Nygård, @hallny">
+<meta name="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@hallny">
+<meta name="twitter:site" content="@hallny">
+<meta name="twitter:title" content="Innsyn i ankomst fra OSL til STV">
+<meta name="twitter:image" content="screenshots/ankomst-fra-osl-til-stv.png">
+<meta itemprop="name" content="Innsyn i ankomst fra OSL til STV">
+<meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+
+</head><style>
 table {
     border-collapse: collapse;
 }
@@ -23,6 +37,8 @@ table td, table th {
 	margin: 0;
 }
 </style>
+</head>
+<body>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
  basert på data fra BaneNOR (
@@ -35,6 +51,8 @@ table td, table th {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
+<a id="containerlink" style="float: right; display: none;" href="screenshots/ankomst-fra-osl-til-stv.png">Last ned graf</a>
 
 Antall ankomster: 1842
 
@@ -12989,7 +13007,7 @@ Highcharts.chart('container', {
         text: 'Ankomst fra OSL til STV'
     },
     subtitle: {
-        text: 'https://hnygard.github.io/banenor-punktlighet/'
+        text: 'https://hnygard.github.io/banenor-punktlighet/ankomst-fra-osl-til-stv.html'
     },
     xAxis: {
         type: 'datetime',
@@ -13042,6 +13060,7 @@ Highcharts.chart('container', {
     series: [{
         name: 'På tiden',
         color: '#008000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,0,01,19,35), y: 0, name: 'Planlagt: 19:35 01.01.2017<br>Faktisk: 19:35 01.01.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,0,01,22,04), y: -1, name: 'Planlagt: 22:04 01.01.2017<br>Faktisk: 22:03 01.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,02,00,12), y: 0, name: 'Planlagt: 00:12 02.01.2017<br>Faktisk: 00:12 02.01.2017<br>Forsinkelse: 0 minutter'}
@@ -13062,7 +13081,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,0,06,12,05), y: -2, name: 'Planlagt: 12:05 06.01.2017<br>Faktisk: 12:03 06.01.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,0,06,17,19), y: -1, name: 'Planlagt: 17:19 06.01.2017<br>Faktisk: 17:18 06.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,06,22,04), y: -1, name: 'Planlagt: 22:04 06.01.2017<br>Faktisk: 22:03 06.01.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,0,07,07,20), y: -15, name: 'Planlagt: 07:20 07.01.2017<br>Faktisk: 07:05 07.01.2017<br>Forsinkelse: -15 minutter'}
+, {x: Date.UTC(2017,0,07,07,20), y: -5, name: 'Planlagt: 07:20 07.01.2017<br>Faktisk: 07:05 07.01.2017<br>Forsinkelse: -15 minutter'}
 , {x: Date.UTC(2017,0,07,15,05), y: -1, name: 'Planlagt: 15:05 07.01.2017<br>Faktisk: 15:04 07.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,07,19,35), y: 0, name: 'Planlagt: 19:35 07.01.2017<br>Faktisk: 19:35 07.01.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,0,07,22,04), y: -2, name: 'Planlagt: 22:04 07.01.2017<br>Faktisk: 22:02 07.01.2017<br>Forsinkelse: -2 minutter'}
@@ -13088,7 +13107,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,0,13,17,19), y: 0, name: 'Planlagt: 17:19 13.01.2017<br>Faktisk: 17:19 13.01.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,0,13,19,35), y: 2, name: 'Planlagt: 19:35 13.01.2017<br>Faktisk: 19:37 13.01.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,0,14,00,12), y: -5, name: 'Planlagt: 00:12 14.01.2017<br>Faktisk: 00:07 14.01.2017<br>Forsinkelse: -5 minutter'}
-, {x: Date.UTC(2017,0,14,07,20), y: -18, name: 'Planlagt: 07:20 14.01.2017<br>Faktisk: 07:02 14.01.2017<br>Forsinkelse: -18 minutter'}
+, {x: Date.UTC(2017,0,14,07,20), y: -5, name: 'Planlagt: 07:20 14.01.2017<br>Faktisk: 07:02 14.01.2017<br>Forsinkelse: -18 minutter'}
 , {x: Date.UTC(2017,0,14,15,05), y: -2, name: 'Planlagt: 15:05 14.01.2017<br>Faktisk: 15:03 14.01.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,0,14,19,35), y: 0, name: 'Planlagt: 19:35 14.01.2017<br>Faktisk: 19:35 14.01.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,0,14,22,04), y: -3, name: 'Planlagt: 22:04 14.01.2017<br>Faktisk: 22:01 14.01.2017<br>Forsinkelse: -3 minutter'}
@@ -13110,7 +13129,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,0,20,17,19), y: -1, name: 'Planlagt: 17:19 20.01.2017<br>Faktisk: 17:18 20.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,20,22,04), y: -1, name: 'Planlagt: 22:04 20.01.2017<br>Faktisk: 22:03 20.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,21,00,12), y: -3, name: 'Planlagt: 00:12 21.01.2017<br>Faktisk: 00:09 21.01.2017<br>Forsinkelse: -3 minutter'}
-, {x: Date.UTC(2017,0,21,07,20), y: -14, name: 'Planlagt: 07:20 21.01.2017<br>Faktisk: 07:06 21.01.2017<br>Forsinkelse: -14 minutter'}
+, {x: Date.UTC(2017,0,21,07,20), y: -5, name: 'Planlagt: 07:20 21.01.2017<br>Faktisk: 07:06 21.01.2017<br>Forsinkelse: -14 minutter'}
 , {x: Date.UTC(2017,0,21,19,35), y: -1, name: 'Planlagt: 19:35 21.01.2017<br>Faktisk: 19:34 21.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,21,22,04), y: -2, name: 'Planlagt: 22:04 21.01.2017<br>Faktisk: 22:02 21.01.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,0,22,15,05), y: -4, name: 'Planlagt: 15:05 22.01.2017<br>Faktisk: 15:01 22.01.2017<br>Forsinkelse: -4 minutter'}
@@ -13138,7 +13157,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,0,27,19,35), y: 1, name: 'Planlagt: 19:35 27.01.2017<br>Faktisk: 19:36 27.01.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,0,27,22,04), y: -1, name: 'Planlagt: 22:04 27.01.2017<br>Faktisk: 22:03 27.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,28,00,12), y: 0, name: 'Planlagt: 00:12 28.01.2017<br>Faktisk: 00:12 28.01.2017<br>Forsinkelse: 0 minutter'}
-, {x: Date.UTC(2017,0,28,07,20), y: -18, name: 'Planlagt: 07:20 28.01.2017<br>Faktisk: 07:02 28.01.2017<br>Forsinkelse: -18 minutter'}
+, {x: Date.UTC(2017,0,28,07,20), y: -5, name: 'Planlagt: 07:20 28.01.2017<br>Faktisk: 07:02 28.01.2017<br>Forsinkelse: -18 minutter'}
 , {x: Date.UTC(2017,0,28,15,05), y: -4, name: 'Planlagt: 15:05 28.01.2017<br>Faktisk: 15:01 28.01.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,0,28,19,35), y: -1, name: 'Planlagt: 19:35 28.01.2017<br>Faktisk: 19:34 28.01.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,0,28,22,04), y: -2, name: 'Planlagt: 22:04 28.01.2017<br>Faktisk: 22:02 28.01.2017<br>Forsinkelse: -2 minutter'}
@@ -13168,7 +13187,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,1,03,12,05), y: -1, name: 'Planlagt: 12:05 03.02.2017<br>Faktisk: 12:04 03.02.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,1,03,17,19), y: -1, name: 'Planlagt: 17:19 03.02.2017<br>Faktisk: 17:18 03.02.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,1,04,00,12), y: -1, name: 'Planlagt: 00:12 04.02.2017<br>Faktisk: 00:11 04.02.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,1,04,07,20), y: -15, name: 'Planlagt: 07:20 04.02.2017<br>Faktisk: 07:05 04.02.2017<br>Forsinkelse: -15 minutter'}
+, {x: Date.UTC(2017,1,04,07,20), y: -5, name: 'Planlagt: 07:20 04.02.2017<br>Faktisk: 07:05 04.02.2017<br>Forsinkelse: -15 minutter'}
 , {x: Date.UTC(2017,1,04,15,05), y: -4, name: 'Planlagt: 15:05 04.02.2017<br>Faktisk: 15:01 04.02.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,1,04,19,35), y: -2, name: 'Planlagt: 19:35 04.02.2017<br>Faktisk: 19:33 04.02.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,1,05,15,05), y: -3, name: 'Planlagt: 15:05 05.02.2017<br>Faktisk: 15:02 05.02.2017<br>Forsinkelse: -3 minutter'}
@@ -13191,10 +13210,10 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,1,10,15,05), y: -2, name: 'Planlagt: 15:05 10.02.2017<br>Faktisk: 15:03 10.02.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,1,10,17,19), y: -1, name: 'Planlagt: 17:19 10.02.2017<br>Faktisk: 17:18 10.02.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,1,11,00,12), y: 1, name: 'Planlagt: 00:12 11.02.2017<br>Faktisk: 00:13 11.02.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,1,11,07,20), y: -15, name: 'Planlagt: 07:20 11.02.2017<br>Faktisk: 07:05 11.02.2017<br>Forsinkelse: -15 minutter'}
+, {x: Date.UTC(2017,1,11,07,20), y: -5, name: 'Planlagt: 07:20 11.02.2017<br>Faktisk: 07:05 11.02.2017<br>Forsinkelse: -15 minutter'}
 , {x: Date.UTC(2017,1,11,15,05), y: -1, name: 'Planlagt: 15:05 11.02.2017<br>Faktisk: 15:04 11.02.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,1,11,19,35), y: -1, name: 'Planlagt: 19:35 11.02.2017<br>Faktisk: 19:34 11.02.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,1,12,15,05), y: -6, name: 'Planlagt: 15:05 12.02.2017<br>Faktisk: 14:59 12.02.2017<br>Forsinkelse: -6 minutter'}
+, {x: Date.UTC(2017,1,12,15,05), y: -5, name: 'Planlagt: 15:05 12.02.2017<br>Faktisk: 14:59 12.02.2017<br>Forsinkelse: -6 minutter'}
 , {x: Date.UTC(2017,1,12,19,35), y: -1, name: 'Planlagt: 19:35 12.02.2017<br>Faktisk: 19:34 12.02.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,1,12,22,04), y: 0, name: 'Planlagt: 22:04 12.02.2017<br>Faktisk: 22:04 12.02.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,1,13,00,12), y: 0, name: 'Planlagt: 00:12 13.02.2017<br>Faktisk: 00:12 13.02.2017<br>Forsinkelse: 0 minutter'}
@@ -13217,7 +13236,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,1,17,07,20), y: -2, name: 'Planlagt: 07:20 17.02.2017<br>Faktisk: 07:18 17.02.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,1,17,15,05), y: -2, name: 'Planlagt: 15:05 17.02.2017<br>Faktisk: 15:03 17.02.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,1,17,17,19), y: -1, name: 'Planlagt: 17:19 17.02.2017<br>Faktisk: 17:18 17.02.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,1,18,07,20), y: -16, name: 'Planlagt: 07:20 18.02.2017<br>Faktisk: 07:04 18.02.2017<br>Forsinkelse: -16 minutter'}
+, {x: Date.UTC(2017,1,18,07,20), y: -5, name: 'Planlagt: 07:20 18.02.2017<br>Faktisk: 07:04 18.02.2017<br>Forsinkelse: -16 minutter'}
 , {x: Date.UTC(2017,1,20,12,05), y: -1, name: 'Planlagt: 12:05 20.02.2017<br>Faktisk: 12:04 20.02.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,1,20,22,04), y: 0, name: 'Planlagt: 22:04 20.02.2017<br>Faktisk: 22:04 20.02.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,1,21,00,12), y: -2, name: 'Planlagt: 00:12 21.02.2017<br>Faktisk: 00:10 21.02.2017<br>Forsinkelse: -2 minutter'}
@@ -13236,7 +13255,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,1,24,15,05), y: -1, name: 'Planlagt: 15:05 24.02.2017<br>Faktisk: 15:04 24.02.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,1,24,22,04), y: 1, name: 'Planlagt: 22:04 24.02.2017<br>Faktisk: 22:05 24.02.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,1,25,00,12), y: -3, name: 'Planlagt: 00:12 25.02.2017<br>Faktisk: 00:09 25.02.2017<br>Forsinkelse: -3 minutter'}
-, {x: Date.UTC(2017,1,25,07,20), y: -15, name: 'Planlagt: 07:20 25.02.2017<br>Faktisk: 07:05 25.02.2017<br>Forsinkelse: -15 minutter'}
+, {x: Date.UTC(2017,1,25,07,20), y: -5, name: 'Planlagt: 07:20 25.02.2017<br>Faktisk: 07:05 25.02.2017<br>Forsinkelse: -15 minutter'}
 , {x: Date.UTC(2017,1,25,15,05), y: -3, name: 'Planlagt: 15:05 25.02.2017<br>Faktisk: 15:02 25.02.2017<br>Forsinkelse: -3 minutter'}
 , {x: Date.UTC(2017,1,25,19,35), y: -1, name: 'Planlagt: 19:35 25.02.2017<br>Faktisk: 19:34 25.02.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,1,25,22,04), y: -1, name: 'Planlagt: 22:04 25.02.2017<br>Faktisk: 22:03 25.02.2017<br>Forsinkelse: -1 minutter'}
@@ -13265,7 +13284,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,2,03,17,19), y: -2, name: 'Planlagt: 17:19 03.03.2017<br>Faktisk: 17:17 03.03.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,2,03,22,04), y: 2, name: 'Planlagt: 22:04 03.03.2017<br>Faktisk: 22:06 03.03.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,2,04,00,12), y: 1, name: 'Planlagt: 00:12 04.03.2017<br>Faktisk: 00:13 04.03.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,2,04,07,20), y: -18, name: 'Planlagt: 07:20 04.03.2017<br>Faktisk: 07:02 04.03.2017<br>Forsinkelse: -18 minutter'}
+, {x: Date.UTC(2017,2,04,07,20), y: -5, name: 'Planlagt: 07:20 04.03.2017<br>Faktisk: 07:02 04.03.2017<br>Forsinkelse: -18 minutter'}
 , {x: Date.UTC(2017,2,04,15,05), y: -2, name: 'Planlagt: 15:05 04.03.2017<br>Faktisk: 15:03 04.03.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,2,05,15,05), y: -4, name: 'Planlagt: 15:05 05.03.2017<br>Faktisk: 15:01 05.03.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,2,05,19,35), y: 0, name: 'Planlagt: 19:35 05.03.2017<br>Faktisk: 19:35 05.03.2017<br>Forsinkelse: 0 minutter'}
@@ -13294,7 +13313,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,2,10,19,35), y: 1, name: 'Planlagt: 19:35 10.03.2017<br>Faktisk: 19:36 10.03.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,2,10,22,04), y: 1, name: 'Planlagt: 22:04 10.03.2017<br>Faktisk: 22:05 10.03.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,2,11,00,12), y: -2, name: 'Planlagt: 00:12 11.03.2017<br>Faktisk: 00:10 11.03.2017<br>Forsinkelse: -2 minutter'}
-, {x: Date.UTC(2017,2,11,07,20), y: -17, name: 'Planlagt: 07:20 11.03.2017<br>Faktisk: 07:03 11.03.2017<br>Forsinkelse: -17 minutter'}
+, {x: Date.UTC(2017,2,11,07,20), y: -5, name: 'Planlagt: 07:20 11.03.2017<br>Faktisk: 07:03 11.03.2017<br>Forsinkelse: -17 minutter'}
 , {x: Date.UTC(2017,2,11,15,05), y: -4, name: 'Planlagt: 15:05 11.03.2017<br>Faktisk: 15:01 11.03.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,2,12,15,05), y: -5, name: 'Planlagt: 15:05 12.03.2017<br>Faktisk: 15:00 12.03.2017<br>Forsinkelse: -5 minutter'}
 , {x: Date.UTC(2017,2,12,19,35), y: 1, name: 'Planlagt: 19:35 12.03.2017<br>Faktisk: 19:36 12.03.2017<br>Forsinkelse: 1 minutter'}
@@ -13325,7 +13344,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,2,17,17,19), y: -1, name: 'Planlagt: 17:19 17.03.2017<br>Faktisk: 17:18 17.03.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,2,17,19,35), y: 2, name: 'Planlagt: 19:35 17.03.2017<br>Faktisk: 19:37 17.03.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,2,18,00,12), y: -1, name: 'Planlagt: 00:12 18.03.2017<br>Faktisk: 00:11 18.03.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,2,18,07,20), y: -17, name: 'Planlagt: 07:20 18.03.2017<br>Faktisk: 07:03 18.03.2017<br>Forsinkelse: -17 minutter'}
+, {x: Date.UTC(2017,2,18,07,20), y: -5, name: 'Planlagt: 07:20 18.03.2017<br>Faktisk: 07:03 18.03.2017<br>Forsinkelse: -17 minutter'}
 , {x: Date.UTC(2017,2,18,15,05), y: -4, name: 'Planlagt: 15:05 18.03.2017<br>Faktisk: 15:01 18.03.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,2,19,15,05), y: -4, name: 'Planlagt: 15:05 19.03.2017<br>Faktisk: 15:01 19.03.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,2,19,22,04), y: -3, name: 'Planlagt: 22:04 19.03.2017<br>Faktisk: 22:01 19.03.2017<br>Forsinkelse: -3 minutter'}
@@ -13348,7 +13367,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,2,24,00,12), y: 1, name: 'Planlagt: 00:12 24.03.2017<br>Faktisk: 00:13 24.03.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,2,24,07,20), y: -2, name: 'Planlagt: 07:20 24.03.2017<br>Faktisk: 07:18 24.03.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,2,24,12,05), y: -1, name: 'Planlagt: 12:05 24.03.2017<br>Faktisk: 12:04 24.03.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,2,24,17,19), y: -11, name: 'Planlagt: 17:19 24.03.2017<br>Faktisk: 17:08 24.03.2017<br>Forsinkelse: -11 minutter'}
+, {x: Date.UTC(2017,2,24,17,19), y: -5, name: 'Planlagt: 17:19 24.03.2017<br>Faktisk: 17:08 24.03.2017<br>Forsinkelse: -11 minutter'}
 , {x: Date.UTC(2017,2,24,22,04), y: 1, name: 'Planlagt: 22:04 24.03.2017<br>Faktisk: 22:05 24.03.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,2,26,19,35), y: -2, name: 'Planlagt: 19:35 26.03.2017<br>Faktisk: 19:33 26.03.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,2,27,00,12), y: 0, name: 'Planlagt: 00:12 27.03.2017<br>Faktisk: 00:12 27.03.2017<br>Forsinkelse: 0 minutter'}
@@ -13377,9 +13396,9 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,2,31,17,19), y: -2, name: 'Planlagt: 17:19 31.03.2017<br>Faktisk: 17:17 31.03.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,2,31,22,04), y: 0, name: 'Planlagt: 22:04 31.03.2017<br>Faktisk: 22:04 31.03.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,3,01,00,12), y: -1, name: 'Planlagt: 00:12 01.04.2017<br>Faktisk: 00:11 01.04.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,3,01,07,20), y: -19, name: 'Planlagt: 07:20 01.04.2017<br>Faktisk: 07:01 01.04.2017<br>Forsinkelse: -19 minutter'}
+, {x: Date.UTC(2017,3,01,07,20), y: -5, name: 'Planlagt: 07:20 01.04.2017<br>Faktisk: 07:01 01.04.2017<br>Forsinkelse: -19 minutter'}
 , {x: Date.UTC(2017,3,01,15,05), y: -4, name: 'Planlagt: 15:05 01.04.2017<br>Faktisk: 15:01 01.04.2017<br>Forsinkelse: -4 minutter'}
-, {x: Date.UTC(2017,3,02,15,05), y: -6, name: 'Planlagt: 15:05 02.04.2017<br>Faktisk: 14:59 02.04.2017<br>Forsinkelse: -6 minutter'}
+, {x: Date.UTC(2017,3,02,15,05), y: -5, name: 'Planlagt: 15:05 02.04.2017<br>Faktisk: 14:59 02.04.2017<br>Forsinkelse: -6 minutter'}
 , {x: Date.UTC(2017,3,02,19,35), y: -1, name: 'Planlagt: 19:35 02.04.2017<br>Faktisk: 19:34 02.04.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,3,03,00,12), y: -1, name: 'Planlagt: 00:12 03.04.2017<br>Faktisk: 00:11 03.04.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,3,03,07,20), y: 0, name: 'Planlagt: 07:20 03.04.2017<br>Faktisk: 07:20 03.04.2017<br>Forsinkelse: 0 minutter'}
@@ -13401,30 +13420,30 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,3,07,19,35), y: 1, name: 'Planlagt: 19:35 07.04.2017<br>Faktisk: 19:36 07.04.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,3,07,22,04), y: -1, name: 'Planlagt: 22:04 07.04.2017<br>Faktisk: 22:03 07.04.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,3,08,00,12), y: 1, name: 'Planlagt: 00:12 08.04.2017<br>Faktisk: 00:13 08.04.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,3,08,07,20), y: -16, name: 'Planlagt: 07:20 08.04.2017<br>Faktisk: 07:04 08.04.2017<br>Forsinkelse: -16 minutter'}
+, {x: Date.UTC(2017,3,08,07,20), y: -5, name: 'Planlagt: 07:20 08.04.2017<br>Faktisk: 07:04 08.04.2017<br>Forsinkelse: -16 minutter'}
 , {x: Date.UTC(2017,3,08,15,05), y: -4, name: 'Planlagt: 15:05 08.04.2017<br>Faktisk: 15:01 08.04.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,3,09,15,05), y: -5, name: 'Planlagt: 15:05 09.04.2017<br>Faktisk: 15:00 09.04.2017<br>Forsinkelse: -5 minutter'}
 , {x: Date.UTC(2017,3,09,19,35), y: 1, name: 'Planlagt: 19:35 09.04.2017<br>Faktisk: 19:36 09.04.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,3,09,22,04), y: -1, name: 'Planlagt: 22:04 09.04.2017<br>Faktisk: 22:03 09.04.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,3,10,00,12), y: -3, name: 'Planlagt: 00:12 10.04.2017<br>Faktisk: 00:09 10.04.2017<br>Forsinkelse: -3 minutter'}
-, {x: Date.UTC(2017,3,10,07,20), y: -6, name: 'Planlagt: 07:20 10.04.2017<br>Faktisk: 07:14 10.04.2017<br>Forsinkelse: -6 minutter'}
+, {x: Date.UTC(2017,3,10,07,20), y: -5, name: 'Planlagt: 07:20 10.04.2017<br>Faktisk: 07:14 10.04.2017<br>Forsinkelse: -6 minutter'}
 , {x: Date.UTC(2017,3,10,12,05), y: 0, name: 'Planlagt: 12:05 10.04.2017<br>Faktisk: 12:05 10.04.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,3,10,15,05), y: -2, name: 'Planlagt: 15:05 10.04.2017<br>Faktisk: 15:03 10.04.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,3,10,22,04), y: 2, name: 'Planlagt: 22:04 10.04.2017<br>Faktisk: 22:06 10.04.2017<br>Forsinkelse: 2 minutter'}
-, {x: Date.UTC(2017,3,11,07,20), y: -7, name: 'Planlagt: 07:20 11.04.2017<br>Faktisk: 07:13 11.04.2017<br>Forsinkelse: -7 minutter'}
+, {x: Date.UTC(2017,3,11,07,20), y: -5, name: 'Planlagt: 07:20 11.04.2017<br>Faktisk: 07:13 11.04.2017<br>Forsinkelse: -7 minutter'}
 , {x: Date.UTC(2017,3,11,12,05), y: 0, name: 'Planlagt: 12:05 11.04.2017<br>Faktisk: 12:05 11.04.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,3,11,15,05), y: -2, name: 'Planlagt: 15:05 11.04.2017<br>Faktisk: 15:03 11.04.2017<br>Forsinkelse: -2 minutter'}
-, {x: Date.UTC(2017,3,11,17,19), y: -8, name: 'Planlagt: 17:19 11.04.2017<br>Faktisk: 17:11 11.04.2017<br>Forsinkelse: -8 minutter'}
+, {x: Date.UTC(2017,3,11,17,19), y: -5, name: 'Planlagt: 17:19 11.04.2017<br>Faktisk: 17:11 11.04.2017<br>Forsinkelse: -8 minutter'}
 , {x: Date.UTC(2017,3,11,19,35), y: 1, name: 'Planlagt: 19:35 11.04.2017<br>Faktisk: 19:36 11.04.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,3,12,00,12), y: -2, name: 'Planlagt: 00:12 12.04.2017<br>Faktisk: 00:10 12.04.2017<br>Forsinkelse: -2 minutter'}
-, {x: Date.UTC(2017,3,12,07,20), y: -7, name: 'Planlagt: 07:20 12.04.2017<br>Faktisk: 07:13 12.04.2017<br>Forsinkelse: -7 minutter'}
+, {x: Date.UTC(2017,3,12,07,20), y: -5, name: 'Planlagt: 07:20 12.04.2017<br>Faktisk: 07:13 12.04.2017<br>Forsinkelse: -7 minutter'}
 , {x: Date.UTC(2017,3,12,12,05), y: 0, name: 'Planlagt: 12:05 12.04.2017<br>Faktisk: 12:05 12.04.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,3,12,15,05), y: -3, name: 'Planlagt: 15:05 12.04.2017<br>Faktisk: 15:02 12.04.2017<br>Forsinkelse: -3 minutter'}
-, {x: Date.UTC(2017,3,12,17,19), y: -9, name: 'Planlagt: 17:19 12.04.2017<br>Faktisk: 17:10 12.04.2017<br>Forsinkelse: -9 minutter'}
+, {x: Date.UTC(2017,3,12,17,19), y: -5, name: 'Planlagt: 17:19 12.04.2017<br>Faktisk: 17:10 12.04.2017<br>Forsinkelse: -9 minutter'}
 , {x: Date.UTC(2017,3,12,19,35), y: 0, name: 'Planlagt: 19:35 12.04.2017<br>Faktisk: 19:35 12.04.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,3,12,22,04), y: 0, name: 'Planlagt: 22:04 12.04.2017<br>Faktisk: 22:04 12.04.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,3,13,00,12), y: -1, name: 'Planlagt: 00:12 13.04.2017<br>Faktisk: 00:11 13.04.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,3,13,07,20), y: -23, name: 'Planlagt: 07:20 13.04.2017<br>Faktisk: 06:57 13.04.2017<br>Forsinkelse: -23 minutter'}
+, {x: Date.UTC(2017,3,13,07,20), y: -5, name: 'Planlagt: 07:20 13.04.2017<br>Faktisk: 06:57 13.04.2017<br>Forsinkelse: -23 minutter'}
 , {x: Date.UTC(2017,3,13,15,05), y: -5, name: 'Planlagt: 15:05 13.04.2017<br>Faktisk: 15:00 13.04.2017<br>Forsinkelse: -5 minutter'}
 , {x: Date.UTC(2017,3,13,19,35), y: -1, name: 'Planlagt: 19:35 13.04.2017<br>Faktisk: 19:34 13.04.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,3,14,00,12), y: -2, name: 'Planlagt: 00:12 14.04.2017<br>Faktisk: 00:10 14.04.2017<br>Forsinkelse: -2 minutter'}
@@ -13469,7 +13488,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,3,28,15,05), y: -2, name: 'Planlagt: 15:05 28.04.2017<br>Faktisk: 15:03 28.04.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,3,28,22,04), y: 1, name: 'Planlagt: 22:04 28.04.2017<br>Faktisk: 22:05 28.04.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,3,29,00,12), y: 1, name: 'Planlagt: 00:12 29.04.2017<br>Faktisk: 00:13 29.04.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,3,29,07,20), y: -16, name: 'Planlagt: 07:20 29.04.2017<br>Faktisk: 07:04 29.04.2017<br>Forsinkelse: -16 minutter'}
+, {x: Date.UTC(2017,3,29,07,20), y: -5, name: 'Planlagt: 07:20 29.04.2017<br>Faktisk: 07:04 29.04.2017<br>Forsinkelse: -16 minutter'}
 , {x: Date.UTC(2017,3,29,15,05), y: -3, name: 'Planlagt: 15:05 29.04.2017<br>Faktisk: 15:02 29.04.2017<br>Forsinkelse: -3 minutter'}
 , {x: Date.UTC(2017,3,30,19,35), y: -1, name: 'Planlagt: 19:35 30.04.2017<br>Faktisk: 19:34 30.04.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,3,30,22,04), y: -3, name: 'Planlagt: 22:04 30.04.2017<br>Faktisk: 22:01 30.04.2017<br>Forsinkelse: -3 minutter'}
@@ -13493,7 +13512,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,4,05,15,05), y: -1, name: 'Planlagt: 15:05 05.05.2017<br>Faktisk: 15:04 05.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,05,22,04), y: 1, name: 'Planlagt: 22:04 05.05.2017<br>Faktisk: 22:05 05.05.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,4,06,00,12), y: 1, name: 'Planlagt: 00:12 06.05.2017<br>Faktisk: 00:13 06.05.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,4,06,07,20), y: -17, name: 'Planlagt: 07:20 06.05.2017<br>Faktisk: 07:03 06.05.2017<br>Forsinkelse: -17 minutter'}
+, {x: Date.UTC(2017,4,06,07,20), y: -5, name: 'Planlagt: 07:20 06.05.2017<br>Faktisk: 07:03 06.05.2017<br>Forsinkelse: -17 minutter'}
 , {x: Date.UTC(2017,4,06,15,05), y: -1, name: 'Planlagt: 15:05 06.05.2017<br>Faktisk: 15:04 06.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,07,15,05), y: -5, name: 'Planlagt: 15:05 07.05.2017<br>Faktisk: 15:00 07.05.2017<br>Forsinkelse: -5 minutter'}
 , {x: Date.UTC(2017,4,07,19,35), y: -2, name: 'Planlagt: 19:35 07.05.2017<br>Faktisk: 19:33 07.05.2017<br>Forsinkelse: -2 minutter'}
@@ -13515,7 +13534,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,4,12,15,05), y: -2, name: 'Planlagt: 15:05 12.05.2017<br>Faktisk: 15:03 12.05.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,4,12,19,35), y: 1, name: 'Planlagt: 19:35 12.05.2017<br>Faktisk: 19:36 12.05.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,4,12,22,04), y: 1, name: 'Planlagt: 22:04 12.05.2017<br>Faktisk: 22:05 12.05.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,4,13,07,20), y: -9, name: 'Planlagt: 07:20 13.05.2017<br>Faktisk: 07:11 13.05.2017<br>Forsinkelse: -9 minutter'}
+, {x: Date.UTC(2017,4,13,07,20), y: -5, name: 'Planlagt: 07:20 13.05.2017<br>Faktisk: 07:11 13.05.2017<br>Forsinkelse: -9 minutter'}
 , {x: Date.UTC(2017,4,15,07,20), y: 0, name: 'Planlagt: 07:20 15.05.2017<br>Faktisk: 07:20 15.05.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,4,15,12,05), y: -2, name: 'Planlagt: 12:05 15.05.2017<br>Faktisk: 12:03 15.05.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,4,15,19,35), y: 1, name: 'Planlagt: 19:35 15.05.2017<br>Faktisk: 19:36 15.05.2017<br>Forsinkelse: 1 minutter'}
@@ -13523,8 +13542,8 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,4,16,07,20), y: -1, name: 'Planlagt: 07:20 16.05.2017<br>Faktisk: 07:19 16.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,16,12,05), y: 0, name: 'Planlagt: 12:05 16.05.2017<br>Faktisk: 12:05 16.05.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,4,16,19,35), y: 2, name: 'Planlagt: 19:35 16.05.2017<br>Faktisk: 19:37 16.05.2017<br>Forsinkelse: 2 minutter'}
-, {x: Date.UTC(2017,4,17,07,20), y: -16, name: 'Planlagt: 07:20 17.05.2017<br>Faktisk: 07:04 17.05.2017<br>Forsinkelse: -16 minutter'}
-, {x: Date.UTC(2017,4,17,15,05), y: -8, name: 'Planlagt: 15:05 17.05.2017<br>Faktisk: 14:57 17.05.2017<br>Forsinkelse: -8 minutter'}
+, {x: Date.UTC(2017,4,17,07,20), y: -5, name: 'Planlagt: 07:20 17.05.2017<br>Faktisk: 07:04 17.05.2017<br>Forsinkelse: -16 minutter'}
+, {x: Date.UTC(2017,4,17,15,05), y: -5, name: 'Planlagt: 15:05 17.05.2017<br>Faktisk: 14:57 17.05.2017<br>Forsinkelse: -8 minutter'}
 , {x: Date.UTC(2017,4,17,19,35), y: -4, name: 'Planlagt: 19:35 17.05.2017<br>Faktisk: 19:31 17.05.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,4,18,00,12), y: -1, name: 'Planlagt: 00:12 18.05.2017<br>Faktisk: 00:11 18.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,18,19,35), y: -1, name: 'Planlagt: 19:35 18.05.2017<br>Faktisk: 19:34 18.05.2017<br>Forsinkelse: -1 minutter'}
@@ -13532,7 +13551,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,4,19,07,20), y: -2, name: 'Planlagt: 07:20 19.05.2017<br>Faktisk: 07:18 19.05.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,4,19,15,05), y: -2, name: 'Planlagt: 15:05 19.05.2017<br>Faktisk: 15:03 19.05.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,4,20,00,12), y: -3, name: 'Planlagt: 00:12 20.05.2017<br>Faktisk: 00:09 20.05.2017<br>Forsinkelse: -3 minutter'}
-, {x: Date.UTC(2017,4,20,07,20), y: -20, name: 'Planlagt: 07:20 20.05.2017<br>Faktisk: 07:00 20.05.2017<br>Forsinkelse: -20 minutter'}
+, {x: Date.UTC(2017,4,20,07,20), y: -5, name: 'Planlagt: 07:20 20.05.2017<br>Faktisk: 07:00 20.05.2017<br>Forsinkelse: -20 minutter'}
 , {x: Date.UTC(2017,4,22,12,05), y: -2, name: 'Planlagt: 12:05 22.05.2017<br>Faktisk: 12:03 22.05.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,4,22,19,35), y: 1, name: 'Planlagt: 19:35 22.05.2017<br>Faktisk: 19:36 22.05.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,4,22,22,04), y: -1, name: 'Planlagt: 22:04 22.05.2017<br>Faktisk: 22:03 22.05.2017<br>Forsinkelse: -1 minutter'}
@@ -13543,13 +13562,13 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,4,24,12,05), y: 0, name: 'Planlagt: 12:05 24.05.2017<br>Faktisk: 12:05 24.05.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,4,24,22,04), y: 2, name: 'Planlagt: 22:04 24.05.2017<br>Faktisk: 22:06 24.05.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,4,25,00,12), y: 1, name: 'Planlagt: 00:12 25.05.2017<br>Faktisk: 00:13 25.05.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,4,25,07,20), y: -26, name: 'Planlagt: 07:20 25.05.2017<br>Faktisk: 06:54 25.05.2017<br>Forsinkelse: -26 minutter'}
+, {x: Date.UTC(2017,4,25,07,20), y: -5, name: 'Planlagt: 07:20 25.05.2017<br>Faktisk: 06:54 25.05.2017<br>Forsinkelse: -26 minutter'}
 , {x: Date.UTC(2017,4,25,19,35), y: 0, name: 'Planlagt: 19:35 25.05.2017<br>Faktisk: 19:35 25.05.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,4,25,22,04), y: -2, name: 'Planlagt: 22:04 25.05.2017<br>Faktisk: 22:02 25.05.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,4,26,00,12), y: 0, name: 'Planlagt: 00:12 26.05.2017<br>Faktisk: 00:12 26.05.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,4,26,22,04), y: -1, name: 'Planlagt: 22:04 26.05.2017<br>Faktisk: 22:03 26.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,27,00,12), y: -1, name: 'Planlagt: 00:12 27.05.2017<br>Faktisk: 00:11 27.05.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,4,27,07,20), y: -26, name: 'Planlagt: 07:20 27.05.2017<br>Faktisk: 06:54 27.05.2017<br>Forsinkelse: -26 minutter'}
+, {x: Date.UTC(2017,4,27,07,20), y: -5, name: 'Planlagt: 07:20 27.05.2017<br>Faktisk: 06:54 27.05.2017<br>Forsinkelse: -26 minutter'}
 , {x: Date.UTC(2017,4,27,15,05), y: -1, name: 'Planlagt: 15:05 27.05.2017<br>Faktisk: 15:04 27.05.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,4,28,15,05), y: -5, name: 'Planlagt: 15:05 28.05.2017<br>Faktisk: 15:00 28.05.2017<br>Forsinkelse: -5 minutter'}
 , {x: Date.UTC(2017,4,28,22,04), y: -4, name: 'Planlagt: 22:04 28.05.2017<br>Faktisk: 22:00 28.05.2017<br>Forsinkelse: -4 minutter'}
@@ -13578,7 +13597,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,5,09,17,19), y: 1, name: 'Planlagt: 17:19 09.06.2017<br>Faktisk: 17:20 09.06.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,5,09,22,04), y: 1, name: 'Planlagt: 22:04 09.06.2017<br>Faktisk: 22:05 09.06.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,5,10,00,12), y: 2, name: 'Planlagt: 00:12 10.06.2017<br>Faktisk: 00:14 10.06.2017<br>Forsinkelse: 2 minutter'}
-, {x: Date.UTC(2017,5,10,07,20), y: -23, name: 'Planlagt: 07:20 10.06.2017<br>Faktisk: 06:57 10.06.2017<br>Forsinkelse: -23 minutter'}
+, {x: Date.UTC(2017,5,10,07,20), y: -5, name: 'Planlagt: 07:20 10.06.2017<br>Faktisk: 06:57 10.06.2017<br>Forsinkelse: -23 minutter'}
 , {x: Date.UTC(2017,5,10,15,05), y: -1, name: 'Planlagt: 15:05 10.06.2017<br>Faktisk: 15:04 10.06.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,5,10,19,35), y: 0, name: 'Planlagt: 19:35 10.06.2017<br>Faktisk: 19:35 10.06.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,5,11,15,05), y: -5, name: 'Planlagt: 15:05 11.06.2017<br>Faktisk: 15:00 11.06.2017<br>Forsinkelse: -5 minutter'}
@@ -13609,7 +13628,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,7,18,15,05), y: 1, name: 'Planlagt: 15:05 18.08.2017<br>Faktisk: 15:06 18.08.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,7,18,17,19), y: -3, name: 'Planlagt: 17:19 18.08.2017<br>Faktisk: 17:16 18.08.2017<br>Forsinkelse: -3 minutter'}
 , {x: Date.UTC(2017,7,18,22,04), y: 1, name: 'Planlagt: 22:04 18.08.2017<br>Faktisk: 22:05 18.08.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,7,19,07,20), y: -14, name: 'Planlagt: 07:20 19.08.2017<br>Faktisk: 07:06 19.08.2017<br>Forsinkelse: -14 minutter'}
+, {x: Date.UTC(2017,7,19,07,20), y: -5, name: 'Planlagt: 07:20 19.08.2017<br>Faktisk: 07:06 19.08.2017<br>Forsinkelse: -14 minutter'}
 , {x: Date.UTC(2017,7,19,15,05), y: 0, name: 'Planlagt: 15:05 19.08.2017<br>Faktisk: 15:05 19.08.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,7,20,19,35), y: 2, name: 'Planlagt: 19:35 20.08.2017<br>Faktisk: 19:37 20.08.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,7,20,22,04), y: 2, name: 'Planlagt: 22:04 20.08.2017<br>Faktisk: 22:06 20.08.2017<br>Forsinkelse: 2 minutter'}
@@ -13638,7 +13657,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,8,01,12,05), y: 0, name: 'Planlagt: 12:05 01.09.2017<br>Faktisk: 12:05 01.09.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,8,01,15,05), y: -1, name: 'Planlagt: 15:05 01.09.2017<br>Faktisk: 15:04 01.09.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,8,01,17,19), y: -2, name: 'Planlagt: 17:19 01.09.2017<br>Faktisk: 17:17 01.09.2017<br>Forsinkelse: -2 minutter'}
-, {x: Date.UTC(2017,8,02,07,20), y: -14, name: 'Planlagt: 07:20 02.09.2017<br>Faktisk: 07:06 02.09.2017<br>Forsinkelse: -14 minutter'}
+, {x: Date.UTC(2017,8,02,07,20), y: -5, name: 'Planlagt: 07:20 02.09.2017<br>Faktisk: 07:06 02.09.2017<br>Forsinkelse: -14 minutter'}
 , {x: Date.UTC(2017,8,02,15,05), y: 0, name: 'Planlagt: 15:05 02.09.2017<br>Faktisk: 15:05 02.09.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,8,03,15,05), y: 0, name: 'Planlagt: 15:05 03.09.2017<br>Faktisk: 15:05 03.09.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,8,03,22,04), y: 0, name: 'Planlagt: 22:04 03.09.2017<br>Faktisk: 22:04 03.09.2017<br>Forsinkelse: 0 minutter'}
@@ -13658,7 +13677,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,8,08,17,19), y: -2, name: 'Planlagt: 17:19 08.09.2017<br>Faktisk: 17:17 08.09.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,8,08,22,04), y: 1, name: 'Planlagt: 22:04 08.09.2017<br>Faktisk: 22:05 08.09.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,8,09,00,12), y: 1, name: 'Planlagt: 00:12 09.09.2017<br>Faktisk: 00:13 09.09.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,8,09,07,20), y: -15, name: 'Planlagt: 07:20 09.09.2017<br>Faktisk: 07:05 09.09.2017<br>Forsinkelse: -15 minutter'}
+, {x: Date.UTC(2017,8,09,07,20), y: -5, name: 'Planlagt: 07:20 09.09.2017<br>Faktisk: 07:05 09.09.2017<br>Forsinkelse: -15 minutter'}
 , {x: Date.UTC(2017,8,10,22,04), y: -1, name: 'Planlagt: 22:04 10.09.2017<br>Faktisk: 22:03 10.09.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,8,11,07,20), y: 0, name: 'Planlagt: 07:20 11.09.2017<br>Faktisk: 07:20 11.09.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,8,11,12,05), y: 2, name: 'Planlagt: 12:05 11.09.2017<br>Faktisk: 12:07 11.09.2017<br>Forsinkelse: 2 minutter'}
@@ -13670,7 +13689,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,8,14,07,20), y: -2, name: 'Planlagt: 07:20 14.09.2017<br>Faktisk: 07:18 14.09.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,8,15,07,20), y: -3, name: 'Planlagt: 07:20 15.09.2017<br>Faktisk: 07:17 15.09.2017<br>Forsinkelse: -3 minutter'}
 , {x: Date.UTC(2017,8,15,17,19), y: -2, name: 'Planlagt: 17:19 15.09.2017<br>Faktisk: 17:17 15.09.2017<br>Forsinkelse: -2 minutter'}
-, {x: Date.UTC(2017,8,16,07,20), y: -8, name: 'Planlagt: 07:20 16.09.2017<br>Faktisk: 07:12 16.09.2017<br>Forsinkelse: -8 minutter'}
+, {x: Date.UTC(2017,8,16,07,20), y: -5, name: 'Planlagt: 07:20 16.09.2017<br>Faktisk: 07:12 16.09.2017<br>Forsinkelse: -8 minutter'}
 , {x: Date.UTC(2017,8,18,12,05), y: 1, name: 'Planlagt: 12:05 18.09.2017<br>Faktisk: 12:06 18.09.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,8,19,00,12), y: 2, name: 'Planlagt: 00:12 19.09.2017<br>Faktisk: 00:14 19.09.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,8,20,07,20), y: -2, name: 'Planlagt: 07:20 20.09.2017<br>Faktisk: 07:18 20.09.2017<br>Forsinkelse: -2 minutter'}
@@ -13693,7 +13712,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,8,29,12,05), y: -1, name: 'Planlagt: 12:05 29.09.2017<br>Faktisk: 12:04 29.09.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,8,29,15,05), y: -3, name: 'Planlagt: 15:05 29.09.2017<br>Faktisk: 15:02 29.09.2017<br>Forsinkelse: -3 minutter'}
 , {x: Date.UTC(2017,8,29,17,19), y: -2, name: 'Planlagt: 17:19 29.09.2017<br>Faktisk: 17:17 29.09.2017<br>Forsinkelse: -2 minutter'}
-, {x: Date.UTC(2017,8,30,07,20), y: -24, name: 'Planlagt: 07:20 30.09.2017<br>Faktisk: 06:56 30.09.2017<br>Forsinkelse: -24 minutter'}
+, {x: Date.UTC(2017,8,30,07,20), y: -5, name: 'Planlagt: 07:20 30.09.2017<br>Faktisk: 06:56 30.09.2017<br>Forsinkelse: -24 minutter'}
 , {x: Date.UTC(2017,9,08,19,35), y: 0, name: 'Planlagt: 19:35 08.10.2017<br>Faktisk: 19:35 08.10.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,9,09,00,12), y: 0, name: 'Planlagt: 00:12 09.10.2017<br>Faktisk: 00:12 09.10.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,9,09,12,05), y: 1, name: 'Planlagt: 12:05 09.10.2017<br>Faktisk: 12:06 09.10.2017<br>Forsinkelse: 1 minutter'}
@@ -13712,7 +13731,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,9,13,17,19), y: -2, name: 'Planlagt: 17:19 13.10.2017<br>Faktisk: 17:17 13.10.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,9,13,19,35), y: 2, name: 'Planlagt: 19:35 13.10.2017<br>Faktisk: 19:37 13.10.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,9,14,00,12), y: 1, name: 'Planlagt: 00:12 14.10.2017<br>Faktisk: 00:13 14.10.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,9,14,07,20), y: -13, name: 'Planlagt: 07:20 14.10.2017<br>Faktisk: 07:07 14.10.2017<br>Forsinkelse: -13 minutter'}
+, {x: Date.UTC(2017,9,14,07,20), y: -5, name: 'Planlagt: 07:20 14.10.2017<br>Faktisk: 07:07 14.10.2017<br>Forsinkelse: -13 minutter'}
 , {x: Date.UTC(2017,9,14,15,05), y: 0, name: 'Planlagt: 15:05 14.10.2017<br>Faktisk: 15:05 14.10.2017<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,9,15,15,05), y: -4, name: 'Planlagt: 15:05 15.10.2017<br>Faktisk: 15:01 15.10.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,9,15,22,04), y: -2, name: 'Planlagt: 22:04 15.10.2017<br>Faktisk: 22:02 15.10.2017<br>Forsinkelse: -2 minutter'}
@@ -13734,7 +13753,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,9,20,15,05), y: -1, name: 'Planlagt: 15:05 20.10.2017<br>Faktisk: 15:04 20.10.2017<br>Forsinkelse: -1 minutter'}
 , {x: Date.UTC(2017,9,20,17,19), y: 1, name: 'Planlagt: 17:19 20.10.2017<br>Faktisk: 17:20 20.10.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,9,21,00,12), y: -1, name: 'Planlagt: 00:12 21.10.2017<br>Faktisk: 00:11 21.10.2017<br>Forsinkelse: -1 minutter'}
-, {x: Date.UTC(2017,9,21,07,20), y: -10, name: 'Planlagt: 07:20 21.10.2017<br>Faktisk: 07:10 21.10.2017<br>Forsinkelse: -10 minutter'}
+, {x: Date.UTC(2017,9,21,07,20), y: -5, name: 'Planlagt: 07:20 21.10.2017<br>Faktisk: 07:10 21.10.2017<br>Forsinkelse: -10 minutter'}
 , {x: Date.UTC(2017,9,21,15,05), y: -2, name: 'Planlagt: 15:05 21.10.2017<br>Faktisk: 15:03 21.10.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,9,22,15,05), y: -4, name: 'Planlagt: 15:05 22.10.2017<br>Faktisk: 15:01 22.10.2017<br>Forsinkelse: -4 minutter'}
 , {x: Date.UTC(2017,9,23,00,12), y: -1, name: 'Planlagt: 00:12 23.10.2017<br>Faktisk: 00:11 23.10.2017<br>Forsinkelse: -1 minutter'}
@@ -13756,7 +13775,7 @@ Highcharts.chart('container', {
 , {x: Date.UTC(2017,9,27,17,19), y: -2, name: 'Planlagt: 17:19 27.10.2017<br>Faktisk: 17:17 27.10.2017<br>Forsinkelse: -2 minutter'}
 , {x: Date.UTC(2017,9,27,22,04), y: 1, name: 'Planlagt: 22:04 27.10.2017<br>Faktisk: 22:05 27.10.2017<br>Forsinkelse: 1 minutter'}
 , {x: Date.UTC(2017,9,28,00,12), y: 1, name: 'Planlagt: 00:12 28.10.2017<br>Faktisk: 00:13 28.10.2017<br>Forsinkelse: 1 minutter'}
-, {x: Date.UTC(2017,9,28,07,20), y: -19, name: 'Planlagt: 07:20 28.10.2017<br>Faktisk: 07:01 28.10.2017<br>Forsinkelse: -19 minutter'}
+, {x: Date.UTC(2017,9,28,07,20), y: -5, name: 'Planlagt: 07:20 28.10.2017<br>Faktisk: 07:01 28.10.2017<br>Forsinkelse: -19 minutter'}
 , {x: Date.UTC(2017,9,29,19,35), y: 2, name: 'Planlagt: 19:35 29.10.2017<br>Faktisk: 19:37 29.10.2017<br>Forsinkelse: 2 minutter'}
 , {x: Date.UTC(2017,9,29,22,04), y: -3, name: 'Planlagt: 22:04 29.10.2017<br>Faktisk: 22:01 29.10.2017<br>Forsinkelse: -3 minutter'}
 , {x: Date.UTC(2017,9,30,00,12), y: 1, name: 'Planlagt: 00:12 30.10.2017<br>Faktisk: 00:13 30.10.2017<br>Forsinkelse: 1 minutter'}
@@ -13772,6 +13791,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Litt forsinket',
         color: '#b77621',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,0,02,19,35), y: 4, name: 'Planlagt: 19:35 02.01.2017<br>Faktisk: 19:39 02.01.2017<br>Forsinkelse: 4 minutter'}
 , {x: Date.UTC(2017,0,03,19,35), y: 4, name: 'Planlagt: 19:35 03.01.2017<br>Faktisk: 19:39 03.01.2017<br>Forsinkelse: 4 minutter'}
 , {x: Date.UTC(2017,0,04,00,12), y: 6, name: 'Planlagt: 00:12 04.01.2017<br>Faktisk: 00:18 04.01.2017<br>Forsinkelse: 6 minutter'}
@@ -13928,6 +13948,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Forsinket',
         color: '#ff0000',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,0,02,12,05), y: 14, name: 'Planlagt: 12:05 02.01.2017<br>Faktisk: 12:19 02.01.2017<br>Forsinkelse: 14 minutter'}
 , {x: Date.UTC(2017,0,04,12,05), y: 29, name: 'Planlagt: 12:05 04.01.2017<br>Faktisk: 12:34 04.01.2017<br>Forsinkelse: 29 minutter'}
 , {x: Date.UTC(2017,0,06,15,05), y: 14, name: 'Planlagt: 15:05 06.01.2017<br>Faktisk: 15:19 06.01.2017<br>Forsinkelse: 14 minutter'}
@@ -14129,6 +14150,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Innstilt',
         color: '#a20404',
+	turboThreshold: 0,
         data: [{x: Date.UTC(2017,0,02,15,05), y: 0, name: 'Planlagt: 15:05 02.01.2017'}
 , {x: Date.UTC(2017,0,02,17,19), y: 0, name: 'Planlagt: 17:19 02.01.2017'}
 , {x: Date.UTC(2017,0,03,15,05), y: 0, name: 'Planlagt: 15:05 03.01.2017'}
@@ -14901,4 +14923,5 @@ Highcharts.chart('container', {
     }]
 });
 document.getElementById('container').style.display='block';
+document.getElementById('containerlink').style.display='block';
 </script>
