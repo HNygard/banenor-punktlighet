@@ -292,6 +292,12 @@ function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	return $sumKategorier;
 }
 
+$diff_color_good = '#008000';
+$diff_color_medium = '#b77621';
+$diff_color_bad = '#ff0000';
+$diff_color_bad2 = '#a20404';
+
+
 $simpleStyling = '<style>
 table {
     border-collapse: collapse;
@@ -301,13 +307,16 @@ table td, table th {
 	vertical-align: top;
 }
 .diff-good {
-	color: green;
-}
-.diff-bad, .diff-innstilt {
-	color: red;
+	color: ' . $diff_color_good . ';
 }
 .diff-medium {
-	color: #b77621;
+	color: ' . $diff_color_medium . ';
+}
+.diff-bad {
+	color: ' . $diff_color_bad . ';
+}
+.diff-innstilt {
+	color: ' . $diff_color_bad2 . ';
 }
 .diff-sub-kat {
 	margin: 0;
