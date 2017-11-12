@@ -187,7 +187,20 @@ function getDiffTekst($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 	return ($faktisk == -1 ? '?' : (($faktisk - $planlagt) / 60)) . ' minutter'
 		. '. ' . $innstiltTekst;
 }
-function getDiffKategori($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
+function getDiffKategori($erDetteAvgang, $avgang) {
+	if ($erDetteAvgang) {
+		$planlagt = $avgang->planlagt_avgang_unixtime;
+		$faktisk = $avgang->faktisk_avgang_unixtime;
+		$innstiltTog = $avgang->innstilt_tog;
+		$delinnstiltStv = $avgang->delinnstilt_STV;
+	}
+	else {
+		$planlagt = $avgang->planlagt_ankomst_unixtime;
+		$faktisk = $avgang->faktisk_ankomst_unixtime;
+		$innstiltTog = $avgang->innstilt_tog;
+		$delinnstiltStv = $avgang->delinnstilt_STV;
+	}
+
 	if ($innstiltTog == 'Y') {
 		return '<span class="sort-8 diff-innstilt">Helinnstilt tog</span>';
 	}
@@ -227,22 +240,10 @@ function getDiffKategori($planlagt, $faktisk, $innstiltTog, $delinnstiltStv) {
 function getDiffKategoriSummary($tog, $erDetteAvganger) {
 	$kategorier = array();
 	foreach($tog as $avgang) {
-		if ($erDetteAvganger) {
-			$kat = getDiffKategori(
-					$avgang->planlagt_avgang_unixtime,
-					$avgang->faktisk_avgang_unixtime,
-					$avgang->innstilt_tog,
-					$avgang->delinnstilt_STV
-				);
-		}
-		else {
-			$kat = getDiffKategori(
-					$avgang->planlagt_ankomst_unixtime,
-					$avgang->faktisk_ankomst_unixtime,
-					$avgang->innstilt_tog,
-					$avgang->delinnstilt_STV
-				);
-		}
+		$kat = getDiffKategori(
+				$erDetteAvganger,
+				$avgang
+			);
 		if (!isset($kategorier[$kat])) {
 			$kategorier[$kat] = 0;
 		}
@@ -366,12 +367,7 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 				$avgang->innstilt_tog,
 				$avgang->delinnstilt_STV
 			) . '</td>' . chr(10);
-		$content .= '<td>' . getDiffKategori(
-				$avgang->planlagt_avgang_unixtime,
-				$avgang->faktisk_avgang_unixtime,
-				$avgang->innstilt_tog,
-				$avgang->delinnstilt_STV
-			) . '</td>' . chr(10);
+		$content .= '<td>' . getDiffKategori(true, $avgang) . '</td>' . chr(10);
 		$content .= '</tr>' . chr(10);
 	}
 	$content .= '</tbody>' . chr(10);
@@ -408,12 +404,7 @@ function writeAnkomstliste($fil, $tittel, $avkomster) {
 				$avgang->innstilt_tog,
 				$avgang->delinnstilt_STV
 			) . '</td>' . chr(10);
-		$content .= '<td>' . getDiffKategori(
-				$avgang->planlagt_ankomst_unixtime,
-				$avgang->faktisk_ankomst_unixtime,
-				$avgang->innstilt_tog,
-				$avgang->delinnstilt_STV
-			) . '</td>' . chr(10);
+		$content .= '<td>' . getDiffKategori(false, $avgang) . '</td>' . chr(10);
 		$content .= '</tr>' . chr(10);
 	}
 	$content .= '</tbody>' . chr(10);
