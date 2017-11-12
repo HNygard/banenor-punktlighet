@@ -303,20 +303,25 @@ $diff_color_bad2 = '#a20404';
 
 function styling($tittel, $twitterImage) {
 	global $diff_color_good, $diff_color_medium, $diff_color_bad, $diff_color_bad2;
+	$description = 'Tograpport generert basert på data fra Bane NOR. Hentet via innsynshenvendelse (Mimes Brønn).';
 	$simpleStyling = '<html>
 <head>
 <title>'. $tittel . '</title>
 
 <meta name="author" content="Hallvard Nygård, @hallny">
-<meta name="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta name="description" content="'. $description .'">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@hallny">
 <meta name="twitter:site" content="@hallny">
 <meta name="twitter:title" content="Innsyn i ' . lcfirst($tittel) . '">
-<meta name="twitter:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
-<meta name="og:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
+<meta name="twitter:image:src" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
+<meta property="og:title" content="Innsyn i ' . lcfirst($tittel) . '">
+<meta property="og:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
+<meta property="og:type" content="article">
+<meta property="og:description" content="'. $description .'">
+
 <meta itemprop="name" content="Innsyn i ' . lcfirst($tittel) . '">
-<meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
+<meta itemprop="description" content="'. $description .'">
 
 </head>';
 
@@ -348,7 +353,7 @@ table td, table th {
 <body>
 <a href="index.html">Til hovedside</a><br><br>
 <span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
- basert på data fra BaneNOR (
+ basert på data fra Bane NOR (
 <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan">[1]</a>,
 <a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
  - innsynshenvendelser via Mimes Brønn)
