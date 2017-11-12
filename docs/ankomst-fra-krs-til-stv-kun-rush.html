@@ -1,0 +1,1836 @@
+<h1>Ankomst fra KRS til STV - Kun rush</h1>
+<style>
+table {
+    border-collapse: collapse;
+}
+table td, table th {
+	border: 1px solid black;
+	vertical-align: top;
+}
+.diff-good {
+	color: #008000;
+}
+.diff-medium {
+	color: #b77621;
+}
+.diff-bad {
+	color: #ff0000;
+}
+.diff-innstilt {
+	color: #a20404;
+}
+.diff-sub-kat {
+	margin: 0;
+}
+</style>
+<a href="index.html">Til hovedside</a><br><br>
+<span style="font-size: 0.8em;">Tograpport generert av <a href="https://twitter.com/hallny">@hallny</a> (Hallvard Nygård)
+ basert på data fra BaneNOR (
+<a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan">[1]</a>,
+<a href="https://www.mimesbronn.no/request/togavganger_og_ankomst_pa_stavan_2">[2]</a>
+ - innsynshenvendelser via Mimes Brønn)
+ - <a href="https://github.com/HNygard/banenor-punktlighet">Kildekode på Github.</a><br><br></span>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.src.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto; display: none;"></div>
+
+Antall ankomster: 211
+
+<li><span class="sort-10 diff-good">OK</span>: 84 (39,81 %)
+<ul class="diff-sub-kat"><li><span class="sort-0 diff-good">-1 min</span>: 14 (6,64 %)</li>
+<li><span class="sort-0 diff-good">-2 min</span>: 2 (0,95 %)</li>
+<li><span class="sort-0 diff-good">-3 min</span>: 1 (0,47 %)</li>
+<li><span class="sort-1 diff-good">0-2 min</span>: 67 (31,75 %)</li>
+</ul></li>
+<li><span class="sort-11 diff-medium">Litt forsinket</span>: 43 (20,38 %)
+<ul class="diff-sub-kat"><li><span class="sort-2 diff-medium">3-9 min</span>: 43 (20,38 %)</li>
+</ul></li>
+<li><span class="sort-12 diff-bad">Forsinket</span>: 42 (19,91 %)
+<ul class="diff-sub-kat"><li><span class="sort-4 diff-bad">10-30 min</span>: 36 (17,06 %)</li>
+<li><span class="sort-5 diff-bad">Over 30 min</span>: 6 (2,84 %)</li>
+</ul></li>
+<li><span class="sort-13 diff-innstilt">Innstilt/Delinnstilt</span>: 42 (19,91 %)
+<ul class="diff-sub-kat"><li><span class="sort-6 diff-innstilt">Delinnstilt tog</span>: 42 (19,91 %)</li>
+</ul></li>
+<table>
+<thead><tr>
+<th>Togtype</th>
+<th>Planlagt ankomst</th>
+<th>Faktisk ankomst</th>
+<th>Differanse</th>
+<th>Kategori</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>NSB Regiontog</td>
+<td>01.01.2017 15:05</td>
+<td>01.01.2017 15:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>02.01.2017 08:05</td>
+<td>02.01.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>03.01.2017 08:05</td>
+<td>03.01.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>04.01.2017 08:05</td>
+<td>04.01.2017 08:10</td>
+<td>5 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="5">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>05.01.2017 08:05</td>
+<td>05.01.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>06.01.2017 08:05</td>
+<td>06.01.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>09.01.2017 08:05</td>
+<td>09.01.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>10.01.2017 08:05</td>
+<td>10.01.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>11.01.2017 08:05</td>
+<td>11.01.2017 08:11</td>
+<td>6 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="6">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>12.01.2017 08:05</td>
+<td>12.01.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>13.01.2017 08:05</td>
+<td>13.01.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>16.01.2017 08:05</td>
+<td>16.01.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>17.01.2017 08:05</td>
+<td>17.01.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>18.01.2017 08:05</td>
+<td>18.01.2017 08:12</td>
+<td>7 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="7">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>19.01.2017 08:05</td>
+<td>19.01.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>20.01.2017 08:05</td>
+<td>20.01.2017 08:19</td>
+<td>14 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="14">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>23.01.2017 08:05</td>
+<td>23.01.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>24.01.2017 08:05</td>
+<td>24.01.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>25.01.2017 08:05</td>
+<td>25.01.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>26.01.2017 08:05</td>
+<td>26.01.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>27.01.2017 08:05</td>
+<td>27.01.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>30.01.2017 08:05</td>
+<td>30.01.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>31.01.2017 08:05</td>
+<td>31.01.2017 08:22</td>
+<td>17 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="17">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>01.02.2017 08:05</td>
+<td>01.02.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>02.02.2017 08:05</td>
+<td>02.02.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>03.02.2017 08:05</td>
+<td>03.02.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>06.02.2017 08:05</td>
+<td>06.02.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>07.02.2017 08:05</td>
+<td>07.02.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>08.02.2017 08:05</td>
+<td>08.02.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>09.02.2017 08:05</td>
+<td>09.02.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>10.02.2017 08:05</td>
+<td>10.02.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>13.02.2017 08:05</td>
+<td>13.02.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>14.02.2017 08:05</td>
+<td>14.02.2017 08:11</td>
+<td>6 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="6">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>15.02.2017 08:05</td>
+<td>15.02.2017 08:12</td>
+<td>7 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="7">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>16.02.2017 08:05</td>
+<td>16.02.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>17.02.2017 08:05</td>
+<td>17.02.2017 08:35</td>
+<td>30 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="30">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>20.02.2017 08:05</td>
+<td>20.02.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>21.02.2017 08:05</td>
+<td>21.02.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>22.02.2017 08:05</td>
+<td>22.02.2017 08:19</td>
+<td>14 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="14">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>23.02.2017 08:05</td>
+<td>23.02.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>24.02.2017 08:05</td>
+<td>24.02.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>27.02.2017 08:05</td>
+<td>27.02.2017 08:03</td>
+<td>-2 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-2">-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>28.02.2017 08:05</td>
+<td>28.02.2017 08:02</td>
+<td>-3 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-3">-3 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>01.03.2017 08:05</td>
+<td>01.03.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>02.03.2017 08:05</td>
+<td>02.03.2017 08:03</td>
+<td>-2 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-2">-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>03.03.2017 08:05</td>
+<td>03.03.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>06.03.2017 08:05</td>
+<td>06.03.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>07.03.2017 08:05</td>
+<td>07.03.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>08.03.2017 08:05</td>
+<td>08.03.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>09.03.2017 08:05</td>
+<td>09.03.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>10.03.2017 08:05</td>
+<td>10.03.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>13.03.2017 08:05</td>
+<td>13.03.2017 08:19</td>
+<td>14 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="14">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>14.03.2017 08:05</td>
+<td>14.03.2017 08:20</td>
+<td>15 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="15">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>15.03.2017 08:05</td>
+<td>15.03.2017 08:20</td>
+<td>15 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="15">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>16.03.2017 08:05</td>
+<td>16.03.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>17.03.2017 08:05</td>
+<td>17.03.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>20.03.2017 08:05</td>
+<td>20.03.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>21.03.2017 08:05</td>
+<td>21.03.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>22.03.2017 08:05</td>
+<td>22.03.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>23.03.2017 08:05</td>
+<td>23.03.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>24.03.2017 08:05</td>
+<td>24.03.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>27.03.2017 08:05</td>
+<td>27.03.2017 08:18</td>
+<td>13 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="13">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>28.03.2017 08:05</td>
+<td>28.03.2017 08:36</td>
+<td>31 minutter. </td>
+<td><span class="sort-5 diff-bad" data-min="31">Over 30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>29.03.2017 08:05</td>
+<td>29.03.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>30.03.2017 08:05</td>
+<td>30.03.2017 08:12</td>
+<td>7 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="7">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>31.03.2017 08:05</td>
+<td>31.03.2017 08:21</td>
+<td>16 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="16">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>03.04.2017 08:05</td>
+<td>03.04.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>04.04.2017 08:05</td>
+<td>04.04.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>05.04.2017 08:05</td>
+<td>05.04.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>06.04.2017 08:05</td>
+<td>06.04.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>07.04.2017 08:05</td>
+<td>07.04.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>10.04.2017 08:05</td>
+<td>10.04.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>11.04.2017 08:05</td>
+<td>11.04.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>12.04.2017 08:05</td>
+<td>12.04.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>18.04.2017 08:05</td>
+<td>18.04.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>19.04.2017 08:05</td>
+<td>19.04.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>20.04.2017 08:05</td>
+<td>20.04.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>21.04.2017 08:05</td>
+<td>21.04.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>24.04.2017 08:05</td>
+<td>24.04.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>25.04.2017 08:05</td>
+<td>25.04.2017 08:19</td>
+<td>14 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="14">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>26.04.2017 08:05</td>
+<td>26.04.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>27.04.2017 08:05</td>
+<td>27.04.2017 08:18</td>
+<td>13 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="13">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>28.04.2017 08:05</td>
+<td>28.04.2017 08:18</td>
+<td>13 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="13">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>02.05.2017 08:05</td>
+<td>02.05.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>03.05.2017 08:05</td>
+<td>03.05.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>04.05.2017 08:05</td>
+<td>04.05.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>05.05.2017 08:05</td>
+<td>05.05.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>08.05.2017 08:05</td>
+<td>08.05.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>09.05.2017 08:05</td>
+<td>09.05.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>10.05.2017 08:05</td>
+<td>10.05.2017 08:21</td>
+<td>16 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="16">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>11.05.2017 08:05</td>
+<td>11.05.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>12.05.2017 08:05</td>
+<td>12.05.2017 08:48</td>
+<td>43 minutter. </td>
+<td><span class="sort-5 diff-bad" data-min="43">Over 30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>15.05.2017 08:05</td>
+<td>15.05.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>16.05.2017 08:05</td>
+<td>16.05.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>18.05.2017 08:05</td>
+<td>18.05.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>19.05.2017 08:05</td>
+<td>19.05.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>22.05.2017 08:05</td>
+<td>22.05.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>23.05.2017 08:05</td>
+<td>23.05.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>24.05.2017 08:05</td>
+<td>24.05.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>26.05.2017 08:05</td>
+<td>26.05.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>29.05.2017 08:05</td>
+<td>29.05.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>30.05.2017 08:05</td>
+<td>30.05.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>31.05.2017 08:05</td>
+<td>31.05.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>01.06.2017 08:05</td>
+<td>01.06.2017 08:20</td>
+<td>15 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="15">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>02.06.2017 08:05</td>
+<td>02.06.2017 08:12</td>
+<td>7 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="7">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>06.06.2017 08:05</td>
+<td>06.06.2017 08:11</td>
+<td>6 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="6">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>07.06.2017 08:05</td>
+<td>07.06.2017 08:23</td>
+<td>18 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="18">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>08.06.2017 08:05</td>
+<td>08.06.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>09.06.2017 08:05</td>
+<td>09.06.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>12.06.2017 08:05</td>
+<td>12.06.2017 08:20</td>
+<td>15 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="15">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>13.06.2017 08:05</td>
+<td>13.06.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>14.06.2017 08:05</td>
+<td>14.06.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>15.06.2017 08:05</td>
+<td>15.06.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>16.06.2017 08:05</td>
+<td>16.06.2017 08:39</td>
+<td>34 minutter. </td>
+<td><span class="sort-5 diff-bad" data-min="34">Over 30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>19.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>20.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>21.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>22.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>23.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>26.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>27.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>28.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>29.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>30.06.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>03.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>04.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>05.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>06.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>07.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>10.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>11.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>12.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>13.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>14.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>17.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>18.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>19.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>20.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>21.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>24.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>25.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>26.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>27.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>28.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>31.07.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>01.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>02.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>03.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>04.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>07.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>08.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>09.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>10.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>11.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>14.08.2017 08:05</td>
+<td>14.08.2017 08:17</td>
+<td>12 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="12">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>15.08.2017 08:05</td>
+<td>15.08.2017 08:15</td>
+<td>10 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="10">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>16.08.2017 08:05</td>
+<td>16.08.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>17.08.2017 08:05</td>
+<td>17.08.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>18.08.2017 08:05</td>
+<td>18.08.2017 08:52</td>
+<td>47 minutter. </td>
+<td><span class="sort-5 diff-bad" data-min="47">Over 30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>21.08.2017 08:05</td>
+<td>21.08.2017 08:11</td>
+<td>6 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="6">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>22.08.2017 08:05</td>
+<td>22.08.2017 08:17</td>
+<td>12 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="12">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>23.08.2017 08:05</td>
+<td>23.08.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>24.08.2017 08:05</td>
+<td>24.08.2017 08:17</td>
+<td>12 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="12">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>25.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>28.08.2017 08:05</td>
+<td>_</td>
+<td>? minutter. Delinnstilt tog</td>
+<td><span class="sort-6 diff-innstilt">Delinnstilt tog</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>29.08.2017 08:05</td>
+<td>29.08.2017 08:19</td>
+<td>14 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="14">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>30.08.2017 08:05</td>
+<td>30.08.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>31.08.2017 08:05</td>
+<td>31.08.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>01.09.2017 08:05</td>
+<td>01.09.2017 08:11</td>
+<td>6 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="6">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>04.09.2017 08:05</td>
+<td>04.09.2017 08:14</td>
+<td>9 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="9">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>05.09.2017 08:05</td>
+<td>05.09.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>06.09.2017 08:05</td>
+<td>06.09.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>07.09.2017 08:05</td>
+<td>07.09.2017 08:17</td>
+<td>12 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="12">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>08.09.2017 08:05</td>
+<td>08.09.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>11.09.2017 08:05</td>
+<td>11.09.2017 08:17</td>
+<td>12 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="12">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>12.09.2017 08:05</td>
+<td>12.09.2017 08:17</td>
+<td>12 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="12">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>13.09.2017 08:05</td>
+<td>13.09.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>14.09.2017 08:05</td>
+<td>14.09.2017 08:10</td>
+<td>5 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="5">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>15.09.2017 08:05</td>
+<td>15.09.2017 08:10</td>
+<td>5 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="5">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>18.09.2017 08:05</td>
+<td>18.09.2017 08:12</td>
+<td>7 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="7">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>19.09.2017 08:05</td>
+<td>19.09.2017 08:11</td>
+<td>6 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="6">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>20.09.2017 08:05</td>
+<td>20.09.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>21.09.2017 08:05</td>
+<td>21.09.2017 08:17</td>
+<td>12 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="12">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>22.09.2017 08:05</td>
+<td>22.09.2017 08:27</td>
+<td>22 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="22">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>25.09.2017 08:05</td>
+<td>25.09.2017 08:29</td>
+<td>24 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="24">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>26.09.2017 08:05</td>
+<td>26.09.2017 08:07</td>
+<td>2 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="2">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>27.09.2017 08:05</td>
+<td>27.09.2017 08:18</td>
+<td>13 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="13">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>28.09.2017 08:05</td>
+<td>28.09.2017 08:16</td>
+<td>11 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="11">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>29.09.2017 08:05</td>
+<td>29.09.2017 08:21</td>
+<td>16 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="16">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>02.10.2017 08:05</td>
+<td>02.10.2017 08:45</td>
+<td>40 minutter. </td>
+<td><span class="sort-5 diff-bad" data-min="40">Over 30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>03.10.2017 08:05</td>
+<td>03.10.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>04.10.2017 08:05</td>
+<td>04.10.2017 08:11</td>
+<td>6 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="6">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>05.10.2017 08:05</td>
+<td>05.10.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>06.10.2017 08:05</td>
+<td>06.10.2017 08:15</td>
+<td>10 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="10">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>09.10.2017 08:05</td>
+<td>09.10.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>10.10.2017 08:05</td>
+<td>10.10.2017 08:18</td>
+<td>13 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="13">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>11.10.2017 08:05</td>
+<td>11.10.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>12.10.2017 08:05</td>
+<td>12.10.2017 08:04</td>
+<td>-1 minutter. </td>
+<td><span class="sort-0 diff-good" data-min="-1">-1 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>13.10.2017 08:05</td>
+<td>13.10.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>16.10.2017 08:05</td>
+<td>16.10.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>17.10.2017 08:05</td>
+<td>17.10.2017 08:21</td>
+<td>16 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="16">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>18.10.2017 08:05</td>
+<td>18.10.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>19.10.2017 08:05</td>
+<td>19.10.2017 08:08</td>
+<td>3 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>20.10.2017 08:05</td>
+<td>20.10.2017 08:09</td>
+<td>4 minutter. </td>
+<td><span class="sort-2 diff-medium" data-min="4">3-9 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>23.10.2017 08:05</td>
+<td>23.10.2017 08:05</td>
+<td>0 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="0">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>24.10.2017 08:05</td>
+<td>24.10.2017 08:19</td>
+<td>14 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="14">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>25.10.2017 08:05</td>
+<td>25.10.2017 08:23</td>
+<td>18 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="18">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>26.10.2017 08:05</td>
+<td>26.10.2017 08:36</td>
+<td>31 minutter. </td>
+<td><span class="sort-5 diff-bad" data-min="31">Over 30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>27.10.2017 08:05</td>
+<td>27.10.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>30.10.2017 08:05</td>
+<td>30.10.2017 08:19</td>
+<td>14 minutter. </td>
+<td><span class="sort-4 diff-bad" data-min="14">10-30 min</span></td>
+</tr>
+<tr>
+<td>NSB Regiontog</td>
+<td>31.10.2017 08:05</td>
+<td>31.10.2017 08:06</td>
+<td>1 minutter. </td>
+<td><span class="sort-1 diff-good" data-min="1">0-2 min</span></td>
+</tr>
+</tbody>
+</table>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Ankomst fra KRS til STV - Kun rush'
+    },
+    subtitle: {
+        text: 'https://hnygard.github.io/banenor-punktlighet/'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            enabled: true,
+            text: 'Tid'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Minutter forsinket'
+        }
+    },
+    legend: {
+	x: 60,
+	y: 40,
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        name: 'På tiden',
+        color: '#008000',
+        data: [{x: Date.UTC(2017,0,01,15,05), y: 0, name: 'Planlagt: 15:05 01.01.2017<br>Faktisk: 15:05 01.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,05,08,05), y: 2, name: 'Planlagt: 08:05 05.01.2017<br>Faktisk: 08:07 05.01.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,0,06,08,05), y: 1, name: 'Planlagt: 08:05 06.01.2017<br>Faktisk: 08:06 06.01.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,0,10,08,05), y: -1, name: 'Planlagt: 08:05 10.01.2017<br>Faktisk: 08:04 10.01.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,0,12,08,05), y: 1, name: 'Planlagt: 08:05 12.01.2017<br>Faktisk: 08:06 12.01.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,0,13,08,05), y: 0, name: 'Planlagt: 08:05 13.01.2017<br>Faktisk: 08:05 13.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,19,08,05), y: -1, name: 'Planlagt: 08:05 19.01.2017<br>Faktisk: 08:04 19.01.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,0,23,08,05), y: 0, name: 'Planlagt: 08:05 23.01.2017<br>Faktisk: 08:05 23.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,25,08,05), y: 2, name: 'Planlagt: 08:05 25.01.2017<br>Faktisk: 08:07 25.01.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,0,26,08,05), y: 0, name: 'Planlagt: 08:05 26.01.2017<br>Faktisk: 08:05 26.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,0,27,08,05), y: -1, name: 'Planlagt: 08:05 27.01.2017<br>Faktisk: 08:04 27.01.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,0,30,08,05), y: 0, name: 'Planlagt: 08:05 30.01.2017<br>Faktisk: 08:05 30.01.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,01,08,05), y: 1, name: 'Planlagt: 08:05 01.02.2017<br>Faktisk: 08:06 01.02.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,1,02,08,05), y: 0, name: 'Planlagt: 08:05 02.02.2017<br>Faktisk: 08:05 02.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,03,08,05), y: 0, name: 'Planlagt: 08:05 03.02.2017<br>Faktisk: 08:05 03.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,06,08,05), y: 1, name: 'Planlagt: 08:05 06.02.2017<br>Faktisk: 08:06 06.02.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,1,07,08,05), y: 1, name: 'Planlagt: 08:05 07.02.2017<br>Faktisk: 08:06 07.02.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,1,08,08,05), y: 1, name: 'Planlagt: 08:05 08.02.2017<br>Faktisk: 08:06 08.02.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,1,09,08,05), y: 2, name: 'Planlagt: 08:05 09.02.2017<br>Faktisk: 08:07 09.02.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,1,13,08,05), y: 1, name: 'Planlagt: 08:05 13.02.2017<br>Faktisk: 08:06 13.02.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,1,16,08,05), y: 1, name: 'Planlagt: 08:05 16.02.2017<br>Faktisk: 08:06 16.02.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,1,20,08,05), y: 0, name: 'Planlagt: 08:05 20.02.2017<br>Faktisk: 08:05 20.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,21,08,05), y: 0, name: 'Planlagt: 08:05 21.02.2017<br>Faktisk: 08:05 21.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,23,08,05), y: 0, name: 'Planlagt: 08:05 23.02.2017<br>Faktisk: 08:05 23.02.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,1,24,08,05), y: 2, name: 'Planlagt: 08:05 24.02.2017<br>Faktisk: 08:07 24.02.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,1,27,08,05), y: -2, name: 'Planlagt: 08:05 27.02.2017<br>Faktisk: 08:03 27.02.2017<br>Forsinkelse: -2 minutter'}
+, {x: Date.UTC(2017,1,28,08,05), y: -3, name: 'Planlagt: 08:05 28.02.2017<br>Faktisk: 08:02 28.02.2017<br>Forsinkelse: -3 minutter'}
+, {x: Date.UTC(2017,2,01,08,05), y: 0, name: 'Planlagt: 08:05 01.03.2017<br>Faktisk: 08:05 01.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,02,08,05), y: -2, name: 'Planlagt: 08:05 02.03.2017<br>Faktisk: 08:03 02.03.2017<br>Forsinkelse: -2 minutter'}
+, {x: Date.UTC(2017,2,03,08,05), y: 1, name: 'Planlagt: 08:05 03.03.2017<br>Faktisk: 08:06 03.03.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,2,06,08,05), y: 0, name: 'Planlagt: 08:05 06.03.2017<br>Faktisk: 08:05 06.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,07,08,05), y: 0, name: 'Planlagt: 08:05 07.03.2017<br>Faktisk: 08:05 07.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,08,08,05), y: 0, name: 'Planlagt: 08:05 08.03.2017<br>Faktisk: 08:05 08.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,16,08,05), y: 0, name: 'Planlagt: 08:05 16.03.2017<br>Faktisk: 08:05 16.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,17,08,05), y: -1, name: 'Planlagt: 08:05 17.03.2017<br>Faktisk: 08:04 17.03.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,2,20,08,05), y: 0, name: 'Planlagt: 08:05 20.03.2017<br>Faktisk: 08:05 20.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,21,08,05), y: 0, name: 'Planlagt: 08:05 21.03.2017<br>Faktisk: 08:05 21.03.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,2,22,08,05), y: -1, name: 'Planlagt: 08:05 22.03.2017<br>Faktisk: 08:04 22.03.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,2,23,08,05), y: -1, name: 'Planlagt: 08:05 23.03.2017<br>Faktisk: 08:04 23.03.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,2,24,08,05), y: -1, name: 'Planlagt: 08:05 24.03.2017<br>Faktisk: 08:04 24.03.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,2,29,08,05), y: 2, name: 'Planlagt: 08:05 29.03.2017<br>Faktisk: 08:07 29.03.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,3,03,08,05), y: 1, name: 'Planlagt: 08:05 03.04.2017<br>Faktisk: 08:06 03.04.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,3,05,08,05), y: 2, name: 'Planlagt: 08:05 05.04.2017<br>Faktisk: 08:07 05.04.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,3,06,08,05), y: 0, name: 'Planlagt: 08:05 06.04.2017<br>Faktisk: 08:05 06.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,10,08,05), y: -1, name: 'Planlagt: 08:05 10.04.2017<br>Faktisk: 08:04 10.04.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,3,11,08,05), y: -1, name: 'Planlagt: 08:05 11.04.2017<br>Faktisk: 08:04 11.04.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,3,12,08,05), y: 0, name: 'Planlagt: 08:05 12.04.2017<br>Faktisk: 08:05 12.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,18,08,05), y: -1, name: 'Planlagt: 08:05 18.04.2017<br>Faktisk: 08:04 18.04.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,3,19,08,05), y: 0, name: 'Planlagt: 08:05 19.04.2017<br>Faktisk: 08:05 19.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,20,08,05), y: 0, name: 'Planlagt: 08:05 20.04.2017<br>Faktisk: 08:05 20.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,3,21,08,05), y: -1, name: 'Planlagt: 08:05 21.04.2017<br>Faktisk: 08:04 21.04.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,3,24,08,05), y: 2, name: 'Planlagt: 08:05 24.04.2017<br>Faktisk: 08:07 24.04.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,3,26,08,05), y: 0, name: 'Planlagt: 08:05 26.04.2017<br>Faktisk: 08:05 26.04.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,03,08,05), y: 1, name: 'Planlagt: 08:05 03.05.2017<br>Faktisk: 08:06 03.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,04,08,05), y: 0, name: 'Planlagt: 08:05 04.05.2017<br>Faktisk: 08:05 04.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,05,08,05), y: 2, name: 'Planlagt: 08:05 05.05.2017<br>Faktisk: 08:07 05.05.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,4,08,08,05), y: 1, name: 'Planlagt: 08:05 08.05.2017<br>Faktisk: 08:06 08.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,09,08,05), y: 1, name: 'Planlagt: 08:05 09.05.2017<br>Faktisk: 08:06 09.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,11,08,05), y: 2, name: 'Planlagt: 08:05 11.05.2017<br>Faktisk: 08:07 11.05.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,4,15,08,05), y: 2, name: 'Planlagt: 08:05 15.05.2017<br>Faktisk: 08:07 15.05.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,4,16,08,05), y: 0, name: 'Planlagt: 08:05 16.05.2017<br>Faktisk: 08:05 16.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,18,08,05), y: 0, name: 'Planlagt: 08:05 18.05.2017<br>Faktisk: 08:05 18.05.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,4,19,08,05), y: -1, name: 'Planlagt: 08:05 19.05.2017<br>Faktisk: 08:04 19.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,22,08,05), y: 1, name: 'Planlagt: 08:05 22.05.2017<br>Faktisk: 08:06 22.05.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,4,23,08,05), y: 2, name: 'Planlagt: 08:05 23.05.2017<br>Faktisk: 08:07 23.05.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,4,26,08,05), y: -1, name: 'Planlagt: 08:05 26.05.2017<br>Faktisk: 08:04 26.05.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,4,29,08,05), y: 2, name: 'Planlagt: 08:05 29.05.2017<br>Faktisk: 08:07 29.05.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,5,08,08,05), y: 2, name: 'Planlagt: 08:05 08.06.2017<br>Faktisk: 08:07 08.06.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,5,09,08,05), y: 1, name: 'Planlagt: 08:05 09.06.2017<br>Faktisk: 08:06 09.06.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,5,13,08,05), y: 0, name: 'Planlagt: 08:05 13.06.2017<br>Faktisk: 08:05 13.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,5,14,08,05), y: 0, name: 'Planlagt: 08:05 14.06.2017<br>Faktisk: 08:05 14.06.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,7,16,08,05), y: 1, name: 'Planlagt: 08:05 16.08.2017<br>Faktisk: 08:06 16.08.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,7,31,08,05), y: 1, name: 'Planlagt: 08:05 31.08.2017<br>Faktisk: 08:06 31.08.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,8,13,08,05), y: 1, name: 'Planlagt: 08:05 13.09.2017<br>Faktisk: 08:06 13.09.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,8,26,08,05), y: 2, name: 'Planlagt: 08:05 26.09.2017<br>Faktisk: 08:07 26.09.2017<br>Forsinkelse: 2 minutter'}
+, {x: Date.UTC(2017,9,05,08,05), y: 1, name: 'Planlagt: 08:05 05.10.2017<br>Faktisk: 08:06 05.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,09,08,05), y: 1, name: 'Planlagt: 08:05 09.10.2017<br>Faktisk: 08:06 09.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,11,08,05), y: 0, name: 'Planlagt: 08:05 11.10.2017<br>Faktisk: 08:05 11.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,12,08,05), y: -1, name: 'Planlagt: 08:05 12.10.2017<br>Faktisk: 08:04 12.10.2017<br>Forsinkelse: -1 minutter'}
+, {x: Date.UTC(2017,9,13,08,05), y: 0, name: 'Planlagt: 08:05 13.10.2017<br>Faktisk: 08:05 13.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,18,08,05), y: 1, name: 'Planlagt: 08:05 18.10.2017<br>Faktisk: 08:06 18.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,23,08,05), y: 0, name: 'Planlagt: 08:05 23.10.2017<br>Faktisk: 08:05 23.10.2017<br>Forsinkelse: 0 minutter'}
+, {x: Date.UTC(2017,9,27,08,05), y: 1, name: 'Planlagt: 08:05 27.10.2017<br>Faktisk: 08:06 27.10.2017<br>Forsinkelse: 1 minutter'}
+, {x: Date.UTC(2017,9,31,08,05), y: 1, name: 'Planlagt: 08:05 31.10.2017<br>Faktisk: 08:06 31.10.2017<br>Forsinkelse: 1 minutter'}
+]
+
+    }, {
+        name: 'Litt forsinket',
+        color: '#b77621',
+        data: [{x: Date.UTC(2017,0,02,08,05), y: 3, name: 'Planlagt: 08:05 02.01.2017<br>Faktisk: 08:08 02.01.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,0,03,08,05), y: 3, name: 'Planlagt: 08:05 03.01.2017<br>Faktisk: 08:08 03.01.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,0,04,08,05), y: 5, name: 'Planlagt: 08:05 04.01.2017<br>Faktisk: 08:10 04.01.2017<br>Forsinkelse: 5 minutter'}
+, {x: Date.UTC(2017,0,09,08,05), y: 4, name: 'Planlagt: 08:05 09.01.2017<br>Faktisk: 08:09 09.01.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,0,11,08,05), y: 6, name: 'Planlagt: 08:05 11.01.2017<br>Faktisk: 08:11 11.01.2017<br>Forsinkelse: 6 minutter'}
+, {x: Date.UTC(2017,0,16,08,05), y: 3, name: 'Planlagt: 08:05 16.01.2017<br>Faktisk: 08:08 16.01.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,0,17,08,05), y: 4, name: 'Planlagt: 08:05 17.01.2017<br>Faktisk: 08:09 17.01.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,0,18,08,05), y: 7, name: 'Planlagt: 08:05 18.01.2017<br>Faktisk: 08:12 18.01.2017<br>Forsinkelse: 7 minutter'}
+, {x: Date.UTC(2017,0,24,08,05), y: 3, name: 'Planlagt: 08:05 24.01.2017<br>Faktisk: 08:08 24.01.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,1,10,08,05), y: 3, name: 'Planlagt: 08:05 10.02.2017<br>Faktisk: 08:08 10.02.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,1,14,08,05), y: 6, name: 'Planlagt: 08:05 14.02.2017<br>Faktisk: 08:11 14.02.2017<br>Forsinkelse: 6 minutter'}
+, {x: Date.UTC(2017,1,15,08,05), y: 7, name: 'Planlagt: 08:05 15.02.2017<br>Faktisk: 08:12 15.02.2017<br>Forsinkelse: 7 minutter'}
+, {x: Date.UTC(2017,2,09,08,05), y: 4, name: 'Planlagt: 08:05 09.03.2017<br>Faktisk: 08:09 09.03.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,2,10,08,05), y: 3, name: 'Planlagt: 08:05 10.03.2017<br>Faktisk: 08:08 10.03.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,2,30,08,05), y: 7, name: 'Planlagt: 08:05 30.03.2017<br>Faktisk: 08:12 30.03.2017<br>Forsinkelse: 7 minutter'}
+, {x: Date.UTC(2017,3,04,08,05), y: 3, name: 'Planlagt: 08:05 04.04.2017<br>Faktisk: 08:08 04.04.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,3,07,08,05), y: 4, name: 'Planlagt: 08:05 07.04.2017<br>Faktisk: 08:09 07.04.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,4,02,08,05), y: 4, name: 'Planlagt: 08:05 02.05.2017<br>Faktisk: 08:09 02.05.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,4,24,08,05), y: 4, name: 'Planlagt: 08:05 24.05.2017<br>Faktisk: 08:09 24.05.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,4,30,08,05), y: 3, name: 'Planlagt: 08:05 30.05.2017<br>Faktisk: 08:08 30.05.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,4,31,08,05), y: 4, name: 'Planlagt: 08:05 31.05.2017<br>Faktisk: 08:09 31.05.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,5,02,08,05), y: 7, name: 'Planlagt: 08:05 02.06.2017<br>Faktisk: 08:12 02.06.2017<br>Forsinkelse: 7 minutter'}
+, {x: Date.UTC(2017,5,06,08,05), y: 6, name: 'Planlagt: 08:05 06.06.2017<br>Faktisk: 08:11 06.06.2017<br>Forsinkelse: 6 minutter'}
+, {x: Date.UTC(2017,5,15,08,05), y: 3, name: 'Planlagt: 08:05 15.06.2017<br>Faktisk: 08:08 15.06.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,7,17,08,05), y: 4, name: 'Planlagt: 08:05 17.08.2017<br>Faktisk: 08:09 17.08.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,7,21,08,05), y: 6, name: 'Planlagt: 08:05 21.08.2017<br>Faktisk: 08:11 21.08.2017<br>Forsinkelse: 6 minutter'}
+, {x: Date.UTC(2017,7,23,08,05), y: 3, name: 'Planlagt: 08:05 23.08.2017<br>Faktisk: 08:08 23.08.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,7,30,08,05), y: 4, name: 'Planlagt: 08:05 30.08.2017<br>Faktisk: 08:09 30.08.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,8,01,08,05), y: 6, name: 'Planlagt: 08:05 01.09.2017<br>Faktisk: 08:11 01.09.2017<br>Forsinkelse: 6 minutter'}
+, {x: Date.UTC(2017,8,04,08,05), y: 9, name: 'Planlagt: 08:05 04.09.2017<br>Faktisk: 08:14 04.09.2017<br>Forsinkelse: 9 minutter'}
+, {x: Date.UTC(2017,8,05,08,05), y: 3, name: 'Planlagt: 08:05 05.09.2017<br>Faktisk: 08:08 05.09.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,8,06,08,05), y: 4, name: 'Planlagt: 08:05 06.09.2017<br>Faktisk: 08:09 06.09.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,8,08,08,05), y: 3, name: 'Planlagt: 08:05 08.09.2017<br>Faktisk: 08:08 08.09.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,8,14,08,05), y: 5, name: 'Planlagt: 08:05 14.09.2017<br>Faktisk: 08:10 14.09.2017<br>Forsinkelse: 5 minutter'}
+, {x: Date.UTC(2017,8,15,08,05), y: 5, name: 'Planlagt: 08:05 15.09.2017<br>Faktisk: 08:10 15.09.2017<br>Forsinkelse: 5 minutter'}
+, {x: Date.UTC(2017,8,18,08,05), y: 7, name: 'Planlagt: 08:05 18.09.2017<br>Faktisk: 08:12 18.09.2017<br>Forsinkelse: 7 minutter'}
+, {x: Date.UTC(2017,8,19,08,05), y: 6, name: 'Planlagt: 08:05 19.09.2017<br>Faktisk: 08:11 19.09.2017<br>Forsinkelse: 6 minutter'}
+, {x: Date.UTC(2017,8,20,08,05), y: 3, name: 'Planlagt: 08:05 20.09.2017<br>Faktisk: 08:08 20.09.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,9,03,08,05), y: 3, name: 'Planlagt: 08:05 03.10.2017<br>Faktisk: 08:08 03.10.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,9,04,08,05), y: 6, name: 'Planlagt: 08:05 04.10.2017<br>Faktisk: 08:11 04.10.2017<br>Forsinkelse: 6 minutter'}
+, {x: Date.UTC(2017,9,16,08,05), y: 4, name: 'Planlagt: 08:05 16.10.2017<br>Faktisk: 08:09 16.10.2017<br>Forsinkelse: 4 minutter'}
+, {x: Date.UTC(2017,9,19,08,05), y: 3, name: 'Planlagt: 08:05 19.10.2017<br>Faktisk: 08:08 19.10.2017<br>Forsinkelse: 3 minutter'}
+, {x: Date.UTC(2017,9,20,08,05), y: 4, name: 'Planlagt: 08:05 20.10.2017<br>Faktisk: 08:09 20.10.2017<br>Forsinkelse: 4 minutter'}
+]
+    }, {
+        name: 'Forsinket',
+        color: '#ff0000',
+        data: [{x: Date.UTC(2017,0,20,08,05), y: 14, name: 'Planlagt: 08:05 20.01.2017<br>Faktisk: 08:19 20.01.2017<br>Forsinkelse: 14 minutter'}
+, {x: Date.UTC(2017,0,31,08,05), y: 17, name: 'Planlagt: 08:05 31.01.2017<br>Faktisk: 08:22 31.01.2017<br>Forsinkelse: 17 minutter'}
+, {x: Date.UTC(2017,1,17,08,05), y: 30, name: 'Planlagt: 08:05 17.02.2017<br>Faktisk: 08:35 17.02.2017<br>Forsinkelse: 30 minutter'}
+, {x: Date.UTC(2017,1,22,08,05), y: 14, name: 'Planlagt: 08:05 22.02.2017<br>Faktisk: 08:19 22.02.2017<br>Forsinkelse: 14 minutter'}
+, {x: Date.UTC(2017,2,13,08,05), y: 14, name: 'Planlagt: 08:05 13.03.2017<br>Faktisk: 08:19 13.03.2017<br>Forsinkelse: 14 minutter'}
+, {x: Date.UTC(2017,2,14,08,05), y: 15, name: 'Planlagt: 08:05 14.03.2017<br>Faktisk: 08:20 14.03.2017<br>Forsinkelse: 15 minutter'}
+, {x: Date.UTC(2017,2,15,08,05), y: 15, name: 'Planlagt: 08:05 15.03.2017<br>Faktisk: 08:20 15.03.2017<br>Forsinkelse: 15 minutter'}
+, {x: Date.UTC(2017,2,27,08,05), y: 13, name: 'Planlagt: 08:05 27.03.2017<br>Faktisk: 08:18 27.03.2017<br>Forsinkelse: 13 minutter'}
+, {x: Date.UTC(2017,2,28,08,05), y: 31, name: 'Planlagt: 08:05 28.03.2017<br>Faktisk: 08:36 28.03.2017<br>Forsinkelse: 31 minutter'}
+, {x: Date.UTC(2017,2,31,08,05), y: 16, name: 'Planlagt: 08:05 31.03.2017<br>Faktisk: 08:21 31.03.2017<br>Forsinkelse: 16 minutter'}
+, {x: Date.UTC(2017,3,25,08,05), y: 14, name: 'Planlagt: 08:05 25.04.2017<br>Faktisk: 08:19 25.04.2017<br>Forsinkelse: 14 minutter'}
+, {x: Date.UTC(2017,3,27,08,05), y: 13, name: 'Planlagt: 08:05 27.04.2017<br>Faktisk: 08:18 27.04.2017<br>Forsinkelse: 13 minutter'}
+, {x: Date.UTC(2017,3,28,08,05), y: 13, name: 'Planlagt: 08:05 28.04.2017<br>Faktisk: 08:18 28.04.2017<br>Forsinkelse: 13 minutter'}
+, {x: Date.UTC(2017,4,10,08,05), y: 16, name: 'Planlagt: 08:05 10.05.2017<br>Faktisk: 08:21 10.05.2017<br>Forsinkelse: 16 minutter'}
+, {x: Date.UTC(2017,4,12,08,05), y: 43, name: 'Planlagt: 08:05 12.05.2017<br>Faktisk: 08:48 12.05.2017<br>Forsinkelse: 43 minutter'}
+, {x: Date.UTC(2017,5,01,08,05), y: 15, name: 'Planlagt: 08:05 01.06.2017<br>Faktisk: 08:20 01.06.2017<br>Forsinkelse: 15 minutter'}
+, {x: Date.UTC(2017,5,07,08,05), y: 18, name: 'Planlagt: 08:05 07.06.2017<br>Faktisk: 08:23 07.06.2017<br>Forsinkelse: 18 minutter'}
+, {x: Date.UTC(2017,5,12,08,05), y: 15, name: 'Planlagt: 08:05 12.06.2017<br>Faktisk: 08:20 12.06.2017<br>Forsinkelse: 15 minutter'}
+, {x: Date.UTC(2017,5,16,08,05), y: 34, name: 'Planlagt: 08:05 16.06.2017<br>Faktisk: 08:39 16.06.2017<br>Forsinkelse: 34 minutter'}
+, {x: Date.UTC(2017,7,14,08,05), y: 12, name: 'Planlagt: 08:05 14.08.2017<br>Faktisk: 08:17 14.08.2017<br>Forsinkelse: 12 minutter'}
+, {x: Date.UTC(2017,7,15,08,05), y: 10, name: 'Planlagt: 08:05 15.08.2017<br>Faktisk: 08:15 15.08.2017<br>Forsinkelse: 10 minutter'}
+, {x: Date.UTC(2017,7,18,08,05), y: 47, name: 'Planlagt: 08:05 18.08.2017<br>Faktisk: 08:52 18.08.2017<br>Forsinkelse: 47 minutter'}
+, {x: Date.UTC(2017,7,22,08,05), y: 12, name: 'Planlagt: 08:05 22.08.2017<br>Faktisk: 08:17 22.08.2017<br>Forsinkelse: 12 minutter'}
+, {x: Date.UTC(2017,7,24,08,05), y: 12, name: 'Planlagt: 08:05 24.08.2017<br>Faktisk: 08:17 24.08.2017<br>Forsinkelse: 12 minutter'}
+, {x: Date.UTC(2017,7,29,08,05), y: 14, name: 'Planlagt: 08:05 29.08.2017<br>Faktisk: 08:19 29.08.2017<br>Forsinkelse: 14 minutter'}
+, {x: Date.UTC(2017,8,07,08,05), y: 12, name: 'Planlagt: 08:05 07.09.2017<br>Faktisk: 08:17 07.09.2017<br>Forsinkelse: 12 minutter'}
+, {x: Date.UTC(2017,8,11,08,05), y: 12, name: 'Planlagt: 08:05 11.09.2017<br>Faktisk: 08:17 11.09.2017<br>Forsinkelse: 12 minutter'}
+, {x: Date.UTC(2017,8,12,08,05), y: 12, name: 'Planlagt: 08:05 12.09.2017<br>Faktisk: 08:17 12.09.2017<br>Forsinkelse: 12 minutter'}
+, {x: Date.UTC(2017,8,21,08,05), y: 12, name: 'Planlagt: 08:05 21.09.2017<br>Faktisk: 08:17 21.09.2017<br>Forsinkelse: 12 minutter'}
+, {x: Date.UTC(2017,8,22,08,05), y: 22, name: 'Planlagt: 08:05 22.09.2017<br>Faktisk: 08:27 22.09.2017<br>Forsinkelse: 22 minutter'}
+, {x: Date.UTC(2017,8,25,08,05), y: 24, name: 'Planlagt: 08:05 25.09.2017<br>Faktisk: 08:29 25.09.2017<br>Forsinkelse: 24 minutter'}
+, {x: Date.UTC(2017,8,27,08,05), y: 13, name: 'Planlagt: 08:05 27.09.2017<br>Faktisk: 08:18 27.09.2017<br>Forsinkelse: 13 minutter'}
+, {x: Date.UTC(2017,8,28,08,05), y: 11, name: 'Planlagt: 08:05 28.09.2017<br>Faktisk: 08:16 28.09.2017<br>Forsinkelse: 11 minutter'}
+, {x: Date.UTC(2017,8,29,08,05), y: 16, name: 'Planlagt: 08:05 29.09.2017<br>Faktisk: 08:21 29.09.2017<br>Forsinkelse: 16 minutter'}
+, {x: Date.UTC(2017,9,02,08,05), y: 40, name: 'Planlagt: 08:05 02.10.2017<br>Faktisk: 08:45 02.10.2017<br>Forsinkelse: 40 minutter'}
+, {x: Date.UTC(2017,9,06,08,05), y: 10, name: 'Planlagt: 08:05 06.10.2017<br>Faktisk: 08:15 06.10.2017<br>Forsinkelse: 10 minutter'}
+, {x: Date.UTC(2017,9,10,08,05), y: 13, name: 'Planlagt: 08:05 10.10.2017<br>Faktisk: 08:18 10.10.2017<br>Forsinkelse: 13 minutter'}
+, {x: Date.UTC(2017,9,17,08,05), y: 16, name: 'Planlagt: 08:05 17.10.2017<br>Faktisk: 08:21 17.10.2017<br>Forsinkelse: 16 minutter'}
+, {x: Date.UTC(2017,9,24,08,05), y: 14, name: 'Planlagt: 08:05 24.10.2017<br>Faktisk: 08:19 24.10.2017<br>Forsinkelse: 14 minutter'}
+, {x: Date.UTC(2017,9,25,08,05), y: 18, name: 'Planlagt: 08:05 25.10.2017<br>Faktisk: 08:23 25.10.2017<br>Forsinkelse: 18 minutter'}
+, {x: Date.UTC(2017,9,26,08,05), y: 31, name: 'Planlagt: 08:05 26.10.2017<br>Faktisk: 08:36 26.10.2017<br>Forsinkelse: 31 minutter'}
+, {x: Date.UTC(2017,9,30,08,05), y: 14, name: 'Planlagt: 08:05 30.10.2017<br>Faktisk: 08:19 30.10.2017<br>Forsinkelse: 14 minutter'}
+]
+    }, {
+        name: 'Innstilt',
+        color: '#a20404',
+        data: [{x: Date.UTC(2017,5,19,08,05), y: 0, name: 'Planlagt: 08:05 19.06.2017'}
+, {x: Date.UTC(2017,5,20,08,05), y: 0, name: 'Planlagt: 08:05 20.06.2017'}
+, {x: Date.UTC(2017,5,21,08,05), y: 0, name: 'Planlagt: 08:05 21.06.2017'}
+, {x: Date.UTC(2017,5,22,08,05), y: 0, name: 'Planlagt: 08:05 22.06.2017'}
+, {x: Date.UTC(2017,5,23,08,05), y: 0, name: 'Planlagt: 08:05 23.06.2017'}
+, {x: Date.UTC(2017,5,26,08,05), y: 0, name: 'Planlagt: 08:05 26.06.2017'}
+, {x: Date.UTC(2017,5,27,08,05), y: 0, name: 'Planlagt: 08:05 27.06.2017'}
+, {x: Date.UTC(2017,5,28,08,05), y: 0, name: 'Planlagt: 08:05 28.06.2017'}
+, {x: Date.UTC(2017,5,29,08,05), y: 0, name: 'Planlagt: 08:05 29.06.2017'}
+, {x: Date.UTC(2017,5,30,08,05), y: 0, name: 'Planlagt: 08:05 30.06.2017'}
+, {x: Date.UTC(2017,6,03,08,05), y: 0, name: 'Planlagt: 08:05 03.07.2017'}
+, {x: Date.UTC(2017,6,04,08,05), y: 0, name: 'Planlagt: 08:05 04.07.2017'}
+, {x: Date.UTC(2017,6,05,08,05), y: 0, name: 'Planlagt: 08:05 05.07.2017'}
+, {x: Date.UTC(2017,6,06,08,05), y: 0, name: 'Planlagt: 08:05 06.07.2017'}
+, {x: Date.UTC(2017,6,07,08,05), y: 0, name: 'Planlagt: 08:05 07.07.2017'}
+, {x: Date.UTC(2017,6,10,08,05), y: 0, name: 'Planlagt: 08:05 10.07.2017'}
+, {x: Date.UTC(2017,6,11,08,05), y: 0, name: 'Planlagt: 08:05 11.07.2017'}
+, {x: Date.UTC(2017,6,12,08,05), y: 0, name: 'Planlagt: 08:05 12.07.2017'}
+, {x: Date.UTC(2017,6,13,08,05), y: 0, name: 'Planlagt: 08:05 13.07.2017'}
+, {x: Date.UTC(2017,6,14,08,05), y: 0, name: 'Planlagt: 08:05 14.07.2017'}
+, {x: Date.UTC(2017,6,17,08,05), y: 0, name: 'Planlagt: 08:05 17.07.2017'}
+, {x: Date.UTC(2017,6,18,08,05), y: 0, name: 'Planlagt: 08:05 18.07.2017'}
+, {x: Date.UTC(2017,6,19,08,05), y: 0, name: 'Planlagt: 08:05 19.07.2017'}
+, {x: Date.UTC(2017,6,20,08,05), y: 0, name: 'Planlagt: 08:05 20.07.2017'}
+, {x: Date.UTC(2017,6,21,08,05), y: 0, name: 'Planlagt: 08:05 21.07.2017'}
+, {x: Date.UTC(2017,6,24,08,05), y: 0, name: 'Planlagt: 08:05 24.07.2017'}
+, {x: Date.UTC(2017,6,25,08,05), y: 0, name: 'Planlagt: 08:05 25.07.2017'}
+, {x: Date.UTC(2017,6,26,08,05), y: 0, name: 'Planlagt: 08:05 26.07.2017'}
+, {x: Date.UTC(2017,6,27,08,05), y: 0, name: 'Planlagt: 08:05 27.07.2017'}
+, {x: Date.UTC(2017,6,28,08,05), y: 0, name: 'Planlagt: 08:05 28.07.2017'}
+, {x: Date.UTC(2017,6,31,08,05), y: 0, name: 'Planlagt: 08:05 31.07.2017'}
+, {x: Date.UTC(2017,7,01,08,05), y: 0, name: 'Planlagt: 08:05 01.08.2017'}
+, {x: Date.UTC(2017,7,02,08,05), y: 0, name: 'Planlagt: 08:05 02.08.2017'}
+, {x: Date.UTC(2017,7,03,08,05), y: 0, name: 'Planlagt: 08:05 03.08.2017'}
+, {x: Date.UTC(2017,7,04,08,05), y: 0, name: 'Planlagt: 08:05 04.08.2017'}
+, {x: Date.UTC(2017,7,07,08,05), y: 0, name: 'Planlagt: 08:05 07.08.2017'}
+, {x: Date.UTC(2017,7,08,08,05), y: 0, name: 'Planlagt: 08:05 08.08.2017'}
+, {x: Date.UTC(2017,7,09,08,05), y: 0, name: 'Planlagt: 08:05 09.08.2017'}
+, {x: Date.UTC(2017,7,10,08,05), y: 0, name: 'Planlagt: 08:05 10.08.2017'}
+, {x: Date.UTC(2017,7,11,08,05), y: 0, name: 'Planlagt: 08:05 11.08.2017'}
+, {x: Date.UTC(2017,7,25,08,05), y: 0, name: 'Planlagt: 08:05 25.08.2017'}
+, {x: Date.UTC(2017,7,28,08,05), y: 0, name: 'Planlagt: 08:05 28.08.2017'}
+]
+    }]
+});
+document.getElementById('container').style.display='block';
+</script>

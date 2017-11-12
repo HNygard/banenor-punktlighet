@@ -53,7 +53,7 @@ for($i = 0; $i < count($csvLines); $i++) {
 		}
 		$perTognrAnkomster[$togNrKey][] = $obj;
 
-		$stasjonsKey = 'Ankomst fra ' . $obj->utgstasjon_kd;
+		$stasjonsKey = 'Ankomst fra ' . $obj->utgstasjon_kd . ' til STV';
 		if(!isset($avkomsterPerUtgangstasjon[$stasjonsKey])) {
 			$avkomsterPerUtgangstasjon[$stasjonsKey] = array();
 		}
@@ -72,7 +72,7 @@ for($i = 0; $i < count($csvLines); $i++) {
 		}
 		$perTognrAvganger[$togNrKey][] = $obj;
 
-		$stasjonsKey = 'Avganger til ' . $obj->endestasjon_kd;
+		$stasjonsKey = 'Avganger til ' . $obj->endestasjon_kd . ' fra STV';
 		if(!isset($avgangerPerEndestasjon[$stasjonsKey])) {
 			$avgangerPerEndestasjon[$stasjonsKey] = array();
 		}
