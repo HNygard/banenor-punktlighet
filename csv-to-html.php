@@ -313,7 +313,8 @@ function styling($tittel, $twitterImage) {
 <meta name="twitter:creator" content="@hallny">
 <meta name="twitter:site" content="@hallny">
 <meta name="twitter:title" content="Innsyn i ' . lcfirst($tittel) . '">
-<meta name="twitter:image" content="' . $twitterImage . '">
+<meta name="twitter:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
+<meta name="og:image" content="https://hnygard.github.io/banenor-punktlighet/' . $twitterImage . '">
 <meta itemprop="name" content="Innsyn i ' . lcfirst($tittel) . '">
 <meta itemprop="description" content="Tograpport generert basert på data fra BaneNOR. Hentet via innsynshenvendelse (Mimes Brønn).">
 
