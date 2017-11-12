@@ -751,7 +751,7 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 	$content .= '</tr>';
 	return $content;
 }
-$content = styling($datasettBeskrivelse, 'screenshots/ankomst-fra-egs.png');
+$content = styling($datasettBeskrivelse, 'screenshots/ankomst-fra-egs-til-stv.png');
 $content .= '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
 
 $content .= '<h2>Ankomster og avganger per utgangstasjon/endestasjon</h2>' . chr(10);
