@@ -230,10 +230,8 @@ function getDiffKategori($erDetteAvgang, $avgang) {
 	if ($diffMinutter <= 2) {
 		return '<span class="sort-1 diff-good"' . $min . '>0-2 min</span>';
 	}
-	if ($diffMinutter <= 10) {
-	//if ($diffMinutter <= 9) {
-	//	return '<span class="sort-2 diff-medium"' . $min . '>3-9 min</span>';
-		return '<span class="sort-2 diff-medium"' . $min . '>3-10 min</span>';
+	if ($diffMinutter <= 9) {
+		return '<span class="sort-2 diff-medium"' . $min . '>3-9 min</span>';
 	}
 	if ($diffMinutter <= 30) {
 		return '<span class="sort-4 diff-bad"' . $min . '>10-30 min</span>';

@@ -42,12 +42,13 @@ Antall ankomster: 167
 <ul class="diff-sub-kat"><li><span class="sort-0 diff-good">-1 min</span>: 129 (77,25 %)</li>
 <li><span class="sort-1 diff-good">0-2 min</span>: 28 (16,77 %)</li>
 </ul></li>
-<li><span class="sort-11 diff-medium">Litt forsinket</span>: 6 (3,59 %)
-<ul class="diff-sub-kat"><li><span class="sort-2 diff-medium">3-10 min</span>: 3 (1,80 %)</li>
+<li><span class="sort-11 diff-medium">Litt forsinket</span>: 5 (2,99 %)
+<ul class="diff-sub-kat"><li><span class="sort-2 diff-medium">3-9 min</span>: 2 (1,20 %)</li>
 <li><span class="sort-3 diff-medium">? min</span>: 3 (1,80 %)</li>
 </ul></li>
-<li><span class="sort-12 diff-bad">Forsinket</span>: 0 (0,00 %)
-<ul class="diff-sub-kat"></ul></li>
+<li><span class="sort-12 diff-bad">Forsinket</span>: 1 (0,60 %)
+<ul class="diff-sub-kat"><li><span class="sort-4 diff-bad">10-30 min</span>: 1 (0,60 %)</li>
+</ul></li>
 <li><span class="sort-13 diff-innstilt">Innstilt/Delinnstilt</span>: 4 (2,40 %)
 <ul class="diff-sub-kat"><li><span class="sort-8 diff-innstilt">Helinnstilt tog</span>: 4 (2,40 %)</li>
 </ul></li>
@@ -114,7 +115,7 @@ Antall ankomster: 167
 <td>11.01.2017 12:45</td>
 <td>11.01.2017 12:50</td>
 <td>5 minutter. </td>
-<td><span class="sort-2 diff-medium" data-min="5">3-10 min</span></td>
+<td><span class="sort-2 diff-medium" data-min="5">3-9 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
@@ -828,7 +829,7 @@ Antall ankomster: 167
 <td>16.06.2017 12:45</td>
 <td>16.06.2017 12:55</td>
 <td>10 minutter. </td>
-<td><span class="sort-2 diff-medium" data-min="10">3-10 min</span></td>
+<td><span class="sort-4 diff-bad" data-min="10">10-30 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
@@ -996,7 +997,7 @@ Antall ankomster: 167
 <td>14.09.2017 12:45</td>
 <td>14.09.2017 12:48</td>
 <td>3 minutter. </td>
-<td><span class="sort-2 diff-medium" data-min="3">3-10 min</span></td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
@@ -1459,14 +1460,14 @@ Highcharts.chart('container', {
         data: [{x: Date.UTC(2017,0,11,12,45), y: 5, name: 'Planlagt: 12:45 11.01.2017<br>Faktisk: 12:50 11.01.2017<br>Forsinkelse: 5 minutter'}
 , {x: Date.UTC(2017,4,18,12,45), y: 0, name: 'Planlagt: 12:45 18.05.2017<br>Faktisk: 00:59 01.01.1970<br>Forsinkelse: 0 minutter'}
 , {x: Date.UTC(2017,4,30,12,45), y: 0, name: 'Planlagt: 12:45 30.05.2017<br>Faktisk: 00:59 01.01.1970<br>Forsinkelse: 0 minutter'}
-, {x: Date.UTC(2017,5,16,12,45), y: 10, name: 'Planlagt: 12:45 16.06.2017<br>Faktisk: 12:55 16.06.2017<br>Forsinkelse: 10 minutter'}
 , {x: Date.UTC(2017,8,14,12,45), y: 3, name: 'Planlagt: 12:45 14.09.2017<br>Faktisk: 12:48 14.09.2017<br>Forsinkelse: 3 minutter'}
 , {x: Date.UTC(2017,8,25,12,45), y: 0, name: 'Planlagt: 12:45 25.09.2017<br>Faktisk: 00:59 01.01.1970<br>Forsinkelse: 0 minutter'}
 ]
     }, {
         name: 'Forsinket',
         color: '#ff0000',
-        data: []
+        data: [{x: Date.UTC(2017,5,16,12,45), y: 10, name: 'Planlagt: 12:45 16.06.2017<br>Faktisk: 12:55 16.06.2017<br>Forsinkelse: 10 minutter'}
+]
     }, {
         name: 'Innstilt',
         color: '#a20404',

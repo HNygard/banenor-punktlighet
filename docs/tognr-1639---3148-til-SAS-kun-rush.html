@@ -40,11 +40,11 @@ Antall avganger: 167
 <li><span class="sort-10 diff-good">OK</span>: 162 (97,01 %)
 <ul class="diff-sub-kat"><li><span class="sort-1 diff-good">0-2 min</span>: 162 (97,01 %)</li>
 </ul></li>
-<li><span class="sort-11 diff-medium">Litt forsinket</span>: 2 (1,20 %)
-<ul class="diff-sub-kat"><li><span class="sort-2 diff-medium">3-10 min</span>: 2 (1,20 %)</li>
+<li><span class="sort-11 diff-medium">Litt forsinket</span>: 1 (0,60 %)
+<ul class="diff-sub-kat"><li><span class="sort-2 diff-medium">3-9 min</span>: 1 (0,60 %)</li>
 </ul></li>
-<li><span class="sort-12 diff-bad">Forsinket</span>: 2 (1,20 %)
-<ul class="diff-sub-kat"><li><span class="sort-4 diff-bad">10-30 min</span>: 2 (1,20 %)</li>
+<li><span class="sort-12 diff-bad">Forsinket</span>: 3 (1,80 %)
+<ul class="diff-sub-kat"><li><span class="sort-4 diff-bad">10-30 min</span>: 3 (1,80 %)</li>
 </ul></li>
 <li><span class="sort-13 diff-innstilt">Innstilt/Delinnstilt</span>: 1 (0,60 %)
 <ul class="diff-sub-kat"><li><span class="sort-8 diff-innstilt">Helinnstilt tog</span>: 1 (0,60 %)</li>
@@ -595,7 +595,7 @@ Antall avganger: 167
 <td>26.04.2017 16:39</td>
 <td>26.04.2017 16:42</td>
 <td>3 minutter. </td>
-<td><span class="sort-2 diff-medium" data-min="3">3-10 min</span></td>
+<td><span class="sort-2 diff-medium" data-min="3">3-9 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
@@ -826,7 +826,7 @@ Antall avganger: 167
 <td>16.06.2017 16:39</td>
 <td>16.06.2017 16:49</td>
 <td>10 minutter. </td>
-<td><span class="sort-2 diff-medium" data-min="10">3-10 min</span></td>
+<td><span class="sort-4 diff-bad" data-min="10">10-30 min</span></td>
 </tr>
 <tr>
 <td>NSB Lokaltog</td>
@@ -1460,12 +1460,12 @@ Highcharts.chart('container', {
         name: 'Litt forsinket',
         color: '#b77621',
         data: [{x: Date.UTC(2017,3,26,16,39), y: 3, name: 'Planlagt: 16:39 26.04.2017<br>Faktisk: 16:42 26.04.2017<br>Forsinkelse: 3 minutter'}
-, {x: Date.UTC(2017,5,16,16,39), y: 10, name: 'Planlagt: 16:39 16.06.2017<br>Faktisk: 16:49 16.06.2017<br>Forsinkelse: 10 minutter'}
 ]
     }, {
         name: 'Forsinket',
         color: '#ff0000',
         data: [{x: Date.UTC(2017,1,07,16,39), y: 12, name: 'Planlagt: 16:39 07.02.2017<br>Faktisk: 16:51 07.02.2017<br>Forsinkelse: 12 minutter'}
+, {x: Date.UTC(2017,5,16,16,39), y: 10, name: 'Planlagt: 16:39 16.06.2017<br>Faktisk: 16:49 16.06.2017<br>Forsinkelse: 10 minutter'}
 , {x: Date.UTC(2017,9,18,16,39), y: 19, name: 'Planlagt: 16:39 18.10.2017<br>Faktisk: 16:58 18.10.2017<br>Forsinkelse: 19 minutter'}
 ]
     }, {

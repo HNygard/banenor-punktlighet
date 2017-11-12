@@ -40,11 +40,11 @@ Antall avganger: 58
 <li><span class="sort-10 diff-good">OK</span>: 25 (43,10 %)
 <ul class="diff-sub-kat"><li><span class="sort-1 diff-good">0-2 min</span>: 25 (43,10 %)</li>
 </ul></li>
-<li><span class="sort-11 diff-medium">Litt forsinket</span>: 1 (1,72 %)
-<ul class="diff-sub-kat"><li><span class="sort-2 diff-medium">3-10 min</span>: 1 (1,72 %)</li>
-</ul></li>
-<li><span class="sort-12 diff-bad">Forsinket</span>: 0 (0,00 %)
+<li><span class="sort-11 diff-medium">Litt forsinket</span>: 0 (0,00 %)
 <ul class="diff-sub-kat"></ul></li>
+<li><span class="sort-12 diff-bad">Forsinket</span>: 1 (1,72 %)
+<ul class="diff-sub-kat"><li><span class="sort-4 diff-bad">10-30 min</span>: 1 (1,72 %)</li>
+</ul></li>
 <li><span class="sort-13 diff-innstilt">Innstilt/Delinnstilt</span>: 32 (55,17 %)
 <ul class="diff-sub-kat"><li><span class="sort-6 diff-innstilt">Delinnstilt tog</span>: 32 (55,17 %)</li>
 </ul></li>
@@ -160,7 +160,7 @@ Antall avganger: 58
 <td>08.10.2017 15:33</td>
 <td>08.10.2017 15:43</td>
 <td>10 minutter. </td>
-<td><span class="sort-2 diff-medium" data-min="10">3-10 min</span></td>
+<td><span class="sort-4 diff-bad" data-min="10">10-30 min</span></td>
 </tr>
 <tr>
 <td>NSB Regiontog</td>
@@ -558,12 +558,12 @@ Highcharts.chart('container', {
     }, {
         name: 'Litt forsinket',
         color: '#b77621',
-        data: [{x: Date.UTC(2017,9,08,15,33), y: 10, name: 'Planlagt: 15:33 08.10.2017<br>Faktisk: 15:43 08.10.2017<br>Forsinkelse: 10 minutter'}
-]
+        data: []
     }, {
         name: 'Forsinket',
         color: '#ff0000',
-        data: []
+        data: [{x: Date.UTC(2017,9,08,15,33), y: 10, name: 'Planlagt: 15:33 08.10.2017<br>Faktisk: 15:43 08.10.2017<br>Forsinkelse: 10 minutter'}
+]
     }, {
         name: 'Innstilt',
         color: '#a20404',
