@@ -550,8 +550,8 @@ function grafLink($file) {
 }
 
 function writeAvgangsliste($fil, $tittel, $avganger) {
-	$content = '<h1>' . $tittel . '</h1>' . chr(10);
-	$content .= styling($tittel, getScreenshotPath($fil));
+	$content = styling($tittel, getScreenshotPath($fil));
+	$content .= '<h1>' . $tittel . '</h1>' . chr(10);
 	$content .= grafLink($fil);
 	$content .= 'Antall avganger: ' . count($avganger) . chr(10);
 	$content .= getDiffKategorySummaryHtml($avganger, true);
@@ -591,8 +591,8 @@ function writeAvgangsliste($fil, $tittel, $avganger) {
 	file_put_contents($fil, $content);
 }
 function writeAnkomstliste($fil, $tittel, $avkomster) {
-	$content = '<h1>' . $tittel . '</h1>' . chr(10);
-	$content .= styling($tittel, getScreenshotPath($fil));
+	$content = styling($tittel, getScreenshotPath($fil));
+	$content .= '<h1>' . $tittel . '</h1>' . chr(10);
 	$content .= grafLink($fil);
 	$content .= 'Antall ankomster: ' . count($avkomster) . chr(10) . chr(10);
 	$content .= getDiffKategorySummaryHtml($avkomster, false);
@@ -750,8 +750,8 @@ function getAndWriteAvgangslisteSummary($filename, $title, $avganger, $avgangerB
 	$content .= '</tr>';
 	return $content;
 }
-$content = '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
-$content .= styling($datasettBeskrivelse, 'screenshots/ankomst-fra-egs.png');
+$content = styling($datasettBeskrivelse, 'screenshots/ankomst-fra-egs.png');
+$content .= '<h1>' . $datasettBeskrivelse . '</h1>' . chr(10);
 
 $content .= '<h2>Ankomster og avganger per utgangstasjon/endestasjon</h2>' . chr(10);
 $content .= '<table class="table" style="width: 100%;"><tr><td>' . chr(10) . '<h2>Avganger</h2>' . chr(10);
